@@ -15,6 +15,11 @@
 </div>
 
 <div class="container">
+    @if(session('failed'))
+                <div class="alert alert-success">
+                        {{ session('failed') }}
+                </div>
+                @endif
     <div id="content">
         
         <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout">
@@ -22,11 +27,6 @@
             @csrf
             <div class="row">
                 <div class="col-sm-3"></div>
-                {{-- @if(session('error'))
-                <div class="alert alert-success">
-                        {{ session('error') }}
-                </div>
-                @endif --}}
                 <div class="col-sm-6">
                     <h4>Đăng nhập</h4>
                     <div class="space20">&nbsp;</div>
