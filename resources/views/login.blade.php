@@ -16,10 +16,10 @@
 
 <div class="container">
     @if(session('failed'))
-                <div class="alert alert-success">
-                        {{ session('failed') }}
-                </div>
-                @endif
+        <div class="alert alert-success">
+                {{ session('failed') }}
+        </div>
+    @endif
     <div id="content">
         
         <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout">

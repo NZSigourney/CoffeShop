@@ -29,7 +29,7 @@ class ContactController extends Controller
         $data = [
             'title' => 'Thư phản hồi:',
             'body' => 'Cảm ơn bạn ' . $name . ' đã phản hồi, chúng tôi sẽ liên lạc lại bạn sớm nhất có thể!',
-            'content' => 'Nội Dung phản hồi: <br/>' . $content
+            'content' => 'Nội Dung phản hồi:' . $content
         ];
         Mail::to($request->user())->cc($contact)->bcc($contact)->send(New ContactMail($data));
 
