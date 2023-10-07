@@ -19,6 +19,7 @@ class ContactMail extends Mailable
     // public $noidung = "";
 
     public $data;
+    // public $reply;
 
     /**
      * Create a new message instance.
@@ -53,7 +54,8 @@ class ContactMail extends Mailable
         return new Content(
             view: 'contacts.interfaceContact',
             with: [
-                'data' => $this->data
+                'data' => $this->data,
+                // 'reply' => $this->reply
             ]
         );
     }
