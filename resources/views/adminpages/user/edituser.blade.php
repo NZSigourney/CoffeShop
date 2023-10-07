@@ -70,9 +70,9 @@
     <div class="form-group">
         <label for="level">Level</label>
         <select name="level" id="level" class="form-control" required>
-            <option value="1" @if(isset($users) && $users->level == 1) selected @endif>User</option>
+            <option value="1" @if(isset($users) && $users->level == 1) selected @endif>Quản trị Viên</option>
             <option value="2" @if(isset($users) && $users->level == 2) selected @endif>Cộng Tác Viên</option>
-            <option value="3" @if(isset($users) && $users->level == 3) selected @endif>Admin</option>
+            <option value="3" @if(isset($users) && $users->level == 3) selected @endif>User</option>
         </select>
     </div>
     @error('name')

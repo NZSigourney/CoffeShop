@@ -14,7 +14,7 @@
                             {{ session('error') }}
                         </div>
                     @endif
-                    <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-user"></i>@if(Auth::check())
+                    <li><a href="#"><i class="fa fa-user"></i>@if(Auth::check())
                         Welcome, {{ Auth::user()->full_name }}!
                         @endif</a></li>
                     {{-- <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-user"></i>Administrator</a></li> --}}
