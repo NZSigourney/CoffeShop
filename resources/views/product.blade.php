@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="col-sm-9">
 				{{-- @foreach ($products as $product) --}}
-				<div class="row">
+				{{-- <div class="row">
 					<div class="col-sm-4">
 						<img src="/source/assets/dest/images/products/1.jpg" alt="">
 					</div>
@@ -69,11 +69,11 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				{{-- @endforeach --}}
 
-				<div class="space40">&nbsp;</div>
-				<div class="woocommerce-tabs">
+				{{-- <div class="space40">&nbsp;</div> --}}
+				{{-- <div class="woocommerce-tabs">
 					<ul class="tabs">
 						<li><a href="#tab-description">Description</a></li>
 						<li><a href="#tab-reviews">Reviews (0)</a></li>
@@ -86,7 +86,7 @@
 					<div class="panel" id="tab-reviews">
 						<p>No Reviews</p>
 					</div>
-				</div>
+				</div> --}}
 				<div class="space50">&nbsp;</div>
 				<div class="beta-products-list">
 					<h4>Related Products</h4>
