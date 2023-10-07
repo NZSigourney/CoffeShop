@@ -128,21 +128,21 @@ class ProductController extends Controller
             $name = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('images'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/car
+        }else{
+            $this->validate($request, [
+                'name' => 'required',
+                'description' => 'required',
+                'unit_price' => 'required',
+                'promotion_price' => 'required',
+                'unit' => 'required'
+            ],[
+                'name.required' => 'Bạn chưa nhập tên sản phẩm',
+                'descrtiption.required' => 'Bạn chưa nhập mô tả',
+                'unit_price.required' => 'Bạn chưa nhập giá gốc',
+                'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
+                'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
+            ]);
         }
-
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
-            'unit_price' => 'required',
-            'promotion_price' => 'required',
-            'unit' => 'required'
-        ],[
-            'name.required' => 'Bạn chưa nhập tên sản phẩm',
-            'descrtiption.required' => 'Bạn chưa nhập mô tả',
-            'unit_price.required' => 'Bạn chưa nhập giá gốc',
-            'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
-            'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
-        ]);
         
         // $product = Product::find($id);
         $products = Product::findOrFail($id);
@@ -152,10 +152,12 @@ class ProductController extends Controller
         $products->promotion_price = $request->promotion_price;
         //$product->image = $request->image;
         $products->unit = $request->unit;
+        $products->id_type = $request->id_type;
         if($name = ''){
             $name = $products->image;
         }
         $products->image = $name;
+        // $products->image = old('image');
         $products->save();
         return redirect()->route('products.index')->with('success','Bạn đã cập nhật thành công');
     }

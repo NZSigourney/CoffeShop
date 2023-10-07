@@ -44,7 +44,22 @@
                     <td>{{ $product->name }}</td>
                     {{-- <td>{{ $product->image }}</td> --}}
                     <td><img src="/images/{{$product->image }}" alt="{{$product->image }}" height="150" ></td>
-                    <td>{{ $product->id_type }}</td>
+                    {{-- <td>{{ $product->id_type }}</td> --}}
+                    <td scope="row">
+                      @switch($product->id_type)
+                          @case(1)
+                              Cà Phê
+                          @break
+                          @case(2)
+                              Giải Khát
+                          @break
+                          @case(3)
+                              Nước Ngọt
+                          @break
+                          @default
+                              N/A
+                      @endswitch
+                  </td>            
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->unit_price }}</td>
                     <td>{{ $product->promotion_price }}</td>

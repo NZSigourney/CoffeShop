@@ -42,13 +42,13 @@
                                     <td scope="row">
                                         @switch($user->level)
                                             @case(1)
-                                                Khách hàng
+                                                Quản Trị Viên
                                             @break
                                             @case(2)
                                                 Cộng Tác viên
                                             @break
                                             @case(3)
-                                                Quản Trị Viên
+                                                Khách hàng
                                             @break
                                             @default
                                                 N/A
