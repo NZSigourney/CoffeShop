@@ -1,137 +1,153 @@
-<div id="header">
-    <div class="header-top">
-        <div class="container">
-            <div class="pull-left auto-width-left">
-                <ul class="top-menu menu-beta l-inline">
-                    <li><a href=""><i class="fa fa-home"></i> 90-92 Lê Thị Riêng, Bến Thành, Quận 1</a></li>
-                    <li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
-                </ul>
-            </div>
-            <div class="pull-right auto-width-right">
-                <ul class="top-details menu-beta l-inline">
-                    @if(session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    <li><a href="#"><i class="fa fa-user"></i>@if(Auth::check())
-                        Welcome, {{ Auth::user()->full_name }}!
-                        @endif</a></li>
-                    {{-- <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-user"></i>Administrator</a></li> --}}
-                    {{-- <li><a href="/admin/category/danhsach"><i class="fa fa-user"></i>Administrator</a></li> --}}
-                    <li><a href="/dangky">Đăng kí</a></li>
-                    <li><a href="/dangnhap">Đăng nhập</a></li>
-                    <form action="{{ route('getLogout') }}" method="POST">
-                        @csrf
-                        <button type="submit" style="border:none; margin-top:15px; font-size:20px" title="Đăng xuất"><i class="fa fa-sign-out"></i></button>
-                    </form>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div> <!-- .container -->
-    </div> <!-- .header-top -->
-    <div class="header-body">
-        <div class="container beta-relative">
-            <div class="pull-left">
-                <a href="/" id="logo"><img src="/source/image/logo/Logo-coffe.jpg" width="100px" alt=""></a>
-            </div>
-            <div class="pull-right beta-components space-left ov">
-                <div class="space10">&nbsp;</div>
-                <div class="beta-comp">
-                    <form role="search" method="get" id="searchform" action="/">
-                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
-                        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
-                    </form>
-                </div>
-
-                <div class="beta-comp">
-                    <div class="cart">
-                        <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{ Session('cart')->totalQty }}
-                            @else Trống @endif)<i class="fa fa-chevron-down"></i>
-                        </div>
-                        <div class="beta-dropdown cart-body">
-                            @isset($productCarts)
-                            @foreach($productCarts as $cart)
-                            <div class="cart-item">
-                                <a href="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" class="cart-item-delete">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="/images/{{ $cart['item']->image }}" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">{{ $cart['item']->name }}</span>
-                                        <span class="cart-item-amount">{{ $cart['qty'] }}*<span>{{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
-                                        number_format($cart['item']->unit_price, 0) }}</span></span>
-                                    </div>
-                                </div>
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">Restaurant <em> Website</em></a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="book-table.html">Book a table</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                          
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="about.html">About Us</a>
+                                {{-- <a class="dropdown-item" href="blog.html">Blog</a>
+                                <a class="dropdown-item" href="testimonials.html">Testimonials</a> --}}
                             </div>
-                            @endforeach
-                            @endisset
-
-                            {{-- <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="/source/assets/dest/images/products/cart/2.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
-                                    </div>
-                                </div>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li> 
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
+                            <div class="dropdown-menu">
+                                <a href="#"><i class="fa fa-user"></i>
+                                    @if(Auth::check())
+                                      {{-- Nếu người dùng đã đăng nhập --}}
+                                      <span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span>
+                                      <a href="{{ route('getLogout') }}" class="btn btn-sm btn-danger">Đăng xuất</a>
+                                    @else
+                                      {{-- Nếu người dùng chưa đăng nhập --}}
+                                      <a href="/dangnhap">Đăng nhập</a>
+                                        <a href="/dangky">Đăng kí</a>
+                                    @endif
+                                  </a>                                
                             </div>
+                        </li>
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
-                            <div class="cart-item">
-                                <div class="media">
-                                    <a class="pull-left" href="#"><img src="/source/assets/dest/images/products/cart/3.png" alt=""></a>
-                                    <div class="media-body">
-                                        <span class="cart-item-title">Sample Woman Top</span>
-                                        <span class="cart-item-options">Size: XS; Colar: Navy</span>
-                                        <span class="cart-item-amount">1*<span>$49.50</span></span>
-                                    </div>
-                                </div>
-                            </div> --}}
+<!-- ***** Main Banner Area Start ***** -->
+<div class="main-banner" id="top">
+    <video autoplay muted loop id="bg-video">
+        <source src="assets/images/video.mp4" type="video/mp4" />
+    </video>
 
-                            <div class="cart-caption">
-                                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{ isset($totalPrice)?number_format($totalPrice,0):0 }}</span></div>
-                                <div class="clearfix"></div>
+    <div class="video-overlay header-text">
+        <div class="caption">
+            <h6>Lorem ipsum dolor sit amet</h6>
+            <h2>Taste the love at our <em>Restaurant</em></h2>
+            <div class="main-button">
+                <a href="book-table.html">Book a table</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
 
-                                <div class="center">
-                                    <div class="space10">&nbsp;</div>
-                                    <a href="{{ route('banhang.getdathang') }}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- .cart -->
+{{-- <!-- ***** Cars Starts ***** -->
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Our <em>Events</em></h2>
+                    <img src="assets/images/line-dec.png" alt="">
+                    <p>Updating..</p>
                 </div>
             </div>
-            <div class="clearfix"></div>
-        </div> <!-- .container -->
-    </div> <!-- .header-body -->
-    <div class="header-bottom" style="background-color: #0277b8;">
-        <div class="container">
-            <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
-            <div class="visible-xs clearfix"></div>
-            <nav class="main-menu">
-                <ul class="l-inline ov">
-                    <li><a href="{{route('home')}}">Trang chủ</a></li>
-                    <li><a href="/product"> Loại Sản phẩm</a>
-                        <ul class="sub-menu">
-                            @if(isset($loai_sp))
-                                @foreach ($loai_sp as $types)
-                                <li><a href="{{route('product_type',$types ->id)}}">{{ $types->name }}</a></li>
-                                @endforeach
-                            @else
-                                <p>Không có dữ liệu loại sản phẩm.</p>
-                            @endif
-                            {{-- <li><a href="product_type.html">Sản phẩm 1</a></li>
-                            <li><a href="product_type.html">Sản phẩm 2</a></li>
-                            <li><a href="product_type.html">Sản phẩm 4</a></li> --}}
+        </div>
+        <div class="row">
+            {{-- <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="assets/images/other-1-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>
+                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
+                        </span>
+
+                        <h4>Weddings</h4>
+
+                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
+
+                        <ul class="social-icons">
+                            <li><a href="book-table.html">+ Book a table</a></li>
                         </ul>
-                    </li>
-                    <li><a href="/about">Giới thiệu</a></li>
-                    <li><a href="/lienhe">Liên hệ</a></li>
-                </ul>
-                <div class="clearfix"></div>
-            </nav>
-        </div> <!-- .container -->
-    </div> <!-- .header-bottom -->
-</div> <!-- #header -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="assets/images/other-2-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>
+                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
+                        </span>
+
+                        <h4>Birthdays</h4>
+
+                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
+
+                        <ul class="social-icons">
+                            <li><a href="book-table.html">+ Book a table</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="assets/images/other-3-720x480.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>
+                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
+                        </span>
+
+                        <h4>Anniversaries</h4>
+
+                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
+
+                        <ul class="social-icons">
+                            <li><a href="book-table.html">+ Book a table</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="main-button text-center">
+            <a href="menu.html">View our Menu</a>
+        </div>
+    </div>
+</section>
+<!-- ***** Cars Ends ***** --> --}}

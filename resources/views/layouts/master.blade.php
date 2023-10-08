@@ -1,55 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> CoffeShop </title>
+	<meta charset="utf-8">
+    <title>KOPPEE - Coffee Shop HTML Template</title>
 	<link rel="icon" type="img/png" href="/source/image/logo/Logo-coffe.jpg">
-	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/source/assets/dest/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/source/assets/dest/vendors/colorbox/example3/colorbox.css">
-	<link rel="stylesheet" href="/source/assets/dest/rs-plugin/css/settings.css">
-	<link rel="stylesheet" href="/source/assets/dest/rs-plugin/css/responsive.css">
-	<link rel="stylesheet" title="style" href="/source/assets/dest/css/style.css">
-	<link rel="stylesheet" href="/source/assets/dest/css/animate.css">
-	<link rel="stylesheet" title="style" href="/source/assets/dest/css/huong-style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    {{-- <title>PHPJabbers.com | Free Restaurant Website Template</title> --}}
+
+    <link rel="stylesheet" type="text/css" href="/source/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/source/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/source/assets/css/style.css">
+	
     @yield('css')
 </head>
 <body>
-
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
     @include('layouts.header')
     @yield('content')
     @include('layouts.footer')
 
-	<div class="copyright">
-		<div class="container">
-			<p class="pull-left">Privacy policy. (&copy;) 2014</p>
-			<p class="pull-right pay-options">
-				<a href="#"><img src="/source/assets/dest/images/pay/master.jpg" alt="" /></a>
-				<a href="#"><img src="/source/assets/dest/images/pay/pay.jpg" alt="" /></a>
-				<a href="#"><img src="/source/assets/dest/images/pay/visa.jpg" alt="" /></a>
-				<a href="#"><img src="/source/assets/dest/images/pay/paypal.jpg" alt="" /></a>
-			</p>
-			<div class="clearfix"></div>
-		</div> <!-- .container -->
-	</div> <!-- .copyright -->
+	<!-- Back to Top -->
+    {{-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a> --}}
+	
+	 <!-- jQuery -->
+     <script src="/source/assets/js/jquery-2.1.0.min.js"></script>
 
-
-	<!-- include js files -->
-	<script src="/source/assets/dest/js/jquery.js"></script>
-	<script src="/source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<script src="/source/assets/dest/vendors/bxslider/jquery.bxslider.min.js"></script>
-	<script src="/source/assets/dest/vendors/colorbox/jquery.colorbox-min.js"></script>
-	<script src="/source/assets/dest/vendors/animo/Animo.js"></script>
-	<script src="/source/assets/dest/vendors/dug/dug.js"></script>
-	<script src="/source/assets/dest/js/scripts.min.js"></script>
-	<script src="/source/assets/dest/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="/source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="/source/assets/dest/js/waypoints.min.js"></script>
-	<script src="/source/assets/dest/js/wow.min.js"></script>
+     <!-- Bootstrap -->
+     <script src="/source/assets/js/popper.js"></script>
+     <script src="/source/assets/js/bootstrap.min.js"></script>
+ 
+     <!-- Plugins -->
+     <script src="/source/assets/js/scrollreveal.min.js"></script>
+     <script src="/source/assets/js/waypoints.min.js"></script>
+     <script src="/source/assets/js/jquery.counterup.min.js"></script>
+     <script src="/source/assets/js/imgfix.min.js"></script> 
+     <script src="/source/assets/js/mixitup.js"></script> 
+     <script src="/source/assets/js/accordions.js"></script>
+     
+     <!-- Global Init -->
+     <script src="/source/assets/js/custom.js"></script>
     @yield('js')
 </body>
 </html>
