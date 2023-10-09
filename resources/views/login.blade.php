@@ -28,6 +28,11 @@
 <!--===============================================================================================-->
 </head>
 <body>
+    @if(session('failed'))
+        <div class="alert alert-success">
+            {{ session('failed') }}
+        </div>
+    @endif
     <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout">
         {{-- @method('POST') --}}
         @csrf

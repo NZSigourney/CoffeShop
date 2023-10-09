@@ -188,7 +188,7 @@ class PageController extends Controller
         $user->address = $req->address;
         $user->level = 3;  //level=1: admin; level=2:kỹ thuật; level=3: khách hàng
         $user->save();
-        return redirect()->back()->with('success','Tạo tài khoản thành công');
+        return redirect("/dangnhap")->with('success','Tạo tài khoản thành công');
      }
 
      public function getSearch(Request $request){

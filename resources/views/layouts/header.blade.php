@@ -27,9 +27,13 @@
                             <div class="dropdown-menu">
                                 <a href="#"><i class="fa fa-user"></i>
                                     @if(Auth::check())
-                                      {{-- Nếu người dùng đã đăng nhập --}}
-                                      <span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span>
-                                      <a href="{{ route('getLogout') }}" class="btn btn-sm btn-danger">Đăng xuất</a>
+                                    {{-- Nếu người dùng đã đăng nhập --}}
+                                    <span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span>
+                                    <form action="{{ route('getLogout') }}" method="post">
+                                        @csrf
+                                        {{-- <a href="#" class="btn btn-sm btn-danger">Đăng xuất</a> --}}
+                                        <button type="submit" class="btn btn-sm btn-danger" title="Đăng xuất"><i class="fa fa-sign-out"></i></button>
+                                    </form>
                                     @else
                                       {{-- Nếu người dùng chưa đăng nhập --}}
                                       <a href="/dangnhap">Đăng nhập</a>
