@@ -5,23 +5,23 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{{route('home')}}" class="logo">Restaurant <em> Website</em></a>
+                    <a href="{{route('home')}}" class="logo">Blue Sky <em> Coffe</em></a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{route('home')}}" class="active">Home</a></li>
-                        <li><a href="/source/book-table.html">Book a table</a></li>
-                        <li><a href="/product">Menu</a></li>
+                        <li><a href="{{route('table')}}">Book a table</a></li>
+                        <li><a href="/menu">Menu</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                           
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/about">About Us</a>
-                                {{-- <a class="dropdown-item" href="blog.html">Blog</a>
-                                <a class="dropdown-item" href="testimonials.html">Testimonials</a> --}}
+                                <a class="dropdown-item" href="{{route('about')}}">About Us</a>
+                                {{-- <a class="dropdown-item" href="blog.html">Blog</a> --}}
+                                {{-- <a class="dropdown-item" href="testimonials.html">Testimonials</a> --}}
                             </div>
                         </li>
-                        <li><a href="/lienhe">Contact</a></li> 
+                        <li><a href="{{route('contact')}}">Contact</a></li> 
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
                             <div class="dropdown-menu">
