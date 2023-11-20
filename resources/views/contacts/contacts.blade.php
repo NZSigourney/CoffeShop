@@ -1,92 +1,110 @@
 @extends('layouts.master')
 @section('content')
-<div class="inner-header">
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
 	<div class="container">
-		<div class="pull-left">
-			<h6 class="inner-title">Contacts</h6>
-		</div>
-		<div class="pull-right">
-			<div class="beta-breadcrumb font-large">
-				<a href="{{route('home')}}">Home</a> / <span>Contacts</span>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="cta-content">
+					<br>
+					<br>
+					<h2>Feel free to <em>Contact Us</em></h2>
+					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+				</div>
 			</div>
 		</div>
-		<div class="clearfix"></div>
 	</div>
-</div>
-<div class="beta-map">
-	
-	<div class="abs-fullwidth beta-map wow flipInX"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3678.0141923553406!2d89.551518!3d22.801938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff8ff8ef7ea2b7%3A0x1f1e9fc1cf4bd626!2sPranon+Pvt.+Limited!5e0!3m2!1sen!2s!4v1407828576904" ></iframe></div>
-</div>
-<div class="container">
-	<div id="content" class="space-top-none">
-		@if(session('message'))
-		<div class="alert alert-success">
-				{{ session('message') }}
+</section>
+
+<!-- ***** Features Item Start ***** -->
+<section class="section" id="features">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-6 offset-lg-3">
+				<div class="section-heading">
+					<h2>contact <em> info</em></h2>
+					<img src="assets/images/line-dec.png" alt="waves">
+					
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="icon">
+					<i class="fa fa-phone"></i>
+				</div>
+
+				<h5><a href="#">+1 333 4040 5566</a></h5>
+
+				<br>
+			</div>
+
+			<div class="col-md-4">
+				<div class="icon">
+					<i class="fa fa-envelope"></i>
+				</div>
+
+				<h5><a href="#">contact@company.com</a></h5>
+
+				<br>
+			</div>
+
+			<div class="col-md-4">
+				<div class="icon">
+					<i class="fa fa-map-marker"></i>
+				</div>
+
+				<h5>212 Barrington Court New York</h5>
+
+				<br>
+			</div>
 		</div>
-		@endif
-		<form action="{{ route('admin.postContactMail') }}" method="post">
-			@csrf
-			<div class="space50">&nbsp;</div>
-			<div class="row">
-				<div class="col-sm-8">
-					<h2>Contact Form</h2>
-					<div class="space20">&nbsp;</div>
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani m id est laborum.</p>
-					<div class="space20">&nbsp;</div>
-					<form action="#" method="post" class="contact-form">	
-						<div class="form-block">
-							<input name="name" type="text" placeholder="Your Name (required)" value="{{  isset($request->name)?$request->name:'' }}">
-							@error('name')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
+	</div>
+</section>
+<!-- ***** Features Item End ***** -->
+
+<!-- ***** Contact Us Area Starts ***** -->
+<section class="section" id="contact-us" style="margin-top: 0">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-xs-12">
+				<div id="map">
+				  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-12">
+				<div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
+					<form id="contact" action="" method="post">
+					  <div class="row">
+						<div class="col-md-6 col-sm-12">
+						  <fieldset>
+							<input name="name" type="text" id="name" placeholder="Your Name*" required="">
+						  </fieldset>
 						</div>
-						<div class="form-block">
-							<input name="email" type="email" placeholder="Your Email (required)" {{  isset($request->email)?$request->email:'' }}>
-							@error('email')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
+						<div class="col-md-6 col-sm-12">
+						  <fieldset>
+							<input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
+						  </fieldset>
 						</div>
-						{{-- <div class="form-block">
-							<input name="your-subject" type="text" placeholder="Subject">
-						</div> --}}
-						<div class="form-block">
-							<textarea name="message" placeholder="Your Message"></textarea>
-							@error('message')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
+						<div class="col-md-12 col-sm-12">
+						  <fieldset>
+							<input name="subject" type="text" id="subject" placeholder="Subject">
+						  </fieldset>
 						</div>
-						<div class="form-block">
-							<button type="submit" class="beta-btn primary">Send Message <i class="fa fa-chevron-right"></i></button>
+						<div class="col-lg-12">
+						  <fieldset>
+							<textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+						  </fieldset>
 						</div>
+						<div class="col-lg-12">
+						  <fieldset>
+							<button type="submit" id="form-submit" class="main-button">Send Message</button>
+						  </fieldset>
+						</div>
+					  </div>
 					</form>
 				</div>
-				<div class="col-sm-4">
-					<h2>Contact Information</h2>
-					<div class="space20">&nbsp;</div>
-
-					<h6 class="contact-title">Address</h6>
-					<p>
-						Suite 127 / 267 – 277 Brussel St,<br>
-						62 Croydon, NYC <br>
-						Newyork
-					</p>
-					<div class="space20">&nbsp;</div>
-					<h6 class="contact-title">Business Enquiries</h6>
-					<p>
-						Doloremque laudantium, totam rem aperiam, <br>
-						inventore veritatio beatae. <br>
-						<a href="mailto:biz@betadesign.com">biz@betadesign.com</a>
-					</p>
-					<div class="space20">&nbsp;</div>
-					<h6 class="contact-title">Employment</h6>
-					<p>
-						We’re always looking for talented persons to <br>
-						join our team. <br>
-						<a href="hr@betadesign.com">hr@betadesign.com</a>
-					</p>
-				</div>
 			</div>
-		</form>
-	</div> <!-- #content -->
-</div> <!-- .container -->
+		</div>
+	</div>
+</section>
+<!-- ***** Contact Us Area Ends ***** -->
 @endsection
