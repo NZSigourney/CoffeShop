@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailControler;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminLoginMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -40,12 +41,14 @@ Route::get('product_type/{type}', [PageController::class,'product_type'])->name(
 // Contacts page
 // Route::resource('contacts', ContactController::class);
 // Route::get('contacts', [PageController::class, 'contacts'])->name('getContacts');
-Route::get('lienhe', [ContactController::class, 'getUserContacts']);
+Route::get('lienhe', [ContactController::class, 'getUserContacts'])->name('contact');
 Route::get('contacts', [ContactController::class, 'getContactMail'])->name('admin.getContactMail');
 Route::post('contacts', [ContactController::class, 'postContactMail'])->name('admin.postContactMail');
 Route::delete('contacts/{id}', [ContactController::class, 'destroy'])->name('admin.contact.delete');
 Route::put('contacts/{id}',  [ContactController::class, 'update'])->name('admin.updateContact');
-// Route::post('addContact', [ContactController::class, 'addContactMail'])->name('addContactMail');
+
+// Table Pages.
+Route::get('table', [TableController::class, 'getTable'])->name('table');
 
 Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page

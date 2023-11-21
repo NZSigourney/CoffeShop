@@ -1,183 +1,86 @@
 @extends('layouts.master')
 @section('content')
-<div class="inner-header">
-	<div class="container">
-		<div class="pull-left">
-			<h6 class="inner-title">sản phẩm {{-- $sanpham->name --}}</h6>
-		</div>
-		<div class="pull-right">
-			<div class="beta-breadcrumb font-large">
-				<a href="{{ route('home') }}">Home</a> / <span>Product</span>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
+<!-- ***** Call to Action Start ***** -->
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="cta-content">
+                    <br>
+                    <br>
+                    <h2>Our <em>Menu</em></h2>
+                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Call to Action End ***** -->
 
-<div class="container">
-	<div id="content">
-		<div class="row">
-			<div class="col-sm-9">
-				{{-- @foreach ($products as $product) --}}
-				{{-- <div class="row">
-					<div class="col-sm-4">
-						<img src="/source/assets/dest/images/products/1.jpg" alt="">
-					</div>
-					<div class="col-sm-8">
-						<div class="single-item-body">
-							<p class="single-item-title">Coffe</p>
-							<p class="single-item-price">
-								<span>$33.20</span>
-							</p>
-						</div>
+<!-- ***** Fleet Starts ***** -->
+<section class="section" id="trainers">
+    <div class="container">
+        <br>
+        <br>
 
-						<div class="clearfix"></div>
-						<div class="space20">&nbsp;</div>
+        <div class="row">
+            @foreach ($products as $product)
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
+                    </div>
+                    <div class="down-content">
+                        <span>
+                            <h4><p class="single-item-title">{{$product->name}}</p></h4>
+                            @if ($product ->promotion_price !=0)
+                            <p class="single-item-price">
+                            <span class="flash-del">{{number_format($product->unit_price)}}</span>
+                            {{-- <span class="flash-sale">{{number_format($product->promotion_price)}}</span> --}}
+                            </p>
+                            @else
+                            <p class="single-item-price">
+                                <span>{{number_format($product->unit_price)}}</span>
+                            </p>
+                            @endif
+                        </span>
 
-						<div class="single-item-desc">
-							<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo ms id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe.</p>
-						</div>
-						<div class="space20">&nbsp;</div>
+                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
 
-						<p>Options:</p>
-						<div class="single-item-options">
-							<select class="wc-select" name="size">
-								<option>Size</option>
-								<option value="XS">XS</option>
-								<option value="S">S</option>
-								<option value="M">M</option>
-								<option value="L">L</option>
-								<option value="XL">XL</option>
-							</select>
-							<select class="wc-select" name="color">
-								<option>Color</option>
-								<option value="Red">Red</option>
-								<option value="Green">Green</option>
-								<option value="Yellow">Yellow</option>
-								<option value="Black">Black</option>
-								<option value="White">White</option>
-							</select>
-							<select class="wc-select" name="color">
-								<option>Qty</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							<a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div> --}}
-				{{-- @endforeach --}}
+                        <ul class="social-icons">
+                            <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
 
-				{{-- <div class="space40">&nbsp;</div> --}}
-				{{-- <div class="woocommerce-tabs">
-					<ul class="tabs">
-						<li><a href="#tab-description">Description</a></li>
-						<li><a href="#tab-reviews">Reviews (0)</a></li>
-					</ul>
+        <br>
+            
+        <nav>
+          <ul class="pagination pagination-lg justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-					<div class="panel" id="tab-description">
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
-						<p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequaturuis autem vel eum iure reprehenderit qui in ea voluptate velit es quam nihil molestiae consequr, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? </p>
-					</div>
-					<div class="panel" id="tab-reviews">
-						<p>No Reviews</p>
-					</div>
-				</div> --}}
-				<div class="space50">&nbsp;</div>
-				<div class="beta-products-list">
-					<h4>Related Products</h4>
-
-					<div class="row">
-						@foreach ($products as $product)
-						<div class="col-sm-4">
-                            <div class="single-item">
-                                <div class="single-item-header">
-                                    <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
-									{{-- <a href="product.html"><img src="/source/image/product/{{ $product->image }}" alt="{{$product->image}}" width="270px" height="320px"></a> --}}
-                                </div>
-                                <div class="single-item-body">
-                                    <p class="single-item-title">{{$product->name}}</p>
-                                    @if ($product ->promotion_price !=0)
-                                    <p class="single-item-price">
-                                    <span class="flash-del">{{number_format($product->unit_price)}}</span>
-                                    <span class="flash-sale">{{number_format($product->promotion_price)}}</span>
-                                </p>
-                                    @else
-                                    <p class="single-item-price">
-                                        <span>{{number_format($product->unit_price)}}</span>
-                                    </p>
-                                    @endif
-                                </div>
-                                <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="beta-btn primary" href="{{route('product',['id'=>$product->id]) }}">Details <i class="fa fa-chevron-right"></i></a>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-						{{-- <div class="col-sm-4">
-							<div class="single-item">
-								<div class="single-item-header">
-									<a href="product.html"><img src="/source/image/product/{{ $product->image }}" alt=""></a>
-								</div>
-								<div class="single-item-body">
-									<p class="single-item-title">{{ $product->name }}</p>
-									<p class="single-item-price">
-										<span>${{ $product->unit_price }}</span>
-									</p>
-								</div>
-								<div class="single-item-caption">
-									<a class="add-to-cart pull-left" href="product.html"><i class="fa fa-shopping-cart"></i></a>
-									<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</div> --}}
-						@endforeach
-					</div>
-				</div> <!-- .beta-products-list -->
-			</div>
-			<div class="col-sm-3 aside">
-				<div class="widget">
-					<h3 class="widget-title">Best Sellers</h3>
-					<div class="widget-body">
-						<div class="beta-sales beta-lists">
-							@foreach ($products as $product)
-							<div class="media beta-sales-item">
-								<a class="pull-left" href="product.html"><img src="/images/{{ $product->image }}" alt=""></a>
-								<div class="media-body">
-									{{ $product->name }}
-									<span class="beta-sales-price">${{ $product->unit_price }}</span>
-								</div>
-							</div>
-							@endforeach
-						</div>
-					</div>
-				</div> <!-- best sellers widget -->
-				<div class="widget">
-					<h3 class="widget-title">New Products</h3>
-					<div class="widget-body">
-						<div class="beta-sales beta-lists">
-							@foreach ($products as $product)
-							<div class="media beta-sales-item">
-								<a class="pull-left" href="product.html"><img src="/images/{{ $product->image }}" alt=""></a>
-								<div class="media-body">
-									{{ $product->name }}
-									<span class="beta-sales-price">${{ $product->unit_price }}</span>
-								</div>
-							</div>
-							@endforeach
-						</div>
-					</div>
-				</div> <!-- best sellers widget -->
-			</div>
-		</div>
-	</div> <!-- #content -->
-</div> <!-- .container -->
+    </div>
+</section>
+<!-- ***** Fleet Ends ***** -->
 @endsection
 
 @section('js')
