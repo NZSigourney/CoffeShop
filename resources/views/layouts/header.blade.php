@@ -24,11 +24,11 @@
                         <li><a href="{{route('contact')}}">Contact</a></li> 
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
-                            <div class="dropdown-menu">
-                                <a href="#"><i class="fa fa-user"></i>
+                            <div class="dropdown-menu" style="background-color: black">
+                                <a href="#">
                                     @if(Auth::check())
                                     {{-- Nếu người dùng đã đăng nhập --}}
-                                    <span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span>
+                                    <i class="fa fa-user" style="text-align: center; vertical-align: middle"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i>
                                     <form action="{{ route('getLogout') }}" method="post">
                                         @csrf
                                         {{-- <a href="#" class="btn btn-sm btn-danger">Đăng xuất</a> --}}
@@ -36,11 +36,16 @@
                                     </form>
                                     @else
                                       {{-- Nếu người dùng chưa đăng nhập --}}
-                                      <a href="/dangnhap">Đăng nhập</a>
-                                        <a href="/dangky">Đăng kí</a>
+                                    <a href="/dangnhap" style="text-align: center; vertical-align: middle">Đăng nhập</a>
+                                    <a href="/dangky" style="text-align: center; vertical-align: middle">Đăng kí</a>
                                     @endif
                                   </a>                                
                             </div>
+                        </li>
+                        <li class="dropdown">
+                            @if(Auth::check())
+                            <a href="#">Giỏ hàng</a>
+                            @endif
                         </li>
                     </ul>        
                     <a class='menu-trigger'>

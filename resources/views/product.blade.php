@@ -48,7 +48,7 @@
                         {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
 
                         <ul class="social-icons">
-                            <li><a href="#">+ Order</a></li>
+                            <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                 </div>
