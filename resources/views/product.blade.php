@@ -28,16 +28,24 @@
             <div class="col-lg-4">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <img src="assets/images/product-1-720x480.jpg" alt="">
+                        <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
                     </div>
                     <div class="down-content">
                         <span>
-                            <del><sup>$</sup>15.00</del> <sup>$</sup>17.00
+                            <h4><p class="single-item-title">{{$product->name}}</p></h4>
+                            @if ($product ->promotion_price !=0)
+                            <p class="single-item-price">
+                            <span class="flash-del">{{number_format($product->unit_price)}}</span>
+                            {{-- <span class="flash-sale">{{number_format($product->promotion_price)}}</span> --}}
+                            </p>
+                            @else
+                            <p class="single-item-price">
+                                <span>{{number_format($product->unit_price)}}</span>
+                            </p>
+                            @endif
                         </span>
 
-                        <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p>
+                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
 
                         <ul class="social-icons">
                             <li><a href="#">+ Order</a></li>
