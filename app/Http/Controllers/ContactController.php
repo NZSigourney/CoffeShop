@@ -24,12 +24,13 @@ class ContactController extends Controller
     public function postContactMail(Request $request){
         $name = $request->input('name');
         $contact = $request->input('email');
+        $subject = $request->input('subject');
         $content = $request->input('message');
 
         $data = [
             'title' => 'Thư phản hồi:',
             'body' => 'Cảm ơn bạn ' . $name . ' đã phản hồi, chúng tôi sẽ liên lạc lại bạn sớm nhất có thể!',
-            'content' => 'Nội Dung phản hồi:' . $content
+            'content' => 'Nội Dung phản hồi với tiêu đề [' . $subject . '] :' . $content
         ];
         
         Mail::to($request->user())->cc($contact)->bcc($contact)->send(New ContactMail($data));
@@ -37,16 +38,19 @@ class ContactController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'email' => 'required',
+            'subject' => 'required',
             'message' => 'required'
         ],[
             'name.required' => 'Bạn chưa nhập tên',
             'email.required' => 'Bạn chưa nhập gmail',
+            'subject.required' => 'Bạn chưa nhập tiêu đề',
             'mesage.required' => 'Bạn chưa nhập mô tả',
         ]);
 
         $contacts = new Contact;
         $contacts->name = $request->name;
         $contacts->email = $request->email;
+        $contacts->subject = $request->subject;
         $contacts->message = $request->message;
         $contacts->status = 0;
         $contacts->save();
