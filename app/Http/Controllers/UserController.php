@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     public function getLogin(){
-        return view('login');
+        return view('navbar.login');
     }
 
     public function postLogin(Request $request){

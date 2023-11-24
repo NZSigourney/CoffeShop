@@ -13,10 +13,10 @@
                         <li><a href="{{route('table')}}">Book a table</a></li>
                         <li><a href="/product">Menu</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >About</a>
                           
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('about')}}">About Us</a>
+                                <a class="dropdown-item" href="{{route('about')}}" style="text-align: center; color:black">About Us</a>
                                 {{-- <a class="dropdown-item" href="blog.html">Blog</a> --}}
                                 {{-- <a class="dropdown-item" href="testimonials.html">Testimonials</a> --}}
                             </div>
@@ -24,7 +24,7 @@
                         <li><a href="{{route('contact')}}">Contact</a></li> 
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
-                            <div class="dropdown-menu" style="background-color: black">
+                            <div class="dropdown-menu">
                                 <a href="#">
                                     @if(Auth::check())
                                     {{-- Nếu người dùng đã đăng nhập --}}
@@ -36,8 +36,8 @@
                                     </form>
                                     @else
                                       {{-- Nếu người dùng chưa đăng nhập --}}
-                                    <a href="/dangnhap" style="text-align: center; vertical-align: middle">Đăng nhập</a>
-                                    <a href="/dangky" style="text-align: center; vertical-align: middle">Đăng kí</a>
+                                    <a href="/dangnhap" style="text-align: center; vertical-align: middle; color:black">Đăng nhập</a>
+                                    <a href="/dangky" style="text-align: center; vertical-align: middle; color:black">Đăng kí</a>
                                     @endif
                                   </a>                                
                             </div>
