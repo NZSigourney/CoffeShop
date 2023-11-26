@@ -1,51 +1,117 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+	<title>Login V2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/login/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/login/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/iconic/login/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/login/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-    <div class="container">
-        @if(session('message'))
+    @if(session('failed'))
         <div class="alert alert-success">
-                {{ session('message') }}
+            {{ session('failed') }}
         </div>
-        @endif
-        <form action="{{route('postEmail')}}" method="post">
-        @csrf
-        <div class="form-group">
-    
-        <label for="">Email của bạn</label>
-        <input type="text" name="txtEmail" id="" class="form-control" placeholder="Nhập Email của bạn" aria-describedby="helpId" value="{{isset($request->txtEmail)?$request->txtEmail:''}}">
-        
-        <button type="submit" class="btn btn-primary">Reset Password</button>
-        </div>
-        </form>
-    </div>
-</body>
-</html> --}}
-
-@extends('layouts.master')
-@section('content')
-<div class="container">
-    @if(session('message'))
-    <div class="alert alert-success">
-            {{ session('message') }}
-    </div>
     @endif
-    <form action="{{route('postEmail')}}" method="post">
-    @csrf
-    <div class="form-group">
-
-    <label for="">Email của bạn</label>
-    <input type="text" name="txtEmail" id="" class="form-control" placeholder="Nhập Email của bạn" aria-describedby="helpId" value="{{isset($request->txtEmail)?$request->txtEmail:''}}">
+    <form action="{{ route('postEmail') }}" method="post" class="beta-form-checkout">
+        {{-- @method('POST') --}}
+        @csrf
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-title p-b-26">
+                            Welcome
+                        </span>
+                        <span class="login100-form-title p-b-48">
+                            <i class="zmdi zmdi-font"></i>
+                        </span>
     
-    <button type="submit" class="btn btn-primary">Reset Password</button>
-    </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <input class="input100" type="email" name="txtEmail" id="" value="{{isset($request->txtEmail)?$request->txtEmail:''}}">
+                            <span class="focus-input100" data-placeholder="Email"></span>
+                        </div>
+    
+                        {{-- <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <span class="btn-show-pass">
+                                <i class="zmdi zmdi-eye"></i>
+                            </span>
+                            <input class="input100" type="password" name="password" id="pwd">
+                            <span class="focus-input100" data-placeholder="Password"></span>
+                        </div> --}}
+    
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <button class="login100-form-btn">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
+    
+                        {{-- <div class="text-center p-t-115">
+                            <span class="txt1">
+                                Don’t have an account?
+                            </span>
+    
+                            <a class="txt2" href="#">
+                                Sign Up
+                            </a>
+                        </div>
+                        <div class="text-center p-t-0">
+                            <span class="txt1">
+                                Forgot password?
+                            </span>
+    
+                            <a class="txt2" href="{{route('getEmail')}}">
+                                Forgot
+                            </a>
+                        </div> --}}
+                    </form>
+                </div>
+            </div>
+        </div>
     </form>
-</div>
-@endsection
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/bootstrap/js/popper.js"></script>
+	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

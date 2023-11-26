@@ -78,6 +78,15 @@
                                 Sign Up
                             </a>
                         </div>
+                        <div class="text-center p-t-0">
+                            <span class="txt1">
+                                Forgot password?
+                            </span>
+    
+                            <a class="txt2" href="{{route('getEmail')}}">
+                                Forgot
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>

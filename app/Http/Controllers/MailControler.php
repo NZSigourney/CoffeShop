@@ -33,7 +33,7 @@ class MailControler extends Controller
             // Mail::to($req->user())->cc("longthaithien98@gmail.com")->bcc("longthaithien98@gmail.com")->send(new SMail($sentData));
             Session::flash('message', 'Send email successfully!');
            
-            return view('emails.input-email');  //về lại trang đăng nhập của khách
+            return view('navbar.login');  //về lại trang đăng nhập của khách
         // }
         // else {
         //     return redirect()->route('getEmail')->with('message','Your email is not right');
