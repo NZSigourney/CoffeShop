@@ -42,7 +42,7 @@
 					<i class="fa fa-envelope"></i>
 				</div>
 
-				<h5><a href="#">contact@company.com</a></h5>
+				<h5><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=longthaithien98@gmail.com">CoffeStore@gmail.com</a></h5>
 
 				<br>
 			</div>
@@ -52,7 +52,7 @@
 					<i class="fa fa-map-marker"></i>
 				</div>
 
-				<h5>212 Barrington Court New York</h5>
+				<h5>31 Đống Đa, Đà nẵng</h5>
 
 				<br>
 			</div>
@@ -72,7 +72,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-xs-12">
 				<div id="map">
-				  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+				  <iframe src="https://maps.google.com/maps?q=31+Đống+Đa,+Đà+Nẵng&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-xs-12">

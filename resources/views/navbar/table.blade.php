@@ -76,7 +76,7 @@
           <div class="col-md-4">
               <div class="tabs-content">
                   <label>Email</label>
-                  <p><a href="#">contact@company.com</a></p>
+                  <p><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=longthaithien98@gmail.com">longthaithien98@gmail.com</a></p>
 
                   <label>Phone</label>
                   <p><a href="#"> +1 333 4040 5566</a></p>

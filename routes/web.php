@@ -74,7 +74,6 @@ Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postL
 
 // Admin page
 Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-// Route::post('dangnhap', [AdminLoginMiddleware::class, 'handle']);
 
 // // Admin Page - Login
 // Route::get('/admin/dangnhap', [UserController::class, 'getLogin'])->name('admin.getLogin');

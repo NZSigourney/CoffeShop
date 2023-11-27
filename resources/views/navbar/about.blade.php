@@ -1,297 +1,86 @@
 @extends('layouts.master')
 @section('content')
-<div class="inner-header">
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
 	<div class="container">
-		<div class="pull-left">
-			<h6 class="inner-title">Giới thiệu</h6>
-		</div>
-		<div class="pull-right">
-			<div class="beta-breadcrumb font-large">
-				<a href="{{route('home')}}">Home</a> / <span>Giới thiệu</span>
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="cta-content">
+					<br>
+					<br>
+					<h2>Learn more <em>About Us</em></h2>
+					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+				</div>
 			</div>
 		</div>
-		<div class="clearfix"></div>
 	</div>
-</div>
-<div class="container">
-	<div id="content">
-		<div class="our-history">
-			<h2 class="text-center wow fadeInDown">Our History</h2>
-			<div class="space35">&nbsp;</div>
+</section>
 
-			<div class="history-slider">
-				<div class="history-navigation">
-					<a data-slide-index="0" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2003</span></a>
-					<a data-slide-index="1" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2004</span></a>
-					<a data-slide-index="2" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2005</span></a>
-					<a data-slide-index="3" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2007</span></a>
-					<a data-slide-index="4" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2009</span></a>
-					<a data-slide-index="5" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2011</span></a>
-					<a data-slide-index="6" href="blog_with_2sidebars_type_e.html" class="circle"><span class="auto-center">2014</span></a>
-				</div>
+<!-- ***** Our Classes Start ***** -->
+<section class="section" id="our-classes">
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<div class="row" id="tabs">
+		  <div class="col-lg-4">
+			<ul>
+			  <li><a href='#tabs-1'><i class="fa fa-soccer-ball-o"></i> Our Goals</a></li>
+			  <li><a href='#tabs-2'><i class="fa fa-briefcase"></i> Our Work</a></a></li>
+			  <li><a href='#tabs-3'><i class="fa fa-heart"></i> Our Passion</a></a></li>
+			</ul>
+		  </div>
+		  <div class="col-lg-8">
+			<section class='tabs-content'>
+			  <article id='tabs-1'>
+				<img src="assets/images/about-image-1-940x460.jpg" alt="">
+				<h4>Our Goals</h4>
 
-				<div class="history-slides">
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Birth.</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Web Design</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Web Development</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Photoshop</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Skill</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Project.</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
-					</div>
-					<div> 
-						<div class="row">
-						<div class="col-sm-5">
-							<img src="assets/dest/images/history.jpg" alt="">
-						</div>
-						<div class="col-sm-7">
-							<h5 class="other-title">Coffe</h5>
-							<p>
-								Suite 127 / 267 – 277 Brussel St,<br />
-								62 Croydon, NYC<br />
-								New York
-							</p>
-							<div class="space20">&nbsp;</div>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem.</p>
-						</div>
-						</div> 
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel aspernatur natus dignissimos eos quod, odio.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cupiditate ullam exercitationem molestiae illum? Nam magni, saepe sint maiores vitae!</p>
+
+				<p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
+			   
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi suscipit commodi impedit unde accusantium nam incidunt tenetur, libero maiores enim! Nisi ex odit, totam nihil doloribus. Nemo ut, eos consequatur libero aut quas dolorum ipsa, quidem, totam dicta id possimus dolores distinctio laboriosam doloribus voluptates tenetur consectetur inventore aliquid dolorem?</p>
+			  </article>
+			  <article id='tabs-2'>
+				<img src="assets/images/about-image-2-940x460.jpg" alt="">
+				<h4>Our Work</h4>
+				<p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ut accusantium cum! Ad quisquam, aut praesentium magni pariatur ipsa! Soluta deserunt accusantium repellendus ratione quam hic facere, cupiditate iste obcaecati a, officiis ipsum aspernatur in?</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla a necessitatibus eos vitae quibusdam quo sunt officiis rerum voluptatibus non natus eius placeat officia vel quaerat, reprehenderit obcaecati, eaque? Repudiandae ad facere culpa accusamus aliquam ab assumenda reiciendis corrupti cum nemo, cumque molestiae corporis deserunt!</p>
+			  </article>
+			  <article id='tabs-3'>
+				<img src="assets/images/about-image-3-940x460.jpg" alt="">
+				<h4>Our Passion</h4>
+				<p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aut beatae commodi repudiandae distinctio, magnam blanditiis reiciendis vitae velit voluptatum natus, fugit quis eos dolores!</p>
+
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic adipisci reiciendis quaerat qui earum aut, atque esse quisquam quis exercitationem sapiente, dolorum consequatur consequuntur voluptatibus ipsam, fuga magnam beatae optio nam. Recusandae ut aliquid, eligendi.</p>
+			  </article>
+			</section>
+		  </div>
+		</div>
+	</div>
+</section>
+<!-- ***** Our Classes End ***** -->
+<!-- ***** Call to Action Start ***** -->
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="cta-content">
+					<h2>Send us a <em>message</em></h2>
+					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+					<div class="main-button">
+						<a href="contact.html">Contact us</a>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="space50">&nbsp;</div>
-		<hr />
-		<div class="space50">&nbsp;</div>
-		<h2 class="text-center wow fadeInDown">Our Passion for What We Do Transfers Into Our Services</h2>
-		<div class="space20">&nbsp;</div>
-		<p class="text-center wow fadeInLeft">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-		<div class="space35">&nbsp;</div>
-
-		<div class="row">
-			<div class="col-sm-2 col-sm-push-2">
-				<div class="beta-counter">
-					<p class="beta-counter-icon"><i class="fa fa-user"></i></p>
-					<p class="beta-counter-value timer numbers" data-to="19855" data-speed="2000">19855</p>
-					<p class="beta-counter-title">Clients Satisfied</p>
-				</div>
-			</div>
-
-			<div class="col-sm-2 col-sm-push-2">
-				<div class="beta-counter">
-					<p class="beta-counter-icon"><i class="fa fa-picture-o"></i></p>
-					<p class="beta-counter-value timer numbers" data-to="3568" data-speed="2000">3568</p>
-					<p class="beta-counter-title">Amazing Works</p>
-				</div>
-			</div>
-
-			<div class="col-sm-2 col-sm-push-2">
-				<div class="beta-counter">
-					<p class="beta-counter-icon"><i class="fa fa-clock-o"></i></p>
-					<p class="beta-counter-value timer numbers" data-to="258934" data-speed="2000">258934</p>
-					<p class="beta-counter-title">Support Hours</p>
-				</div>
-			</div>
-
-			<div class="col-sm-2 col-sm-push-2">
-				<div class="beta-counter">
-					<p class="beta-counter-icon"><i class="fa fa-pencil"></i></p>
-					<p class="beta-counter-value timer numbers" data-to="150" data-speed="2000">150</p>
-					<p class="beta-counter-title">New Projects</p>
-				</div>
-			</div>
-		</div> <!-- .beta-counter block end -->
-
-		<div class="space50">&nbsp;</div>
-		<hr />
-		<div class="space50">&nbsp;</div>
-
-		<h2 class="text-center wow fadeInDownwow fadeInDown">Our Amaizing Team</h2>
-		<div class="space20">&nbsp;</div>
-		<h5 class="text-center other-title wow fadeInLeft">Founders</h5>
-		<p class="text-center wow fadeInRight">Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia <br />consequuntur magni dolores.</p>
-		<div class="space20">&nbsp;</div>
-		<div class="row">
-			<div class="col-sm-6 wow fadeInLeft">
-				<div class="beta-person media">
-				
-					<img class="pull-left" src="assets/dest/images/person2.jpg" alt="">
-				
-					<div class="media-body beta-person-body">
-						<h5>Bob Robertson</h5>
-						<p class="font-large">Founder</p>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit asatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque por quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 wow fadeInRight">
-				<div class="beta-person media ">
-				
-					<img class="pull-left" src="assets/dest/images/person3.jpg" alt="">
-				
-					<div class="media-body beta-person-body">
-						<h5>Mike Greenwood</h5>
-						<p class="font-large">Founder</p>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit asatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque por quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="space60">&nbsp;</div>
-		<h5 class="text-center other-title wow fadeInDown">The Best of Professionals</h5>
-		<p class="text-center wow fadeInUp">Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia <br />consequuntur magni dolores.</p>
-		<div class="space20">&nbsp;</div>
-		<div class="row">
-			<div class="col-sm-3">
-				<div class="beta-person beta-person-full">
-			<div class="bets-img-hover">
-					<img src="assets/dest/images/person1.jpg" alt="">
-			</div>
-					<div class="beta-person-body">
-						<h5>Mark Priston</h5>
-						<p class="font-large">Web developer</p>
-						<p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="beta-person beta-person-full">
-				<div class="bets-img-hover">
-					<img src="assets/dest/images/person2.jpg" alt="">
-				</div>
-					<div class="beta-person-body">
-						<h5>Bob Robertson</h5>
-						<p class="font-large">Web developer</p>
-						<p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="beta-person beta-person-full">
-				<div class="bets-img-hover">
-					<img src="assets/dest/images/person3.jpg" alt="">
-				</div>
-					<div class="beta-person-body">
-						<h5>Mike Greenwood</h5>
-						<p class="font-large">Web developer</p>
-						<p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="beta-person beta-person-full">
-				<div class="bets-img-hover">	
-					<img src="assets/dest/images/person4.jpg" alt="">
-				</div>
-					<div class="beta-person-body">
-						<h5>David Black</h5>
-						<p class="font-large">Web developer</p>
-						<p>Nemo enims voluptatem quia volupas sit aspe aut odit aut fugit, sed quia consequuntur magni dolores.</p>
-						<a href="single_type_gallery.html">View projects <i class="fa fa-chevron-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> <!-- #content -->
-</div> <!-- .container -->
+	</div>
+</section>
+<!-- ***** Call to Action End ***** -->
 @endsection

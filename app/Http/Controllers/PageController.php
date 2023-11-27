@@ -74,7 +74,7 @@ class PageController extends Controller
     
     //thông tin
     public function about(){
-        return view('about');
+        return view('navbar.about');
     }
     //kiểm tra
     public function checkout(){

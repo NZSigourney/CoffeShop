@@ -11,7 +11,7 @@
             <h6>Lorem ipsum dolor sit amet</h6>
             <h2>Taste the love at our <em>Restaurant</em></h2>
             <div class="main-button">
-                <a href="book-table.html">Book a table</a>
+                <a href="{{ route('table') }}">Book a table</a>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
                     <h2>Send us a <em>message</em></h2>
                     <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
                     <div class="main-button">
-                        <a href="contact.html">Contact us</a>
+                        <a href="{{ route('contact') }}">Contact us</a>
                     </div>
                 </div>
             </div>
