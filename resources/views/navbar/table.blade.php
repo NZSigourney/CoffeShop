@@ -40,16 +40,22 @@
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
-                          <select name="ID">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
+                          <select name="Types">
+                              <option value="1">Normal Table</option>
+                              <option value="2">Economy Table</option>
+                              <option value="3">V.I.P Table</option>
                           </select>
                         </fieldset>
                       </div>
+
+                      {{-- <div class="col-md-6 col-sm-12">
+                        <fieldset>
+                          <select name="Status">
+                              <option value="1">Còn trống</option>
+                              <option value="2">Trùng bàn</option>
+                          </select>
+                        </fieldset>
+                      </div> --}}
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>

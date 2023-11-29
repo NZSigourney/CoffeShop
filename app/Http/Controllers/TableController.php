@@ -13,6 +13,7 @@ class TableController extends Controller
 
     public function orderTable(Request $request){
         $this->validate($request,[
+            // 'Types' => 'required',
             'Note' => 'required',
             'Date' => 'required',
             'Time' => 'required',
@@ -23,9 +24,13 @@ class TableController extends Controller
         ]);
 
         $tables = new Table();
-        $tables->ID = $request->ID;
-        $tables->Status = $request->Status;
+        // $tables->ID = $request->ID;
+        $tables->Customer = $request->Customer;
+        $tables->Types = $request->Types;
+        // $tables->Status = $request->Status;
         $tables->Note = $request->Note;
+        $tables->Date = $request->Date;
+        $tables->Time = $request->Time;
         $tables->save();
         return redirect('table')->with('success', 'Thêm mới thành công!');
     }
