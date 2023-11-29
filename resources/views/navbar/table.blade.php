@@ -22,24 +22,25 @@
       <div class="row">
           <div class="col-md-8">
               <div class="contact-form">
-                  <form id="contact" action="" method="post">
+                  <form id="contact" action="{{ route('orderTable') }}" method="post">
+                    @csrf
                     <div class="row">
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
-                          <input name="date" type="text" id="date" placeholder="31.07.2020" required="">
+                          <input name="Date" type="date" id="date" placeholder="31.07.2020" required="" data-format="YYYY-MM-DD">
                         </fieldset>
                       </div>
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
-                          <input name="time" type="text" id="time" placeholder="20:30" required="">
+                          <input name="Time" type="time" id="time" placeholder="20:30" required="" min="00:00" max="23:59">
                         </fieldset>
                       </div>
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
-                          <select>
+                          <select name="ID">
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
@@ -52,13 +53,13 @@
 
                       <div class="col-md-6 col-sm-12">
                         <fieldset>
-                          <input name="name" type="text" id="name" placeholder="Name*" required="">
+                          <input name="Customer" type="text" id="name" placeholder="Name*" required="">
                         </fieldset>
                       </div>
                       
                       <div class="col-lg-12">
                         <fieldset>
-                          <textarea name="notes" rows="6" id="notes" placeholder="Notes" required=""></textarea>
+                          <textarea name="Note" rows="6" id="notes" placeholder="Notes" required=""></textarea>
                         </fieldset>
                       </div>
                       <div class="col-lg-12">

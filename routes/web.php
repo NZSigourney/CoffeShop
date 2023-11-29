@@ -47,9 +47,6 @@ Route::post('contacts', [ContactController::class, 'postContactMail'])->name('ad
 Route::delete('contacts/{id}', [ContactController::class, 'destroy'])->name('admin.contact.delete');
 Route::put('contacts/{id}',  [ContactController::class, 'update'])->name('admin.updateContact');
 
-// Table Pages.
-Route::get('table', [TableController::class, 'getTable'])->name('table');
-
 Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
@@ -144,3 +141,7 @@ Route::put('sua/{id}', [CategoryController::class, 'postCateEdit'])->name('admin
 // Mail
 Route::get('input-email', [MailControler::class, 'getInputEmail'])->name('getEmail');
 Route::post('input-email', [MailControler::class, 'postInputEmail'])->name('postEmail');
+
+// Table Pages.
+Route::get('table', [TableController::class, 'getTable'])->name('table');
+Route::post('table', [TableController::class, 'orderTable'])->name('orderTable');
