@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2023 lúc 05:44 PM
+-- Thời gian đã tạo: Th12 03, 2023 lúc 09:28 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `coffestoredatabse`
+-- Cơ sở dữ liệu: `coffestoredb`
 --
 
 -- --------------------------------------------------------
@@ -90,6 +90,7 @@ CREATE TABLE `contacts` (
   `ID` int(255) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `status` int(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -100,10 +101,11 @@ CREATE TABLE `contacts` (
 -- Đang đổ dữ liệu cho bảng `contacts`
 --
 
-INSERT INTO `contacts` (`ID`, `name`, `email`, `message`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Nghĩa khôn', 'longthaithien98@gmail.com', 'sadsađấ', 1, '2023-10-04 14:40:22', '2023-09-22 20:13:42'),
-(2, 'Long', 'cpevnteam2018@gmail.com', 'hello', 0, '2023-10-04 14:46:11', '2023-09-23 06:19:03'),
-(3, 'Long', 'cpevnteam2018@gmail.com', 'test', 1, '2023-10-04 14:49:48', '2023-10-01 20:44:27');
+INSERT INTO `contacts` (`ID`, `name`, `email`, `subject`, `message`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Nghĩa khôn', 'longthaithien98@gmail.com', '', 'sadsađấ', 1, '2023-10-04 14:40:22', '2023-09-22 20:13:42'),
+(2, 'Long', 'cpevnteam2018@gmail.com', '', 'hello', 0, '2023-10-04 14:46:11', '2023-09-23 06:19:03'),
+(3, 'Long', 'cpevnteam2018@gmail.com', '', 'test', 1, '2023-10-04 14:49:48', '2023-10-01 20:44:27'),
+(5, 'Long', 'longthaithien98@gmail.com', 'Test', 'sdasd', 0, '2023-11-24 00:41:58', '2023-11-24 00:41:58');
 
 -- --------------------------------------------------------
 
@@ -292,6 +294,43 @@ INSERT INTO `slide` (`id`, `link`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `tableorder`
+--
+
+CREATE TABLE `tableorder` (
+  `ID` int(11) NOT NULL,
+  `Types` int(11) NOT NULL,
+  `Status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Note` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tables`
+--
+
+CREATE TABLE `tables` (
+  `ID` int(11) NOT NULL,
+  `Customer` varchar(255) DEFAULT NULL,
+  `Types` int(11) DEFAULT NULL,
+  `Note` varchar(255) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Time` time DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tables`
+--
+
+INSERT INTO `tables` (`ID`, `Customer`, `Types`, `Note`, `Date`, `Time`, `created_at`, `updated_at`) VALUES
+(1, 'adsadasd', 1, 'sadasd', '2023-12-02', '09:05:00', '2023-11-30 19:04:46', '2023-11-30 19:04:46');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `type_products`
 --
 
@@ -418,6 +457,18 @@ ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `tableorder`
+--
+ALTER TABLE `tableorder`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Chỉ mục cho bảng `tables`
+--
+ALTER TABLE `tables`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Chỉ mục cho bảng `type_products`
 --
 ALTER TABLE `type_products`
@@ -450,7 +501,7 @@ ALTER TABLE `bill_detail`
 -- AUTO_INCREMENT cho bảng `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `ID` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(255) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -487,6 +538,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `tables`
+--
+ALTER TABLE `tables`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `type_products`
