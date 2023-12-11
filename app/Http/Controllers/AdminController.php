@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -11,15 +12,10 @@ class AdminController extends Controller
         return view('adminpages.dashboard');
     }
 
-    // public function index(Request $request){
-    //     $users = User::get();
-    //     $level = $users->level;
-    //     // $level = $users->level;
-    //     if($level == 1 || $level == 2){
-    //         return view('adminpages.dashboard');
-    //     }else{
-    //         return redirect()->back()->with('error', 'Bạn không phải là quản trị viên!');
-    //     }
+    // public function getUserEmail(){
+    //     $user = Auth::user();
+    //     $email = $user->email;
+    //     return view('adminpages.layouts.slidebarleft', compact('email'));
     // }
     
 }
