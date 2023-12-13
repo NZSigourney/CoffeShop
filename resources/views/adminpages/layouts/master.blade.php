@@ -52,8 +52,9 @@
     <!-- #END# Page Loader -->
     @include('adminpages.layouts.navbar')
     @include('adminpages.layouts.slidebarleft')
-
-    @yield('content')
+    <section class="content">
+        @yield('content')
+    </section>
 
     <!-- Jquery Core Js -->
     <script src="AdminGUI/plugins/jquery/jquery.min.js"></script>

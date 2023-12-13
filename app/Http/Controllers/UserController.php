@@ -23,7 +23,7 @@ class UserController extends Controller
     
     public function sanpham(){
         $products = Product::where('new', 1)->get();
-        return view('adminpages.product', ['products' => $products]);
+        return view('adminpages.slidebar.products.product', ['products' => $products]);
     }
 
     public function getLogin(){
