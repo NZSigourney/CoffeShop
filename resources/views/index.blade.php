@@ -95,7 +95,7 @@
         <br>
 
         <div class="main-button text-center">
-            <a href="menu.html">View our Menu</a>
+            <a href="/product">View our Menu</a>
         </div>
     </div>
 </section>

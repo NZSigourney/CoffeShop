@@ -50,12 +50,13 @@ Route::put('contacts/{id}',  [ContactController::class, 'update'])->name('admin.
 Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
-Route::get('checkout', [PageController::class, 'checkout'])->name('banhang.getdathang');
+Route::get('checkout', [PageController::class, 'getcheckout'])->name('banhang.getdathang');
 Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
+Route::get('carts', [PageController::class, 'shoppingcart'])->name('banhang.carts');
 
 // Shopping cart
 
-Route::get('shopping_cart', [PageController::class, 'shopping_cart']);
+// Route::get('shopping_cart', [PageController::class, 'shopping_cart']);
 
 Route::get('add-to-cart/{id}',[PageController::class,'addToCart'])->name('banhang.addToCart');
 Route::get('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');

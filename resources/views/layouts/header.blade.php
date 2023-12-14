@@ -44,9 +44,10 @@
                         </li>
                         <li class="dropdown">
                             @if(Auth::check())
-                            <a href="#">Giỏ hàng</a>
+                            <a href="{{ route('banhang.carts') }}">Giỏ hàng (@if(Session::has('cart')){{ Session('cart')->totalQty }}
+                                @else Trống @endif)</a>
                             @endif
-                        </li>
+                        </li>                       
                     </ul>        
                     <a class='menu-trigger'>
                         <span>Menu</span>

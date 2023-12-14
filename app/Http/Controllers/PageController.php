@@ -77,8 +77,8 @@ class PageController extends Controller
         return view('navbar.about');
     }
     //kiểm tra
-    public function checkout(){
-        return view('checkout');
+    public function shoppingcarts(){
+        return view('carts.carts');
     }
 
     public function postCheckout(Request $request){
@@ -117,14 +117,14 @@ class PageController extends Controller
     }
 
     public function getCheckout(){
-        return view('checkout');
+        return view('carts.checkout');
     }
 
     // End Checkout area
 
-    public function shopping_cart(){
-        return view('shopping_cart');
-    }
+    // public function shopping_cart(){
+    //     return view('shopping_cart');
+    // }
 
     public function addToCart(Request $request,$id){
         $product=Product::find($id);
