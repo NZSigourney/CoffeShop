@@ -17,22 +17,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Bootstrap Core Css -->
-    <link href="AdminGUI/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/AdminGUI/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="AdminGUI/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="/AdminGUI/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="AdminGUI/plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="/AdminGUI/plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Morris Chart Css-->
-    <link href="AdminGUI/plugins/morrisjs/morris.css" rel="stylesheet" />
+    <link href="/AdminGUI/plugins/morrisjs/morris.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="AdminGUI/css/style.css" rel="stylesheet">
+    <link href="/AdminGUI/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="AdminGUI/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="/AdminGUI/css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -60,46 +60,46 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="AdminGUI/plugins/jquery/jquery.min.js"></script>
+    <script src="/AdminGUI/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="AdminGUI/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="/AdminGUI/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="AdminGUI/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="/AdminGUI/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="AdminGUI/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="/AdminGUI/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="AdminGUI/plugins/node-waves/waves.js"></script>
+    <script src="/AdminGUI/plugins/node-waves/waves.js"></script>
 
     <!-- Jquery CountTo Plugin Js -->
-    <script src="AdminGUI/plugins/jquery-countto/jquery.countTo.js"></script>
+    <script src="/AdminGUI/plugins/jquery-countto/jquery.countTo.js"></script>
 
     <!-- Morris Plugin Js -->
-    <script src="AdminGUI/plugins/raphael/raphael.min.js"></script>
-    <script src="AdminGUI/plugins/morrisjs/morris.js"></script>
+    <script src="/AdminGUI/plugins/raphael/raphael.min.js"></script>
+    <script src="/AdminGUI/plugins/morrisjs/morris.js"></script>
 
     <!-- ChartJs -->
-    <script src="AdminGUI/plugins/chartjs/Chart.bundle.js"></script>
+    <script src="/AdminGUI/plugins/chartjs/Chart.bundle.js"></script>
 
     <!-- Flot Charts Plugin Js -->
-    <script src="AdminGUI/plugins/flot-charts/jquery.flot.js"></script>
-    <script src="AdminGUI/plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="AdminGUI/plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="AdminGUI/plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="AdminGUI/plugins/flot-charts/jquery.flot.time.js"></script>
+    <script src="/AdminGUI/plugins/flot-charts/jquery.flot.js"></script>
+    <script src="/AdminGUI/plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="/AdminGUI/plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="/AdminGUI/plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="/AdminGUI/plugins/flot-charts/jquery.flot.time.js"></script>
 
     <!-- Sparkline Chart Plugin Js -->
-    <script src="AdminGUI/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <script src="/AdminGUI/plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
     <!-- Custom Js -->
-    <script src="AdminGUI/js/admin.js"></script>
-    <script src="AdminGUI/js/pages/index.js"></script>
+    <script src="/AdminGUI/js/admin.js"></script>
+    <script src="/AdminGUI/js/pages/index.js"></script>
 
     <!-- Demo Js -->
-    <script src="AdminGUI/js/demo.js"></script>
+    <script src="/AdminGUI/js/demo.js"></script>
 </body>
 
 </html>

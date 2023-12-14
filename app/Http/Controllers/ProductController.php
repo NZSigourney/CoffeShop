@@ -97,7 +97,7 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $products = Product::find($id);
-        return view('adminpages.editproduct', compact('products'));
+        return view('adminpages.slidebar.products.editproduct', compact('products'));
     }
 
     /**
