@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('adminpages.addproduct');
+        return view('adminpages.slidebar.products.addproduct');
     }
 
     /**

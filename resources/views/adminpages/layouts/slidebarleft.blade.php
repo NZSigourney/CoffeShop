@@ -41,23 +41,37 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/sanpham-admin">
-                        <i class="material-icons">text_fields</i>
-                        <span>Production</span>
-                    </a>
+
+                <li class="header">PRODUCTIONS</li>
+                <li class="active">
+                    <li>
+                        <a href="/sanpham-admin">
+                            <i class="material-symbols-outlined">store</i>
+                            <span>Production</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/addproducts">
+                            <i class="material-symbols-outlined">add</i>
+                            <span>Add Production</span>
+                        </a>
+                    </li>
                 </li>
-                <li>
-                    <a href="/sanpham-admin">
-                        <i class="material-icons">text_fields</i>
-                        <span>bill</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/sanpham-admin">
-                        <i class="material-icons">text_fields</i>
-                        <span>Production</span>
-                    </a>
+
+                <li class="header">USER ACCOUNTS</li>
+                <li class="active">
+                    <li>
+                        <a href="/adminaccounts">
+                            <i class="material-symbols-outlined">
+                                manage_accounts
+                            </i>
+                            <span>View Account</span>
+                        </a>
+                        <a href="/createadminaccount">
+                            <i class="material-symbols-outlined">add</i>
+                            <span>Add Account</span>
+                        </a>
+                    </li>
                 </li>
             </ul>
         </div>

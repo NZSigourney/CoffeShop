@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('adminpages.user.user', ['users' => $users]);
+        return view('adminpages.slidebar.user.user', ['users' => $users]);
     }
 
     public function destroy(string $id)
@@ -88,11 +88,11 @@ class UserController extends Controller
     // Admin User Area
     public function useraccount(){
         $users = User::all();
-        return view('adminpages.user.user', ['users' => $users]);
+        return view('adminpages.slidebar.user.user', ['users' => $users]);
     }
 
     public function create(){
-        return view('adminpages.user.createuser');
+        return view('adminpages.slidebar.user.createuser');
     }
 
     public function store(Request $request)
@@ -127,7 +127,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $users = User::find($id);
-        return view('adminpages.user.edituser', compact('users'));
+        return view('adminpages.slidebar.user.edituser', compact('users'));
     }
 
     /**
