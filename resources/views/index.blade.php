@@ -3,7 +3,7 @@
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner" id="top">
     <video autoplay muted loop id="bg-video">
-        <source src="assets/images/video.mp4" type="video/mp4" />
+        <source src="/source/assets/images/video.mp4" type="video/mp4" />
     </video>
 
     <div class="video-overlay header-text">
@@ -24,7 +24,7 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
                     <h2>Our <em>Events</em></h2>
-                    <img src="assets/images/line-dec.png" alt="">
+                    <img src="/source/assets/images/line-dec.png" alt="">
                     <p>Updating..</p>
                 </div>
             </div>

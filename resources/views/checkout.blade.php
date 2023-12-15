@@ -1,17 +1,44 @@
 @extends('layouts.master')
+@section('css')
+<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+{{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> --}}
+<link rel="stylesheet" href="/assets/main/source/assets/dest/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/main/source/assets/dest/vendors/colorbox/example3/colorbox.css">
+<link rel="stylesheet" href="/assets/main/source/assets/dest/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="/assets/main/source/assets/dest/rs-plugin/css/responsive.css">
+<link rel="stylesheet" title="style" href="/assets/main/source/assets/dest/css/style.css">
+<link rel="stylesheet" href="/assets/main/source/assets/dest/css/animate.css">
+<link rel="stylesheet" title="style" href="/assets/main/source/assets/dest/css/huong-style.css">
+@endsection
 @section('content')
+<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="cta-content">
+					<br>
+					<br>
+					<h2>Feel free to <em>Contact Us</em></h2>
+					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <div class="inner-header">
-<div class="container">
-    <div class="pull-left">
-        <h6 class="inner-title">Đặt hàng</h6>
-    </div>
-    <div class="pull-right">
-        <div class="beta-breadcrumb">
-            <a href="index.html">Trang chủ</a> / <span>Đặt hàng</span>
+    <div class="container">
+        <div class="pull-left">
+            <h6 class="inner-title">Đặt hàng</h6>
         </div>
+        <div class="pull-right">
+            <div class="beta-breadcrumb">
+                <a href="index.html">Trang chủ</a> / <span>Đặt hàng</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-</div>
 </div>
 
 <div class="container">
@@ -63,8 +90,8 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="your-order">
-                        <div class="your-order-head"><h5>Đơn hàng của bạn</h5></div>
-                        <div class="your-order-body" style="padding: 0px 10px">
+                        <div class="your-order-head"><h5 style="margin-left: 25%">Đơn hàng của bạn</h5></div>
+                        <div class="your-order-body" style="padding: 0px 10px;">
                             <div class="your-order-item">
                                 <div>
                                 <!--  one item	 -->
@@ -85,13 +112,13 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="your-order-item">
+                            <div class="your-order-item" style="margin-bottom: 10px;">
                                 <div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
                                 <div class="pull-right"><h5 class="color-black">{{ isset($totalPrice)?number_format($totalPrice,0):0 }} VND</h5></div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div class="your-order-head"><h5>Hình thức thanh toán</h5></div>
+                        <div class="your-order-head"><h5 style="margin-left: 25%">Hình thức thanh toán</h5></div>
                         
                         <div class="your-order-body">
                             <ul class="payment_methods methods">
@@ -146,8 +173,8 @@
 
 </script>
 <script>
-        jQuery(document).ready(function($) {
-                'use strict';
+    jQuery(document).ready(function($) {
+        'use strict';
                 
 // color box
 
@@ -156,23 +183,23 @@
         left: '-213px'
     });
 
-    jQuery('#style-selector a.close').click(function(e){
-        e.preventDefault();
-        var div = jQuery('#style-selector');
-        if (div.css('left') === '-213px') {
-        jQuery('#style-selector').animate({
-            left: '0'
+        jQuery('#style-selector a.close').click(function(e){
+            e.preventDefault();
+            var div = jQuery('#style-selector');
+            if (div.css('left') === '-213px') {
+            jQuery('#style-selector').animate({
+                left: '0'
+            });
+            jQuery(this).removeClass('icon-angle-left');
+            jQuery(this).addClass('icon-angle-right');
+            } else {
+            jQuery('#style-selector').animate({
+                left: '-213px'
+            });
+            jQuery(this).removeClass('icon-angle-right');
+            jQuery(this).addClass('icon-angle-left');
+            }
         });
-        jQuery(this).removeClass('icon-angle-left');
-        jQuery(this).addClass('icon-angle-right');
-        } else {
-        jQuery('#style-selector').animate({
-            left: '-213px'
-        });
-        jQuery(this).removeClass('icon-angle-right');
-        jQuery(this).addClass('icon-angle-left');
-        }
     });
-                });
     </script>
 @endsection

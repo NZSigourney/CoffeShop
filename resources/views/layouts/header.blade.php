@@ -10,7 +10,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{route('home')}}" class="active">Home</a></li>
-                        {{-- <li><a href="{{route('table')}}">Book a table</a></li> --}}
+                        <li><a href="{{route('table')}}">Book a table</a></li>
                         <li><a href="/product">Menu</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >About</a>
@@ -44,10 +44,10 @@
                         </li>
                         <li class="dropdown">
                             @if(Auth::check())
-                            <a href="{{ route('banhang.getdathang') }}">Giỏ hàng (@if(Session::has('cart')){{ Session('cart')->totalQty }}
-                                @else Trống @endif)</a>
+                            <a href="{{ route('banhang.getdathang') }}"><i class="fa-solid fa-cart-shopping"></i> (@if(Session::has('cart')){{ Session('cart')->totalQty }}
+                                @else 0 @endif)</a>
                             @endif
-                        </li>                       
+                        </li>
                     </ul>        
                     <a class='menu-trigger'>
                         <span>Menu</span>

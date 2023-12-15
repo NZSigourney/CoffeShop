@@ -46,7 +46,9 @@
     {{-- End --}}
 
     <!-- Custom CSS -->
-    
+    <link href="/assets/fontawesome/fontIcon/css/fontawesome.css" rel="stylesheet">
+    <link href="/assets/fontawesome/fontIcon/css/brands.css" rel="stylesheet">
+    <link href="/assets/fontawesome/fontIcon/css/solid.css" rel="stylesheet">
     {{-- End --}}
     @yield('css')
 </head>
