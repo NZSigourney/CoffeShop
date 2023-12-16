@@ -44,8 +44,7 @@
                         </li>
                         <li class="dropdown">
                             @if(Auth::check())
-                            <a href="{{ route('banhang.getdathang') }}"><i class="fa-solid fa-cart-shopping"></i> (@if(Session::has('cart')){{ Session('cart')->totalQty }}
-                                @else 0 @endif)</a>
+                            <a href="{{ route('banhang.getdathang') }}"><i class="fa-solid fa-cart-shopping"></i></a>
                             @endif
                         </li>
                     </ul>        

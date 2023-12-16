@@ -48,12 +48,12 @@ Route::put('contacts/{id}',  [ContactController::class, 'update'])->name('admin.
 Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
-Route::get('checkout', [PageController::class, 'checkout'])->name('banhang.getdathang');
+Route::get('checkout', [PageController::class, 'getCheckout'])->name('banhang.getdathang');
 Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
 
 // Shopping cart
 
-Route::get('cart', [PageController::class, 'getDetail'])->name('cart.detailed');
+Route::get('cart', [PageController::class, 'cart'])->name('cart.detailed');
 
 Route::get('add-to-cart/{id}',[PageController::class,'addToCart'])->name('banhang.addToCart');
 Route::get('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');

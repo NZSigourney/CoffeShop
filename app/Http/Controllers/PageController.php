@@ -77,12 +77,12 @@ class PageController extends Controller
         return view('about');
     }
 
-    public function getDetail(){
-        return view('carts');
+    public function cart(){
+        return view('cart');
     }
     
     //kiểm tra
-    public function checkout(){
+    public function getCheckout(){
         return view('checkout');
     }
 
@@ -128,19 +128,20 @@ class PageController extends Controller
     // }
 
     public function addToCart(Request $request,$id){
-        $product=Product::find($id);
-        $oldCart=Session('cart')?Session::get('cart'):null;
-        $cart=new Cart($oldCart);
+        $product = Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
         $cart->add($product,$id);
         $request->session()->put('cart',$cart);
+        Session::flash('success', 'Add to cart success!');
         return redirect()->back();
     }
 
     //thêm 1 sản phẩm có số lượng >1 có id cụ thể vào model cart rồi lưu dữ liệu của model cart vào 1 session có tên cart (session được truy cập bằng thực thể Request)
     public function addManyToCart(Request $request,$id){
-        $product=Product::find($id);
-        $oldCart=Session('cart')?Session::get('cart'):null;
-        $cart=new Cart($oldCart);
+        $product = Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
         $cart->addMany($product,$id,$request->qty);
         $request->session()->put('cart',$cart);
        
@@ -149,8 +150,8 @@ class PageController extends Controller
 
 
     public function delCartItem($id){
-        $oldCart=Session::has('cart')?Session::get('cart'):null;
-        $cart=new Cart($oldCart);
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
         $cart->removeItem($id);
         if(count($cart->items)>0){
             Session::put('cart',$cart);

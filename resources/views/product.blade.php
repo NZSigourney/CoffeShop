@@ -23,6 +23,12 @@
         <br>
         <br>
 
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="row">
             @foreach ($products as $product)
             <div class="col-lg-4">
@@ -53,6 +59,7 @@
                     </div>
                 </div>
             </div>
+            
             @endforeach
         </div>
 
