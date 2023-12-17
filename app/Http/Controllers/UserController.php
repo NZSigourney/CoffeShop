@@ -102,6 +102,7 @@ class UserController extends Controller
             'full_name' => 'required',
             'password' => 'required',
             'email' => 'required|email:rfc,dns',
+            'phone' => 'required',
             'address' => 'required',
             'level' => 'required|numeric'
         ],[
@@ -109,6 +110,7 @@ class UserController extends Controller
             'password.required' => 'Bạn chưa nhập mật khẩu!',
             'email.required' => 'Bạn chưa nhập Email!',
             'email.email' => 'Bạn nhập không đúng định dạng Email!',
+            'phone.required' => 'Bạn chưa nhập số điện thoại',
             'address.required' => 'Bạn chưa nhập địa chỉ!',
             'level.required' => 'Bắt buộc phải nhập số Cấp bậc (Level)!',
             'level.numeric' => 'Phải là số!'
@@ -118,6 +120,7 @@ class UserController extends Controller
         $users->full_name = $request->full_name;
         $users->password = $request->password;
         $users->email = $request->email;
+        $users->phone = $request->phone;
         $users->address = $request->address;
         $users->level = $request->level;
         $users->save();

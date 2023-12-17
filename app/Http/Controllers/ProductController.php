@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\product_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -97,7 +98,8 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $products = Product::find($id);
-        return view('adminpages.slidebar.products.editproduct', compact('products'));
+        $type = product_type::all();
+        return view('adminpages.slidebar.products.editproduct', compact('products', 'type'));
     }
 
     /**
@@ -106,7 +108,7 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $name='';
-        if($request->hasfile('image')){
+        if($request->hasFile('image')){
             $this->validate($request,[
                 'name' => 'required',
                 'description' => 'required',
