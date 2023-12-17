@@ -34,7 +34,7 @@
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb">
-                <a href="index.html">Trang chủ</a> / <span>Đặt hàng</span>
+                <a href="/">Trang chủ</a> / <span>Đặt hàng</span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -104,6 +104,12 @@
                                         <span class="color-gray your-order-info">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                                             number_format($cart['item']->unit_price, 0) }}</span>
                                         <span class="color-gray your-order-info">{{ $cart['qty'] }}</span>
+                                        <!-- Thêm nút xóa -->
+                                        <form action="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Remove</button>
+                                        </form>
                                     </div>
                                 </div>
                                 @endforeach

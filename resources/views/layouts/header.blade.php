@@ -11,7 +11,20 @@
                     <ul class="nav">
                         <li><a href="{{route('home')}}" class="active">Home</a></li>
                         <li><a href="{{route('table')}}">Book a table</a></li>
-                        <li><a href="/product">Menu</a></li>
+                        <li><a href="{{route('product')}}">Menu</a></li>
+                        {{-- <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="/product" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+
+                            <div class="dropdown-menu">
+                                @if(isset($loai_sp))
+                                @foreach ($loai_sp as $types)
+                                <li><a href="{{route('product_type',$types ->id)}}">{{ $types->name }}</a></li>
+                                @endforeach
+                                @else
+                                    <p>Không có dữ liệu loại sản phẩm.</p>
+                                @endif
+                            </div>
+                        </li> --}}
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >About</a>
                           
