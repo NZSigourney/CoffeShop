@@ -73,6 +73,16 @@
                         </a>
                     </li>
                 </li>
+
+                <li class="header">CONTACTS LIST</li>
+                <li class="active">
+                    <li>
+                        <a href="{{ route('admin.getContactMail') }}">
+                            <i class="material-symbols-outlined">import_contacts</i>
+                            <span>View List</span>
+                        </a>
+                    </li>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->
