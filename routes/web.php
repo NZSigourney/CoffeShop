@@ -130,6 +130,7 @@ Route::resource('bills', BillController::class);
 Route::get('billList', [BillController::class, 'index'])->name('admin.getBillList');
 Route::put('bill/{id}', [BillController::class, 'updateBillAdmin'])->name('admin.updateBill');
 
+// Category
 Route::get('danhsach', [CategoryController::class, 'getCatelist'])->name('admin.getCateList');
 Route::get('them', [CategoryController::class, 'getCateAdd'])->name('admin.getCateAdd');
 Route::post('them', [CategoryController::class, 'postCateAdd'])->name('admin.postCateAdd');

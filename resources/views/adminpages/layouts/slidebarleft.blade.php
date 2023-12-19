@@ -83,6 +83,31 @@
                         </a>
                     </li>
                 </li>
+
+                <li class="header">CATEGORY LIST</li>
+                <li class="active">
+                    <li>
+                        <a href="/danhsach">
+                            <i class="material-symbols-outlined">category</i>
+                            <span>View List</span>
+                        </a>
+                        <a href="{{ route('admin.getCateAdd') }}">
+                            <i class="material-symbols-outlined">add</i>
+                            <span>Add Category</span>
+                        </a>
+                    </li>
+                </li>
+
+                <li class="header">BILL LIST</li>
+                <li class="active">
+                    <li>
+                        <a href="{{route('admin.getBillList')}}">
+                            <i class="material-symbols-outlined">receipt_long</i>
+                            <span>View List</span>
+                        </a>
+                    </li>
+                </li>
+
             </ul>
         </div>
         <!-- #Menu -->

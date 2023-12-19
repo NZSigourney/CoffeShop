@@ -6,7 +6,9 @@
 <title>Danh mục</title>
 
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="/source/assets/dest/css/styles1.css" rel="stylesheet" />
+<link href="/function/source/assets/dest/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/category.css">
+
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 @endsection
 
@@ -18,7 +20,7 @@
             <li class="breadcrumb-item"><a href="{{route('admin.getCateList')}}">Admin</a></li>
             <li class="breadcrumb-item active">Danh mục</li>
         </ol>
-        <div class="card mb-4">
+        {{-- <div style="margin-bottom: 20px;">
             <div class="card-body">
               
                 <a href="{{route('admin.getCateAdd')}}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -26,7 +28,7 @@
                    </a>
                 
             </div>
-        </div>
+        </div> --}}
         @if (session('success'))
 		<div class="alert alert-success">
 			{{session('success')}}
@@ -93,7 +95,7 @@
         </div>
     </div>
 {{-- </main> --}}
-@include('adminpages.category.cate_add')
+{{-- @include('adminpages.category.cate_add') --}}
 {{-- @include('admin.modal.cate_edit') --}}
 @endsection
 
