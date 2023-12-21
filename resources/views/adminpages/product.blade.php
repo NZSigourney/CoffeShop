@@ -43,7 +43,7 @@
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->name }}</td>
                     {{-- <td>{{ $product->image }}</td> --}}
-                    <td><img src="/images/{{$product->image }}" alt="{{$product->image }}" height="150" ></td>
+                    <td><img src="/images/products/{{$product->image }}" alt="{{ $product->image }}" height="150" ></td>
                     {{-- <td>{{ $product->id_type }}</td> --}}
                     <td scope="row">
                       @switch($product->id_type)

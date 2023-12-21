@@ -128,7 +128,7 @@ class ProductController extends Controller
 
             $file = $request->file('image');
             $name = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('images'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath = public_path('images/products'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/car
         }else{
             $this->validate($request, [
@@ -155,7 +155,7 @@ class ProductController extends Controller
         //$product->image = $request->image;
         $products->unit = $request->unit;
         $products->id_type = $request->id_type;
-        if($name = ''){
+        if($name == ''){
             $name = $products->image;
         }
         $products->image = $name;
