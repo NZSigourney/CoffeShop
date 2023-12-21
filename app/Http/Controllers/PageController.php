@@ -161,7 +161,7 @@ class PageController extends Controller
 
     // Khu vuc signin
     public function getSignin(){
-        return view('signup');
+        return view('navbar.signup');
     }
 
     public function postSignin(Request $req){
