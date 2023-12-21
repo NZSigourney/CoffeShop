@@ -27,8 +27,6 @@ class TableController extends Controller
         $tables = new Table();
         // $tables->ID = $request->ID;
         $tables->Customer = $request->Customer;
-        $tables->Types = 1;
-        // $tables->Status = $request->Status;
         $tables->Note = $request->Note;
         $tables->Date = $request->Date;
         $tables->Time = $request->Time;

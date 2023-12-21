@@ -51,7 +51,7 @@
                       </fieldset>
                     </div>
 
-                    <div class="col-md-6 col-sm-12">
+                    {{-- <div class="col-md-6 col-sm-12">
                       <fieldset>
                         <select name="Types">
                             <option value="1">Normal Table</option>
@@ -59,7 +59,7 @@
                             <option value="3">V.I.P Table</option>
                         </select>
                       </fieldset>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="col-md-6 col-sm-12">
                       <fieldset>

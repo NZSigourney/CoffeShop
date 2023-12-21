@@ -8,11 +8,11 @@
 
     <div class="video-overlay header-text">
         <div class="caption">
-            <h6>Lorem ipsum dolor sit amet</h6>
-            <h2>Taste the love at our <em>Restaurant</em></h2>
-            <div class="main-button">
+            <h6>Chất lượng và đẳng cấp</h6>
+            <h2><em>Cà phê</em> hoàn hảo cho ngày mới!</h2>
+            {{-- <div class="main-button">
                 <a href="{{ route('table') }}">Book a table</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2>Our <em>Events</em></h2>
+                    <h2><em>Sản phẩm</em> của chúng tôi</h2>
                     <img src="/source/assets/images/line-dec.png" alt="">
-                    <p>Updating..</p>
+                    <p>Chắc chắn làm hài lòng các bạn!</p>
                 </div>
             </div>
         </div>
