@@ -1,13 +1,45 @@
 @extends('adminpages.layouts.master')
 
 @section('css')
+    <link rel="stylesheet" href="/assets/css/category.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 @endsection
 @section('content')
-<form action="{{route('admin.postCateAdd')}}" method="post" enctype="multipart/form-data">
-    @csrf
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+<main>
+    <form action="{{route('admin.postCateAdd')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+        @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" class="form-control" required></textarea>
+        </div>
+        @error('description')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image" class="form-control" required>
+        </div>
+        @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <!------------------------------------------------------------------------------>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</main>
+
+    
+    
+    {{-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
           
@@ -32,7 +64,7 @@
                         </div>
                         @error('description')
                         <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                        @enderror
                 
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Hình ảnh</label>
@@ -47,11 +79,10 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
                 </div>
             </div>
         </div>
-    </form>
+    </div> --}}
 @endsection
 
 @section('js')
