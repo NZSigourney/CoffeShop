@@ -30,7 +30,7 @@
                     <th scope="col">Unit_price</th>
                     <th scope="col">Promotion_price</th>
                     {{-- <th scope="col">Favourite</th> --}}
-                    <th scope="col">Unit</th>
+                    {{-- <th scope="col">Unit</th> --}}
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -40,7 +40,7 @@
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->name }}</td>
                     {{-- <td>{{ $product->image }}</td> --}}
-                    <td><img src="/images/{{$product->image }}" alt="{{$product->image }}" height="150" ></td>
+                    <td><img src="/images/products/{{$product->image }}" alt="{{$product->image }}" height="150" ></td>
                     {{-- <td>{{ $product->id_type }}</td> --}}
                     <td scope="row">
                       @switch($product->id_type)
@@ -67,7 +67,7 @@
                         <i class="icon-plus-sign"></i>
                       </i>
                     </label></td> --}}
-                    <td>{{ $product->unit }}</td>
+                    {{-- <td>{{ $product->unit }}</td> --}}
                     <td><a class="btn btn-primary btn-sm " href="{{ route('products.edit', $product->id) }}" role="button">Edit</a></td>
                     <td>
                       <form action="{{ route('products.destroy', $product->id) }}" method="post">

@@ -41,13 +41,13 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 <!------------------------------------------------------------------------------>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="category">unit</label>
         <input type="text" name="unit" id="unit" class="form-control" value="{{ isset($products)?$products->unit:'' }}" required>
     </div>
     @error('category')
         <div class="alert alert-danger">{{ $message }}</div>
-    @enderror
+    @enderror --}}
 <!------------------------------------------------------------------------------>
     <div class="form-group">
         <label for="new_price">Price</label>

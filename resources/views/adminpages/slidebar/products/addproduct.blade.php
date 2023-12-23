@@ -43,13 +43,13 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     <!------------------------------------------------------------------------------>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="category">unit</label>
             <input type="text" name="unit" id="unit" class="form-control" required>
         </div>
         @error('category')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        @enderror --}}
     <!------------------------------------------------------------------------------>
         <div class="form-group">
             <label for="new_price">Price</label>
@@ -64,6 +64,18 @@
             <input type="text" name="promotion_price" id="promotion_price" class="form-control" required>
         </div>
         @error('old_price')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    <!------------------------------------------------------------------------------>
+        <div class="form-group">
+            <label for="id_type">Danh Mục</label>
+            <select name="id_type" id="id_type" class="form-control" required>
+                <option value="1" @if(isset($products) && $products->id_type == 1) selected @endif>Cà Phê</option>
+                <option value="2" @if(isset($products) && $products->id_type == 2) selected @endif>Giải Khát</option>
+                <option value="3" @if(isset($products) && $products->id_type == 3) selected @endif>Nước Ngọt</option>
+            </select>
+        </div>
+        @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     <!------------------------------------------------------------------------------>
