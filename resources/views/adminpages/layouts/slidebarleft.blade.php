@@ -37,6 +37,10 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
                     <a href="/dashboard">
+                        <i class="material-icons">dashboard</i>
+                        <span>dashboard</span>
+                    </a>
+                    <a href="/">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>

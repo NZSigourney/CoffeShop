@@ -106,8 +106,8 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="cta-content">
-                    <h2>Send us a <em>message</em></h2>
-                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                    <h2>CỨ LIÊN LẠC NẾU CẦN <em>CHÚNG TÔI</em></h2>
+                    <p>Chỉ cần bạn muốn góp ý/khiếu nại chúng tôi sẵn sàng tiếp nhận!</p>
                     <div class="main-button">
                         <a href="{{ route('contact') }}">Contact us</a>
                     </div>

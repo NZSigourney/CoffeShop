@@ -8,8 +8,8 @@
                 <div class="cta-content">
                     <br>
                     <br>
-                    <h2>Our <em>Menu</em></h2>
-                    <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                    <h2><em>Menu</em> của chúng tôi</h2>
+                    <p>Có những ly Nước, Cafe giải khát siêu đỉnh!</p>
                 </div>
             </div>
         </div>

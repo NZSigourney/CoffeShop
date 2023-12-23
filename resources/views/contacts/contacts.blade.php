@@ -1,14 +1,14 @@
 @extends('layouts.master')
 @section('content')
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(/source/assets/images/banner-image-1-1920x500.jpg)">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-10 offset-lg-1">
 				<div class="cta-content">
 					<br>
 					<br>
-					<h2>Feel free to <em>Contact Us</em></h2>
-					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+					<h2>Hãy liên lạc với chúng tôi <em>Nếu bạn cần</em></h2>
+					<p>bạn có thể khiếu nại, góp ý tại đây!</p>
 				</div>
 			</div>
 		</div>
@@ -22,7 +22,7 @@
 			<div class="col-lg-6 offset-lg-3">
 				<div class="section-heading">
 					<h2>contact <em> info</em></h2>
-					<img src="assets/images/line-dec.png" alt="waves">
+					<img src="/source/assets/images/line-dec.png" alt="waves">
 					
 				</div>
 			</div>
