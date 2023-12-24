@@ -69,7 +69,7 @@
                                     <td>{{$item->name }}</td>
                                     <td>{{$item->description }}</td>
                                    
-                                    <td><img src="/images/{{$item->image }}" alt="{{$item->image }}" height="150" ></td>
+                                    <td><img src="/images/category/{{$item->image }}" alt="{{$item->image }}" height="150" ></td>
                                     <td>
                                         <a href="{{route('admin.getCateEdit',['id'=> $item->id ])}}" class="btn btn-success" >
                                             <i class="fas fa-edit"></i>

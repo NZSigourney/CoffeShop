@@ -26,6 +26,7 @@
                                     <th scope="col">name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Message</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,13 +47,11 @@
                                             </select>
                                             <input type="submit" value="update" class="btn btn-primary btn-sm">
                                         </form>
-                                    </td>
-                                    <td>
-                                    <form action="{{ route('admin.contact.delete', $ct->ID) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="submit" value="xóa" class="btn btn-primary btn-sm">
-                                    </form>
+                                        <form action="{{ route('admin.contact.delete', $ct->ID) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" value="xóa" class="btn btn-primary btn-sm">
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

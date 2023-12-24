@@ -18,7 +18,7 @@ class ContactController extends Controller
 
     public function getContactMail(){
         $contact = Contact::all();
-        return view('adminpages.user.contacts.contacts', ['contacts' => $contact]);
+        return view('adminpages.slidebar.user.contacts.contacts', ['contacts' => $contact]);
     }
 
     public function postContactMail(Request $request){
