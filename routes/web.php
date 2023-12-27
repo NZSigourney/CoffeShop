@@ -50,6 +50,7 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 
 Route::get('checkout', [PageController::class, 'getCheckout'])->name('banhang.getdathang');
 Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
+// Route::get('show', [PageController::class, 'showcart'])->name('banhang.showcart');
 
 // Shopping cart
 
@@ -66,6 +67,10 @@ Route::post('dangky',[PageController::class,'postSignin'])->name('postsignin');
 // Login Page
 Route::get('dangnhap', [UserController::class, 'getLogin'])->name('admin.getLogin');
 Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postLogin');
+
+// Change Password
+Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
+Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // Admin page
 Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

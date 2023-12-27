@@ -50,7 +50,7 @@ class UserController extends Controller
             }
             // return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
         }else{
-            return redirect()->back()->with(['flag' => 'danger', 'error' => 'Đăng nhập không thành công']);
+            return redirect()->back()->with(['flag' => 'danger', 'message' => 'Đăng nhập không thành công']);
         }
     }
 

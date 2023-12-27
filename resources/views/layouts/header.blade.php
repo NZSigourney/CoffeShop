@@ -29,6 +29,7 @@
                                     @if(Auth::check())
                                     {{-- Nếu người dùng đã đăng nhập --}}
                                     <i class="fa fa-user" style="text-align: center; vertical-align: middle"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i>
+                                    <i class="fa-solid fa-lock" style="text-align: center; vertical-align: middle"><a href="{{route('user.getChangePwd')}}" style="color: black">Đổi Mật Khẩu</a></i>
                                     <form action="{{ route('getLogout') }}" method="post">
                                         @csrf
                                         {{-- <a href="#" class="btn btn-sm btn-danger">Đăng xuất</a> --}}

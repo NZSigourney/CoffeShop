@@ -86,6 +86,10 @@ class PageController extends Controller
         return view('checkout');
     }
 
+    public function showcart(){
+        return view('navbar.cartbutton.show');
+    }
+
     public function postCheckout(Request $request){
        
         $cart=Session::get('cart');
@@ -133,6 +137,13 @@ class PageController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product,$id);
         $request->session()->put('cart',$cart);
+
+        // if($request->ajax()) {
+        //     $cartItems = $cart->items;
+        //     $view = view('navbar.cartbutton.show', compact('cartItems'))->render();
+        //     return response()->json(['html' => $view]); 
+        // }
+
         Session::flash('success', 'Add to cart success!');
         return redirect()->back();
     }
@@ -185,12 +196,12 @@ class PageController extends Controller
         $user->full_name = $req->full_name;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
-        // $user->repassword = $req->repassword;
+        $user->repassword = $req->repassword;
         $user->phone = $req->phone;
         $user->address = $req->address;
         $user->level = 3;  //level=1: admin; level=2:kỹ thuật; level=3: khách hàng
         $user->save();
-        return redirect()->back()->with('success','Tạo tài khoản thành công');
+        return redirect()->route('admin.getLogin')->with('success','Tạo tài khoản thành công');
      }
 
      public function getSearch(Request $request){

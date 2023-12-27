@@ -20,7 +20,7 @@
 					<br>
 					<br>
 					<h2>Giỏ hàng của <em>Bạn</em></h2>
-					<p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+					{{-- <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p> --}}
 				</div>
 			</div>
 		</div>
@@ -98,7 +98,7 @@
                                 @isset($productCarts)
                                 @foreach ($productCarts as $cart)
                                 <div class="media">
-                                    <img width="25%" src="/images/{{ $cart['item']->image }}" alt="" class="pull-left">
+                                    <img width="25%" src="/images/products/{{ $cart['item']->image }}" alt="" class="pull-left">
                                     <div class="media-body">
                                         <p class="font-large">{{ $cart['item']->name }}</p>
                                         <span class="color-gray your-order-info">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):

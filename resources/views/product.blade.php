@@ -34,7 +34,7 @@
             <div class="col-lg-4">
                 <div class="trainer-item">
                     <div class="image-thumb">
-                        <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
+                        <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/products/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
                     </div>
                     <div class="down-content">
                         <span>
