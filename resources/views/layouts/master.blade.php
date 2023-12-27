@@ -49,6 +49,7 @@
     <link href="/assets/fontawesome/fontIcon/css/fontawesome.css" rel="stylesheet">
     <link href="/assets/fontawesome/fontIcon/css/brands.css" rel="stylesheet">
     <link href="/assets/fontawesome/fontIcon/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/header.css">
     {{-- End --}}
     @yield('css')
 </head>

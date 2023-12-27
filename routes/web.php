@@ -61,8 +61,8 @@ Route::get('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang
 
 // singin page
 
-Route::get('dangky',[PageController::class,'getSignin'])->name('getsignin');
-Route::post('dangky',[PageController::class,'postSignin'])->name('postsignin');
+Route::get('dangky',[UserController::class,'getSignin'])->name('getsignin');
+Route::post('dangky',[UserController::class,'postSignin'])->name('postsignin');
 
 // Login Page
 Route::get('dangnhap', [UserController::class, 'getLogin'])->name('admin.getLogin');
@@ -71,6 +71,9 @@ Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postL
 // Change Password
 Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
 Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
+
+// profile
+Route::get('profile', [UserController::class, 'getProfile']);
 
 // Admin page
 Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

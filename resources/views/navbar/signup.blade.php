@@ -25,6 +25,8 @@
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Login/css/util.css">
     <link rel="stylesheet" type="text/css" href="Login/css/main.css">
+
+    <link rel="stylesheet" href="/assets/css/login.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -50,6 +52,7 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
+                    <a class="back-btn" href="javascript:history.back()">Back</a>
                     <form class="login100-form validate-form">
                         <span class="login100-form-title p-b-26">
                             Welcome

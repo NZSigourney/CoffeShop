@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -24,6 +25,11 @@ class UserController extends Controller
     public function sanpham(){
         $products = Product::where('new', 1)->get();
         return view('adminpages.slidebar.products.product', ['products' => $products]);
+    }
+
+    public function getProfile()
+    {
+        return view('navbar.profiles.profile');
     }
 
     public function getLogin(){
@@ -163,5 +169,39 @@ class UserController extends Controller
         $users->level = $request->level;
         $users->save();
         return redirect()->route('users.index')->with('success','Bạn đã cập nhật thành công');
+    }
+
+    // Khu vuc signin
+    public function getSignin(){
+        return view('navbar.signup');
+    }
+
+    public function postSignin(Request $req){
+        $this->validate($req,
+        [
+            'email'=>'required|email|unique:users,email',
+            'password'=>'required|min:6|max:20',
+            'full_name'=>'required',
+            'repassword'=>'required|same:password'
+        ],
+        [
+            'email.required'=>'Vui lòng nhập email',
+            'email.email'=>'Không đúng định dạng email',
+            'email.unique'=>'Email đã có người sử  dụng',
+            'password.required'=>'Vui lòng nhập mật khẩu',
+            'repassword.same'=>'Mật khẩu không giống nhau',
+            'password.min'=>'Mật khẩu ít nhất 6 ký tự'
+        ]);
+
+        $user=new User();
+        $user->full_name = $req->full_name;
+        $user->email = $req->email;
+        $user->password = Hash::make($req->password);
+        $user->repassword = $req->repassword;
+        $user->phone = $req->phone;
+        $user->address = $req->address;
+        $user->level = 3;  //level=1: admin; level=2:kỹ thuật; level=3: khách hàng
+        $user->save();
+        return redirect()->route('admin.getLogin')->with('success','Tạo tài khoản thành công');
     }
 }
