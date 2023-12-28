@@ -23,7 +23,7 @@
                         </li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         @if (Auth::check())
-                        <a href="/profile" class="UserProfile"><i class="fa fa-user"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i></a>
+                        <a href="{{ route('user.Profiles') }}" class="UserProfile"><i class="fa fa-user"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i></a>
                         @else
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>

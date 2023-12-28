@@ -97,7 +97,7 @@
                       <h6 class="mb-0">Phone</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{ Auth::user()->phone_number}}
+                      {{ Auth::user()->phone}}
                     </div>
                   </div>
                   <hr>
@@ -113,7 +113,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                      <a class="btn btn-info " href="{{ route('user.GetEditProfile', ['id' => Auth::user()->id]) }}">Edit</a>
                     </div>
                   </div>
                 </div>
@@ -175,9 +175,6 @@
                   </div>
                 </div>
               </div> --}}
-
-
-
             </div>
           </div>
 

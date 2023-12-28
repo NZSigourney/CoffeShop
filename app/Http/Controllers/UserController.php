@@ -27,11 +27,6 @@ class UserController extends Controller
         return view('adminpages.slidebar.products.product', ['products' => $products]);
     }
 
-    public function getProfile()
-    {
-        return view('navbar.profiles.profile');
-    }
-
     public function getLogin(){
         return view('navbar.login');
     }
@@ -203,5 +198,49 @@ class UserController extends Controller
         $user->level = 3;  //level=1: admin; level=2:kỹ thuật; level=3: khách hàng
         $user->save();
         return redirect()->route('admin.getLogin')->with('success','Tạo tài khoản thành công');
+    }
+
+    public function getProfile()
+    {
+        // $users = User::all();
+        return view('navbar.profiles.profile');
+    }
+
+    public function getEditProfile(string $id)
+    {
+        $users = User::find($id);
+        return view('navbar.profiles.editprofile', ['users' => $users]);
+    }
+
+    public function postEditProfile(Request $request, string $id)
+    {
+        $this->validate($request, [
+            'full_name' => 'required',
+            // 'password' => 'required',
+            'email' => 'required|email:rfc,dns',
+            'address' => 'required',
+        ],[
+            'full_name.required' => 'Bạn chưa nhập tên!',
+            // 'password.required' => 'Bạn chưa nhập mật khẩu!',
+            'email.required' => 'Bạn chưa nhập Email!',
+            'email.email' => 'Bạn nhập không đúng định dạng Email!',
+            'address.required' => 'Bạn chưa nhập địa chỉ!',
+        ]);
+        
+        // $product = Product::find($id);
+        $users = User::findOrFail($id);
+        $users->full_name = $request->full_name;
+        // $users->password = $request->password;
+        $users->email = $request->email;
+        $users->address = $request->address;
+        // $users->level = $request->level;
+        $users->save();
+
+        DB::table('users')->where('id', $id)->update([
+            'full_name' => $users->full_name,
+            'email' => $users->email,
+            'address' => $users->address
+        ]);
+        return redirect()->route('users.index')->with('success','Bạn đã cập nhật thành công');
     }
 }

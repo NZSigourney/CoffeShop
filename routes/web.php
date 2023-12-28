@@ -68,12 +68,18 @@ Route::post('dangky',[UserController::class,'postSignin'])->name('postsignin');
 Route::get('dangnhap', [UserController::class, 'getLogin'])->name('admin.getLogin');
 Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postLogin');
 
+
+
 // Change Password
 Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
 Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // profile
-Route::get('profile', [UserController::class, 'getProfile']);
+Route::get('profile', [UserController::class, 'getProfile'])->name('user.Profiles');
+Route::get('profile/{id}', [UserController::class, 'getEditProfile'])->name('user.GetEditProfile');
+Route::post('profile/{id}', [UserController::class, 'postEditProfile'])->name('user.PostEditProfile');
+
+Route::resource('users', UserController::class);
 
 // Admin page
 Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -129,7 +135,6 @@ Route::get('createadminaccount', [UserController::class, 'create']);
 // Route::get('/admin/createuser', [UserController::class, 'store'])->name('users.store');
 
 Route::get('adminaccounts', [UserController::class, 'useraccount']);
-Route::resource('users', UserController::class);
 
 
 
