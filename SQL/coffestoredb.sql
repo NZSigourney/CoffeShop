@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 23, 2023 lúc 04:57 PM
+-- Thời gian đã tạo: Th12 28, 2023 lúc 04:36 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -270,7 +270,7 @@ INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `p
 (5, 'pepsi', 2, 'chai nhựa', 17, 5000, '1703176408_tải xuống.jfif', 1, '2023-12-21 09:31:29', '2023-12-21 09:33:28'),
 (6, 'chanh', 2, 'chua', 28000, 5000, '1703176429_2.jpg', 1, '2023-12-21 09:32:35', '2023-12-21 09:33:49'),
 (7, 'Bánh donut', NULL, 'bánh ngọt', 23000, 5000, '1703224928_banh_donut_kem_trung_nhan_kem_beo_ngay_hap_dan.jpg', 1, '2023-12-21 23:02:08', '2023-12-21 23:02:08'),
-(8, 'Bánh nhân kem', NULL, 'bánh ngọt', 25000, 5000, '1703224999_banh_ngot_nhan_kem_vi_beo_ngot_thom_lung.jpg', 1, '2023-12-21 23:03:19', '2023-12-21 23:03:19');
+(8, 'Bánh nhân kem222', 1, 'asdasd', 25000, 5000, '1703384345_logo.png', 1, '2023-12-21 23:03:19', '2023-12-23 19:19:05');
 
 -- --------------------------------------------------------
 
@@ -350,9 +350,10 @@ INSERT INTO `type_products` (`id`, `name`, `description`, `image`, `created_at`,
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `repassword` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
@@ -365,10 +366,11 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `phone`, `address`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Long Thái', 'cpevnteam2018@gmail.com', '$2y$10$Mf15u7sBtICIYoysT6E6ZerAEFCkL/LJSdMCDH53XDlkxEQlc.0g6', '1232456789', '21 Ngo Quyen', 2, NULL, '2023-09-13 00:00:36', '2023-10-04 07:25:28'),
-(4, 'test', 'admin@gmail.com', '$2y$10$40XDoPFnuhJq3YBYZS/hpOVdNRZujIIljAtY0PCUHDdj0ApW9MzwC', '1232456789', 'đâsdadsa', 3, NULL, '2023-09-23 06:10:10', '2023-09-23 06:10:10'),
-(5, 'Tử Long', 'longthaithien98@gmail.com', '$2y$10$1i9twHtkmQVLevSoY.LjXuq/4UR8I5pYtP1ndzeMDywPgArJEM9yq', '0905116522', 'Hồ vương', 1, NULL, '2023-10-04 07:00:10', '2023-10-04 07:22:51');
+INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `repassword`, `phone`, `address`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'Long Thái', 'cpevnteam2018@gmail.com', '$2y$10$2sRNgAPrIMEhhJrlP3OMNuGzhBKjipgbkNBVFvEAEtHZw/tP/iaVO', NULL, '1232456789', '21 Ngo Quyen', 3, NULL, '2023-09-13 00:00:36', '2023-12-27 02:04:19'),
+(4, 'test', 'admin@gmail.com', '$2y$10$40XDoPFnuhJq3YBYZS/hpOVdNRZujIIljAtY0PCUHDdj0ApW9MzwC', NULL, '1232456789', 'đâsdadsa', 3, NULL, '2023-09-23 06:10:10', '2023-09-23 06:10:10'),
+(5, 'Tử Long', 'longthaithien98@gmail.com', '$2y$10$CwChrUdSXR9VvTTp6.2Q1.Ad9E44RQ//Kn9cQrjh4fMHtGs9wsCXy', NULL, '0905116522', 'Hồ vương', 1, NULL, '2023-10-04 07:00:10', '2023-12-28 01:44:52'),
+(6, 'Duy Vũ', 'blackdergamming@gmail.com', '$2y$10$HKO34J6nEY//qeoPaj9AceQpYZab.glDxM61fGddl/5cjfZdBQKmu', 'thienlong2003', '09123456789', '01 ngo quyen', 3, NULL, '2023-12-27 02:28:29', '2023-12-27 02:28:29');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -515,7 +517,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `slide`
@@ -539,7 +541,7 @@ ALTER TABLE `type_products`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
