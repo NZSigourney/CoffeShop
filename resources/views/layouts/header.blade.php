@@ -23,26 +23,24 @@
                         </li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         @if (Auth::check())
-                        <a href="{{ route('user.Profiles') }}" class="UserProfile"><i class="fa fa-user"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i></a>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
+                            <div class="dropdown-menu">
+                                <a href="{{ route('user.Profiles') }}" class="UserProfile"><i class="fa-solid fa-user" style="color: black">My Profiles</i></a>
+                                <form action="{{ route('getLogout') }}" method="post">
+                                    @csrf
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-right-from-bracket"></i></a>
+                                </form>
+                            </div>
+                        </li>
                         @else
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
                             <div class="dropdown-menu">
                                 <a href="#">
-                                    {{-- Nếu người dùng đã đăng nhập --}}
-                                    {{-- <i class="fa fa-user" style="text-align: center; vertical-align: middle"><span class="text-success">Welcome, {{ Auth::user()->full_name }}!</span></i> --}}
-                                    {{-- <form action="{{ route('getLogout') }}" method="post">
-                                        @csrf
-                                        <a href="#" class="btn btn-sm btn-danger">Đăng xuất</a>
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-sign-out">Đăng xuất</i></button>
-                                    </form> --}}
-                                    {{-- <i class="fa-solid fa-lock" style="text-align: center; vertical-align: middle"><a href="{{route('user.getChangePwd')}}" style="color: black">Đổi Mật Khẩu</a></i> --}}
-                                    
-                                      {{-- Nếu người dùng chưa đăng nhập --}}
                                     <a href="/dangnhap" style="text-align: center; vertical-align: middle; color:black">Đăng nhập</a>
                                     <a href="/dangky" style="text-align: center; vertical-align: middle; color:black">Đăng kí</a>
-                                    
-                                  </a>                                
+                                </a>                                
                             </div>
                         </li>
                         @endif 

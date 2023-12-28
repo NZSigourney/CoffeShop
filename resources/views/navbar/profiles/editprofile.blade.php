@@ -3,6 +3,21 @@
     <link rel="stylesheet" href="/assets/css/profiles/editprofiles.css">
 @endsection
 @section('content')
+<section class="section section-bg" id="call-to-action" style="background-image: url(/source/assets/images/banner-image-1-1920x500.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<div class="cta-content">
+					<br>
+					<br>
+					<h2>Thông tin cá nhân của <em>Bạn</em></h2>
+					{{-- <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <div class="container">
     <div class="main-body">
         <div class="row">
@@ -10,13 +25,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                             <div class="mt-3">
-                                <h4>John Doe</h4>
-                                <p class="text-secondary mb-1">Full Stack Developer</p>
+                                <h4>{{ Auth::user()->full_name }}</h4>
+                                {{-- <p class="text-secondary mb-1">Full Stack Developer</p>
                                 <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                 <button class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button>
+                                <button class="btn btn-outline-primary">Message</button> --}}
                             </div>
                         </div>
                         <hr class="my-4">
@@ -49,7 +64,7 @@
                 <div class="card">
                     <div class="card-body">
                         {{-- @foreach ($users as $user) --}}
-                        <form action="{{route('user.PostEditProfile', $users->id)}}" method="post">
+                        <form action="{{route('user.PostEditProfile', Auth::user()->id)}}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row mb-3">
@@ -87,7 +102,7 @@
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
-                                    <a class="btn btn-info">Save Changes</a>
+                                    <a class="btn btn-info" type="submit">Save Changes</a>
                                 </div>
                             </div>
                         </form>

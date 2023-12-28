@@ -77,7 +77,9 @@ Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('use
 // profile
 Route::get('profile', [UserController::class, 'getProfile'])->name('user.Profiles');
 Route::get('profile/{id}', [UserController::class, 'getEditProfile'])->name('user.GetEditProfile');
-Route::post('profile/{id}', [UserController::class, 'postEditProfile'])->name('user.PostEditProfile');
+Route::put('profile/{id}', [UserController::class, 'postEditProfile'])->name('user.PostEditProfile');
+
+// Route::get('profile/{id}', [UserController::class, 'getTestProfile'])->name('user.GetTestProfile');
 
 Route::resource('users', UserController::class);
 

@@ -236,11 +236,11 @@ class UserController extends Controller
         // $users->level = $request->level;
         $users->save();
 
-        DB::table('users')->where('id', $id)->update([
-            'full_name' => $users->full_name,
-            'email' => $users->email,
-            'address' => $users->address
-        ]);
+        // DB::table('users')->where('id', $id)->update([
+        //     'full_name' => $users->full_name,
+        //     'email' => $users->email,
+        //     'address' => $users->address
+        // ]);
         return redirect()->route('users.index')->with('success','Bạn đã cập nhật thành công');
     }
 }
