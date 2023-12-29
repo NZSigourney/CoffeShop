@@ -85,15 +85,17 @@ Route::put('profile/{id}', [ProfileController::class, 'postEditProfiles'])->name
 Route::resource('users', UserController::class);
 
 // Admin page
-Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-// Route::post('dangnhap', [AdminLoginMiddleware::class, 'handle']);
+
+Route::middleware(['AdminLoginMiddleware'])->group(function(){
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
 
 // // Admin Page - Login
 // Route::get('/admin/dangnhap', [UserController::class, 'getLogin'])->name('admin.getLogin');
 // Route::post('/admin/dangnhap', [UserController::class, 'postLogin'])->name('admin.postLogin');
 
 // Admin Page - Logout
-Route::post('dangxuat', [UserController::class, 'getLogout'])->name('getLogout');
+Route::get('dangxuat', [UserController::class, 'getLogout'])->name('getLogout');
 
 // Admin Page - Group
 
