@@ -111,7 +111,9 @@
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-info " href="{{ route('user.GetEditProfile', ['id' => Auth::user()->id]) }}">Edit</a>
+                @if(Auth::check())
+                <a class="btn btn-info " href="{{ route('user.GetEditProfile', $users->id) }}" role="button">Edit</a>
+                @endif
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>
                             <div class="dropdown-menu">
-                                <a href="{{ route('user.Profiles') }}" class="UserProfile"><i class="fa-solid fa-user" style="color: black">My Profiles</i></a>
+                                <a href="{{route('user.Profiles')}}" class="UserProfile"><i class="fa-solid fa-user" style="color: black">My Profiles</i></a>
                                 <form action="{{ route('getLogout') }}" method="post">
                                     @csrf
                                     <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-right-from-bracket"></i></a>

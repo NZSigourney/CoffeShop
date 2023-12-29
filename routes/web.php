@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailControler;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminLoginMiddleware;
@@ -75,9 +76,9 @@ Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.g
 Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // profile
-Route::get('profile', [UserController::class, 'getProfile'])->name('user.Profiles');
-Route::get('profile/{id}', [UserController::class, 'getEditProfile'])->name('user.GetEditProfile');
-Route::put('profile/{id}', [UserController::class, 'postEditProfile'])->name('user.PostEditProfile');
+Route::get('profile', [ProfileController::class, 'getProfiles'])->name('user.Profiles');
+Route::get('profile/{id}', [ProfileController::class, 'getEditProfiles'])->name('user.GetEditProfile');
+Route::put('profile/{id}', [ProfileController::class, 'postEditProfiles'])->name('user.PostEditProfile');
 
 // Route::get('profile/{id}', [UserController::class, 'getTestProfile'])->name('user.GetTestProfile');
 
@@ -132,7 +133,7 @@ Route::get('addproducts', [ProductController::class, 'create']);
 
 // User Admin
 Route::get('/admin/edituser', [UserController::class, 'edit'])->name('users.edit');
-Route::get('/admin/deleteuser', [UserController::class, 'destroy'])->name('users.destroy');
+Route::delete('/admin/deleteuser/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::get('createadminaccount', [UserController::class, 'create']);
 // Route::get('/admin/createuser', [UserController::class, 'store'])->name('users.store');
 
