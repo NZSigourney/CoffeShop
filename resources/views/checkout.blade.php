@@ -49,7 +49,7 @@
     @endif
     <div id="content">
         
-        <form action="{{ route('banhang.postdathang') }}" method="post" class="beta-form-checkout">
+        <form action="{{ route('banhang.postdathang') }}" method="POST" class="beta-form-checkout">
             @csrf
             <div class="row">
                 <div class="col-sm-6">
@@ -105,9 +105,9 @@
                                             number_format($cart['item']->unit_price, 0) }}</span>
                                         <span class="color-gray your-order-info">{{ $cart['qty'] }}</span>
                                         <!-- Thêm nút xóa -->
-                                        <form action="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" method="post">
+                                        <form action="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" method="POST">
                                             @csrf
-                                            @method('DELETE')
+                                            @method('delete')
                                             <button type="submit" class="btn btn-danger">Remove</button>
                                         </form>
                                     </div>

@@ -50,7 +50,7 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
 Route::get('checkout', [PageController::class, 'getCheckout'])->name('banhang.getdathang');
-Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
+Route::delete('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
 // Route::get('show', [PageController::class, 'showcart'])->name('banhang.showcart');
 
 // Shopping cart
@@ -58,7 +58,7 @@ Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.
 Route::get('cart', [PageController::class, 'cart'])->name('cart.detailed');
 
 Route::get('add-to-cart/{id}',[PageController::class,'addToCart'])->name('banhang.addToCart');
-Route::get('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');
+Route::post('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');
 
 // singin page
 
@@ -73,7 +73,7 @@ Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postL
 
 // Change Password
 Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
-Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
+Route::delete('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // profile
 Route::get('profile', [ProfileController::class, 'getProfiles'])->name('user.Profiles');
@@ -99,31 +99,20 @@ Route::get('dangxuat', [UserController::class, 'getLogout'])->name('getLogout');
 
 // Admin Page - Group
 
-Route::group(['prefix' => 'admin', 'middleware' => 'AdminLoginMiddleware'], function(){
-    Route::group(['prefix' => 'category'], function(){
-        Route::get('danhsach', [CategoryController::class, 'getCatelist'])->name('admin.getCateList');
-        Route::get('them', [CategoryController::class, 'getCateAdd'])->name('admin.getCateAdd');
-        Route::post('them', [CategoryController::class, 'postCateAdd'])->name('admin.postCateAdd');
-        Route::get('xoa/{id}', [CategoryController::class, 'getCateDelete'])->name('admin.getCateDelete');
-        Route::get('sua/{id}', [CategoryController::class, 'getCateEdit'])->name('admin.getCateEdit');
-        Route::post('sua/{id}', [CategoryController::class, 'postCateEdit'])->name('admin.postCateEdit');
-    });
+// Route::group(['prefix' => 'admin', 'middleware' => 'AdminLoginMiddleware'], function(){
+//     Route::group(['prefix' => 'category'], function(){
+//         Route::get('danhsach', [CategoryController::class, 'getCatelist'])->name('admin.getCateList');
+//         Route::get('them', [CategoryController::class, 'getCateAdd'])->name('admin.getCateAdd');
+//         Route::post('them', [CategoryController::class, 'postCateAdd'])->name('admin.postCateAdd');
+//         Route::get('xoa/{id}', [CategoryController::class, 'getCateDelete'])->name('admin.getCateDelete');
+//         Route::get('sua/{id}', [CategoryController::class, 'getCateEdit'])->name('admin.getCateEdit');
+//         Route::post('sua/{id}', [CategoryController::class, 'postCateEdit'])->name('admin.postCateEdit');
+//     });
 
-    Route::group(['prefix' => 'product_detail'], function(){
-        Route::get('detailed-product', [PageController::class, 'getChiTiet'])->name('admin.getDetailProduct');
-    });
-
-    // Route::group(['prefix' => 'administrator'], function(){
-    //     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    // });
-
-    // Route::group(['prefix' => 'bills'], function(){
-    //     Route::get('billList', [BillController::class, 'index'])->name('admin.getBillList');
-    //     Route::get('sua/{id}', [BillController::class, 'edit'])->name('admin.getBillEdit');
-    //     Route::post('sua/{id}', [BillController::class, 'update'])->name('admin.postBillEdit');
-    //     Route::get('xoa/{id}', [CategoryController::class, 'destroy'])->name('admin.getBillDelete');
-    // });
-});
+//     Route::group(['prefix' => 'product_detail'], function(){
+//         Route::get('detailed-product', [PageController::class, 'getChiTiet'])->name('admin.getDetailProduct');
+//     });
+// });
 
 // San pham admin
 Route::get('sanpham-admin', [UserController::class, 'sanpham']);
