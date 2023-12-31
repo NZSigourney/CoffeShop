@@ -123,7 +123,7 @@ Route::get('addproducts', [ProductController::class, 'create']);
 // Route::get('products', [ProductController::class, 'index'])->name('sanphamadmin');
 
 // User Admin
-Route::get('/admin/edituser', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/admin/edituser/{id}', [UserController::class, 'edit'])->name('users.edit');
 Route::delete('/admin/deleteuser/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::get('createadminaccount', [UserController::class, 'create']);
 // Route::get('/admin/createuser', [UserController::class, 'store'])->name('users.store');

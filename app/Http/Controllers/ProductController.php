@@ -38,7 +38,8 @@ class ProductController extends Controller
                 'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
                 'description' => 'required',
                 'unit_price' => 'required',
-                'promotion_price' => 'required'
+                'promotion_price' => 'required',
+                'id_type' => 'required',
                 // 'unit' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
@@ -46,7 +47,8 @@ class ProductController extends Controller
                 'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
                 'descrtiption.required' => 'Bạn chưa nhập mô tả',
                 'unit_price.required' => 'Bạn chưa nhập giá gốc',
-                'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi'
+                'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
+                'id_type.required' => 'vui lòng chọn danh mục'
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
             $file = $request->file('image');
@@ -60,14 +62,16 @@ class ProductController extends Controller
                 'description' => 'required',
                 'unit_price' => 'required',
                 'promotion_price' => 'required',
-                'unit' => 'required'
+                'unit' => 'required',
+                'id_type' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
                 'image.required' => 'Bạn chưa chọn hình ảnh',
                 'descrtiption.required' => 'Bạn chưa nhập mô tả',
                 'unit_price.required' => 'Bạn chưa nhập giá gốc',
                 'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
-                'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
+                'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)',
+                'id_type.required' => 'vui lòng chọn danh mục'
             ]);
         }
 
@@ -77,6 +81,7 @@ class ProductController extends Controller
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
         $products->new = 1;
+        $products->id_type = $request->id_type;
         // $products->unit = $request->unit;
         $products->image = $name;
         $products->save();
@@ -107,7 +112,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $name='';
+        $img ='';
+        $products = Product::findOrFail($id);
+
         if($request->hasFile('image')){
             $this->validate($request,[
                 'name' => 'required',
@@ -115,6 +122,7 @@ class ProductController extends Controller
                 'image'=>'mimes:jpg,png,gif,jpeg|max: 2048',
                 'unit_price' => 'required',
                 'promotion_price' => 'required',
+                'id_type' => 'required'
                 // 'unit' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
@@ -122,6 +130,7 @@ class ProductController extends Controller
                 'image.mimes'=>'Chỉ chấp nhận file hình ảnh',
                 'image.max'=>'Chỉ chấp nhận hình ảnh dưới 2Mb',
                 'unit_price.required' => 'Bạn chưa nhập giá gốc',
+                'id_type.required' => 'vui lòng chọn danh mục',
                 'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
@@ -135,19 +144,20 @@ class ProductController extends Controller
                 'name' => 'required',
                 'description' => 'required',
                 'unit_price' => 'required',
-                'promotion_price' => 'required'
+                'promotion_price' => 'required',
+                'id_type' => 'required'
                 // 'unit' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
-                'descrtiption.required' => 'Bạn chưa nhập mô tả',
+                'description.required' => 'Bạn chưa nhập mô tả',
                 'unit_price.required' => 'Bạn chưa nhập giá gốc',
-                'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi'
+                'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
+                'id_type.required' => 'vui lòng chọn danh mục'
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
         }
-        
         // $product = Product::find($id);
-        $products = Product::findOrFail($id);
+        
         $products->name = $request->name;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
@@ -155,10 +165,10 @@ class ProductController extends Controller
         //$product->image = $request->image;
         // $products->unit = $request->unit;
         $products->id_type = $request->id_type;
-        if($name == ''){
-            $name = $products->image;
+        if($img == ''){
+            $img = $products->image;
         }
-        $products->image = $name;
+        $products->image = $img;
         $products->save();
         return redirect()->route('products.index')->with('success','Bạn đã cập nhật thành công');
     }

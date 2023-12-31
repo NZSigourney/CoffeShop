@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="Login/css/main.css">
 
     <link rel="stylesheet" href="/assets/css/login.css">
+    {{-- <link rel="stylesheet" href="/assets/css/product.css"> --}}
 <!--===============================================================================================-->
 </head>
 <body>
@@ -46,7 +47,7 @@
         @endif
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>    
-    <form action="{{ route('postsignin') }}" method="post" class="beta-form-checkout">
+    <form action="{{ route('postsignin') }}" method="post" class="beta-form-checkout" enctype="multipart/form-data">
         {{-- @method('POST') --}}
         @csrf
         <div class="limiter">
@@ -70,6 +71,16 @@
                             <input class="input100" type="email" name="email">
                             <span class="focus-input100" data-placeholder="Email"></span>
                         </div>
+
+                        <!------------------------------------------------------------------------------>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" id="image" class="form-control" required>
+                        </div>
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    <!------------------------------------------------------------------------------>
     
                         <div class="wrap-input100 validate-input" data-validate="Enter password">
                             <span class="btn-show-pass">
