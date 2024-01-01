@@ -139,6 +139,14 @@ class ProductController extends Controller
             $name = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('images/products'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/car
+
+            // Đảm bảo xóa hình ảnh cũ nếu có
+            if (!empty($products->image)) {
+                $oldImagePath = public_path('images/products/') . $products->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
         }else{
             $this->validate($request, [
                 'name' => 'required',
@@ -155,6 +163,7 @@ class ProductController extends Controller
                 'id_type.required' => 'vui lòng chọn danh mục'
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
+            $img = $products->image;
         }
         // $product = Product::find($id);
         
@@ -165,9 +174,9 @@ class ProductController extends Controller
         //$product->image = $request->image;
         // $products->unit = $request->unit;
         $products->id_type = $request->id_type;
-        if($img == ''){
-            $img = $products->image;
-        }
+        // if($img == ''){
+        //     $img = $products->image;
+        // }
         $products->image = $img;
         $products->save();
         return redirect()->route('products.index')->with('success','Bạn đã cập nhật thành công');

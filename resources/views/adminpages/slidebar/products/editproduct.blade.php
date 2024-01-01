@@ -35,8 +35,8 @@
 <!------------------------------------------------------------------------------>
     <div class="form-group">
         <label for="image">Image</label>
-        <img src="/images/products/{{$products->image}}" alt="">
-        <input type="file" name="image" id="image" class="form-control" value="{{$products->image}}" require="require">
+        <img src="/images/products/{{$products->image}}" alt="{{$products->image}}" style="margin: 15px 0 15px; width: auto; height: 150px;">
+        <input type="file" name="image" id="image" class="form-control" value="{{isset($products) ? $products->image: '' }}">
     </div>
     @error('image')
         <div class="alert alert-danger">{{ $message }}</div>

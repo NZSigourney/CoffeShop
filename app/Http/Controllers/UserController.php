@@ -124,14 +124,14 @@ class UserController extends Controller
             $name=time().'_'.$file->getClientOriginalName();
             $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $name);
-        }else{
+        } else {
             $this->validate($request, [
                 'full_name' => 'required',
                 'password' => 'required',
                 'email' => 'required|email:rfc,dns',
                 'phone' => 'required',
                 'address' => 'required',
-                // 'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
                 'level' => 'required|numeric'
             ],[
                 'full_name.required' => 'Bạn chưa nhập tên!',
@@ -140,8 +140,8 @@ class UserController extends Controller
                 'email.email' => 'Bạn nhập không đúng định dạng Email!',
                 'phone.required' => 'Bạn chưa nhập số điện thoại',
                 'address.required' => 'Bạn chưa nhập địa chỉ!',
-                // 'image.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
-                // 'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                'image.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
                 'level.required' => 'Bắt buộc phải nhập số Cấp bậc (Level)!',
                 'level.numeric' => 'Phải là số!'
             ]);
@@ -155,6 +155,10 @@ class UserController extends Controller
         $users->phone = $request->phone;
         $users->address = $request->address;
         $users->level = $request->level;
+        // $users->image = $request->image;
+        if($name == ''){
+            $users->image = $name;
+        }
         $users->image = $name;
         $users->save();
         return redirect('users')->with('success', 'Thêm mới thành công!');
@@ -171,29 +175,66 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $this->validate($request, [
-            'full_name' => 'required',
-            // 'password' => 'required',
-            'email' => 'required|email:rfc,dns',
-            'address' => 'required',
-            'level' => 'required|numeric'
-        ],[
-            'full_name.required' => 'Bạn chưa nhập tên!',
-            // 'password.required' => 'Bạn chưa nhập mật khẩu!',
-            'email.required' => 'Bạn chưa nhập Email!',
-            'email.email' => 'Bạn nhập không đúng định dạng Email!',
-            'address.required' => 'Bạn chưa nhập địa chỉ!',
-            'level.required' => 'Bắt buộc phải nhập số Cấp bậc (Level)!',
-            'level.numeric' => 'Phải là số!'
-        ]);
+        $avt = '';
+        $users = User::findOrFail($id);
+        if($request->hasFile('image')){
+            $this->validate($request, [
+                'full_name' => 'required',
+                // 'password' => 'required',
+                'email' => 'required|email:rfc,dns',
+                'address' => 'required',
+                'level' => 'required|numeric'
+            ],[
+                'full_name.required' => 'Bạn chưa nhập tên!',
+                // 'password.required' => 'Bạn chưa nhập mật khẩu!',
+                'email.required' => 'Bạn chưa nhập Email!',
+                'email.email' => 'Bạn nhập không đúng định dạng Email!',
+                'address.required' => 'Bạn chưa nhập địa chỉ!',
+                'level.required' => 'Bắt buộc phải nhập số Cấp bậc (Level)!',
+                'level.numeric' => 'Phải là số!'
+            ]);
+            $file = $request->file('image');
+            $avt=time().'_'.$file->getClientOriginalName();
+            $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $file->move($destinationPath, $avt);
+
+            // Đảm bảo xóa hình ảnh cũ nếu có
+            if (!empty($users->image)) {
+                $oldImagePath = public_path('images/users/') . $users->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+        }else{
+            $this->validate($request, [
+                'full_name' => 'required',
+                // 'password' => 'required',
+                'email' => 'required|email:rfc,dns',
+                'address' => 'required',
+                'level' => 'required|numeric'
+            ],[
+                'full_name.required' => 'Bạn chưa nhập tên!',
+                // 'password.required' => 'Bạn chưa nhập mật khẩu!',
+                'email.required' => 'Bạn chưa nhập Email!',
+                'email.email' => 'Bạn nhập không đúng định dạng Email!',
+                'address.required' => 'Bạn chưa nhập địa chỉ!',
+                'level.required' => 'Bắt buộc phải nhập số Cấp bậc (Level)!',
+                'level.numeric' => 'Phải là số!'
+            ]);
+            $avt = $users->image;
+        }
         
         // $product = Product::find($id);
-        $users = User::findOrFail($id);
         $users->full_name = $request->full_name;
         // $users->password = $request->password;
         $users->email = $request->email;
         $users->address = $request->address;
         $users->level = $request->level;
+        // $users->image = $request->image;
+        // if($avt == ''){
+        //     $avt = $users->image;
+        // }
+        $users->image = $avt;
         $users->save();
         return redirect()->route('users.index')->with('success','Bạn đã cập nhật thành công');
     }

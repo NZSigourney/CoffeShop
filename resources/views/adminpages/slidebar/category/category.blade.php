@@ -69,7 +69,7 @@
                                     <td>{{$item->name }}</td>
                                     <td>{{$item->description }}</td>
                                    
-                                    <td><img src="/images/category/{{$item->image }}" alt="{{$item->image }}" height="150" ></td>
+                                    <td><img src="/images/category/{{ $item->image }}" alt="{{$item->image }}" style="margin: 15px 0 15px; width: 150px; height: 150px; object-fit: cover;" ></td>
                                     <td>
                                         <a href="{{route('admin.getCateEdit',['id'=> $item->id ])}}" class="btn btn-success" >
                                             <i class="fas fa-edit"></i>

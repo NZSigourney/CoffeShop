@@ -29,19 +29,20 @@ class CategoryController extends Controller
     }
     public function postCateAdd(Request $request)
     {
+        $name = '';
         if ($request->hasfile('image')) {
             $this->validate($request, [
                 'image' => 'mimes:jpg,png,gif,jpeg|max: 2048',
                 'description' => 'required',
                 'name' => 'required',
-               
-            ], [
-                    'image.mimes' => 'Chỉ chấp nhận file hình ảnh',
-                    'image.max' => 'Chỉ chấp nhận hình ảnh dưới 2Mb',
-                    'description.required' => 'Bạn chưa nhập mô tả',
-                    'name.required' => 'Bạn chưa nhập name',
-                   
-                ]);
+            ],[
+                'image.mimes' => 'Chỉ chấp nhận file hình ảnh',
+                'image.max' => 'Chỉ chấp nhận hình ảnh dưới 2Mb',
+                'description.required' => 'Bạn chưa nhập mô tả',
+                'name.required' => 'Bạn chưa nhập name',
+                
+            ]);
+
             $file = $request->file('image');
             $name = time() . '_' . $file->getClientOriginalName();
             $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
@@ -50,13 +51,12 @@ class CategoryController extends Controller
             $this->validate($request, [
                 'description' => 'required',
                 'name' => 'required',
-               
-                'image' => 'required',
+                'image' => 'mimes:jpg,jpeg,png,gif|max:2048','image' => 'mimes:jpg,jpeg,png,gif|max:2048',
             ], [
                     'description.required' => 'Bạn chưa nhập mô tả',
                     'name.required' => 'Bạn chưa nhập name',
-                   
-                    'image.required' => 'Bạn chưa chọn hình ảnh',
+                    'image.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                    'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
                 ]);
         }
         $category = new Category;
@@ -73,6 +73,8 @@ class CategoryController extends Controller
     }
     
     public function postCateEdit(Request $request, string $id) {
+        $imgname = '';
+        $category = Category::findOrFail($id);
         if ($request->hasfile('image')) {
             $this->validate($request, [
                 'image' => 'mimes:jpg,png,gif,jpeg|max: 2048',
@@ -89,34 +91,44 @@ class CategoryController extends Controller
             $imgname = time() . '_' . $file->getClientOriginalName();
             $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $imgname); //lưu hình ảnh vào thư mục public/category
+
+            // Đảm bảo xóa hình ảnh cũ nếu có
+            if (!empty($category->image)) {
+                $oldImagePath = public_path('images/category/') . $category->image;
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
         } else {
             $this->validate($request, [
+                'image' => 'mimes:jpg,png,gif,jpeg|max: 2048',
                 'description' => 'required',
-                'name' => 'required',
-               
-                'image' => 'required',
+                'name' => 'required',   
             ], [
-                    'description.required' => 'Bạn chưa nhập mô tả',
-                    'name.required' => 'Bạn chưa nhập name',
-                   
-                    'image.required' => 'Bạn chưa chọn hình ảnh',
-                ]);
+                'image.mimes' => 'Chỉ chấp nhận file hình ảnh',
+                'image.max' => 'Chỉ chấp nhận hình ảnh dưới 2Mb',
+                'description.required' => 'Bạn chưa nhập mô tả',
+                'name.required' => 'Bạn chưa nhập name',
+            ]);
+            $imgname = $category->image;
         }
+        $category->description = $request->description;
+        $category->name = $request->name;
+        $category->image = $imgname;
+        $category->save();
        
-        $description = $request->description; 
-        $name = $request->name;
-        $image = $imgname;
+        // $description = $request->description; 
+        // $name = $request->name;
+        // $image = $request->image;
        
-        DB::table('type_products')->where('id', $id)->update([
-            'description' =>   $description ,
-            'name' =>  $name,
-           
-            'image'=> $image,
-           
-        ]);
+        // DB::table('type_products')->where('id', $id)->update([
+        //     'description' =>   $description ,
+        //     'name' =>  $name,
+        //     'image'=> $image,           
+        // ]);
         
         // return redirect(route('adminpages.category.getCateList'))->with('success','Cập nhật sản phẩm thành công!');
-        return redirect(route('admin.getCateList'))->with('success','Cập nhật sản phẩm thành công!');
+        return redirect()->route('admin.getCateList')->with('success','Cập nhật sản phẩm thành công!');
        
        
         // return redirect()->back()->with('success','Sửa danh mục thành công');

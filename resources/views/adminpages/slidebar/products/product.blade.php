@@ -40,7 +40,7 @@
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->name }}</td>
                     {{-- <td>{{ $product->image }}</td> --}}
-                    <td><img src="/images/products/{{$product->image }}" alt="{{$product->image }}" height="150" ></td>
+                    <td><img src="/images/products/{{$product->image }}" alt="{{$product->image }}" style="margin: 15px 0 15px; width: 150px; height: 150px; object-fit: cover;"></td>
                     {{-- <td>{{ $product->id_type }}</td> --}}
                     <td scope="row">
                       @switch($product->id_type)

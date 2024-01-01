@@ -24,6 +24,7 @@
                                 <tr>
                                     <th scope="col">#ID</th>
                                     <th scope="col">Full_name</th>
+                                    <th scope="col">Avatar</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Address</th>
@@ -33,8 +34,9 @@
                             <tbody>
                                 @foreach ($users as $user)
                                 <tr>
-                                    <th scope="row">{{ $user->id }}</th>
+                                    <th scope="row" style="text-content: center">{{ $user->id }}</th>
                                     <td scope="row">{{ $user->full_name}}</td>
+                                    <td scope="row"><img src="/images/users/{{ $user->image }}" alt="{{ $user->image }}" style="margin: 15px 0 15px; width: 150px; height: 150px; object-fit: cover;"></td>
                                     <td scope="row">{{ $user->email }}</td>
                                     <td scope="row">{{ $user->phone }}</td>
                                     <td scope="row">{{ $user->address }}</td>

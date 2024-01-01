@@ -28,6 +28,14 @@
     @enderror
     <!------------------------------------------------------------------------------>
     <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" class="form-control" required>
+    </div>
+    @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+    <!------------------------------------------------------------------------------>
+    <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" class="form-control" required>
     </div>

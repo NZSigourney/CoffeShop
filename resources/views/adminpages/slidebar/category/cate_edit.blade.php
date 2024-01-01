@@ -33,7 +33,7 @@
               
               <div class="form-group">
                   <label for="exampleFormControlFile1">Hình ảnh</label>
-                  <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ isset($cate)?$cate->image: "" }}">
+                  <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1" value="{{ isset($cate) ? $cate->image: "" }}">
                 </div>
                 @error('image')
                   <div class="alert alert-danger">{{ $message }}</div>

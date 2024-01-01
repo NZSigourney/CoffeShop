@@ -22,7 +22,7 @@
     @method('PUT')
     <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="full_name" id="name" class="form-control" value="{{ isset($users)?$users->full_name:'' }}" required>
+        <input type="text" name="full_name" id="name" class="form-control" value="{{ isset($users)?$users->full_name:'' }}" require="require">
     </div>
     @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -53,8 +53,17 @@
     @enderror
     <!------------------------------------------------------------------------------>
     <div class="form-group">
+        <label for="image">Image</label><br>
+        <img src="/images/users/{{ $users->image }}" alt="{{ $users->image }}" style="margin: 15px 0 15px">
+        <input type="file" name="image" id="image" class="form-control" value="{{ isset($users) ? $users->image: '' }}">
+    </div>
+    @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+    <!------------------------------------------------------------------------------>
+    <div class="form-group">
         <label for="address">Address</label>
-        <input type="text" name="address" id="address" class="form-control" value="{{ isset($users)?$users->address:'' }}" required>
+        <input type="text" name="address" id="address" class="form-control" value="{{ isset($users) ? $users->address : ''}}" required>
     </div>
     @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
