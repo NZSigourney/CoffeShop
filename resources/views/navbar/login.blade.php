@@ -37,7 +37,6 @@
                 <a class="back-btn" href="javascript:history.back()">Back</a>
                 <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout login100-form validate-form">
                     @csrf
-    
                     @if(session('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}

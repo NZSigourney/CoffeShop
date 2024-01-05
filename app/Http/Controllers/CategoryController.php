@@ -44,18 +44,22 @@ class CategoryController extends Controller
             $this->validate($request, [
                 'image' => 'mimes:jpg,png,gif,jpeg|max: 2048',
                 'description' => 'required',
-                'name' => 'required',
+                'name' => 'required|unique:type_products',
             ],[
                 'image.mimes' => 'Chỉ chấp nhận file hình ảnh',
                 'image.max' => 'Chỉ chấp nhận hình ảnh dưới 2Mb',
                 'description.required' => 'Bạn chưa nhập mô tả',
                 'name.required' => 'Bạn chưa nhập name',
-                
+                'name.unique' => 'Tên sản phẩm đã tồn tại. Vui lòng chọn tên khác.'
             ]);
 
             $file = $request->file('image');
-            $name = time() . '_' . $file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
             $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            // Kiểm tra xem hình ảnh đã tồn tại hay chưa
+            if (file_exists($destinationPath . '/' . $name)) {
+                return redirect()->route('admin.getCateList')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
+            }
             $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/category
         } else {
             $this->validate($request, [
@@ -74,7 +78,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->image = $name;
         $category->save();
-        return redirect()->back()->with('success','Thêm danh mục thành công');
+        return redirect()->route('admin.getCateList')->with('success','Thêm danh mục thành công');
     }
     
     public function getCateEdit(string $id) {
@@ -98,7 +102,7 @@ class CategoryController extends Controller
             ]);
             
             $file = $request->file('image');
-            $imgname = time() . '_' . $file->getClientOriginalName();
+            $imgname = $file->getClientOriginalName();
             $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $imgname); //lưu hình ảnh vào thư mục public/category
 
@@ -147,9 +151,55 @@ class CategoryController extends Controller
 //
     public function getCateDelete( string $id)
     {
-        //
-        Category::find($id)->delete();
-        // $id->delete();
-        return redirect()->back()->with('success','Xóa danh mục thành công');
+        // //
+        // Category::find($id)->delete();
+        // // $id->delete();
+        // return redirect()->back()->with('success','Xóa danh mục thành công');
+
+        $category = Category::find($id);
+
+        // Đảm bảo sản phẩm tồn tại
+        if (!$category) {
+            return redirect()->route('admin.getCateList')->with('message', 'Sản phẩm không tồn tại!');
+        }
+
+        // Lấy giá trị ID tiếp theo
+        // $nextId = DB::table('type_products')->max('id') + 1;
+
+        // // Đặt lại AUTO_INCREMENT thành giá trị tiếp theo sau khi xóa
+        // DB::statement("ALTER TABLE type_products AUTO_INCREMENT = $nextId");
+
+        // Kiểm tra xem có sản phẩm nào liên quan không
+        $relatedProducts = Product::where('id_type', $id)->get();
+
+        // Nếu có sản phẩm liên quan, xóa chúng trước
+        foreach ($relatedProducts as $product) {
+            // Xóa hình ảnh cũ nếu có
+            if (!empty($product->image)) {
+                $oldProductImagePath = public_path('images/products/') . $product->image;
+
+                // Kiểm tra xem tệp tin tồn tại trước khi xóa
+                if (file_exists($oldProductImagePath)) {
+                    unlink($oldProductImagePath);
+                }
+            }
+
+            $product->delete();
+        }
+
+        // Tiếp tục xóa category
+        // Xóa hình ảnh cũ nếu có
+        if (!empty($category->image)) {
+            $oldCategoryImagePath = public_path('images/category/') . $category->image;
+
+            // Kiểm tra xem tệp tin tồn tại trước khi xóa
+            if (file_exists($oldCategoryImagePath)) {
+                unlink($oldCategoryImagePath);
+            }
+        }
+
+        // Xóa category
+        $category->delete();
+        return redirect()->route('admin.getCateList')->with('message', 'Xóa thành công!');
     }
 }

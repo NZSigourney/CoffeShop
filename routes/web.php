@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SlideController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminLoginMiddleware;
@@ -119,7 +120,7 @@ Route::get('dangxuat', [UserController::class, 'getLogout'])->name('getLogout');
 Route::get('sanpham-admin', [UserController::class, 'sanpham']);
 
 Route::resource('products', ProductController::class);
-Route::get('addproducts', [ProductController::class, 'create']);
+// Route::get('addproducts', [ProductController::class, 'create']);
 
 // Route::get('products', [ProductController::class, 'index'])->name('sanphamadmin');
 
@@ -156,3 +157,6 @@ Route::get('table', [TableController::class, 'getTable'])->name('table');
 Route::post('table', [TableController::class, 'orderTable'])->name('orderTable');
 
 Route::get('search', [PageController::class, 'getSearch'])->name('user.getSearch');
+
+Route::resource('sliders', SlideController::class);
+Route::put('edit/slider/{id}', [SlideController::class, 'update'])->name('admin.SliderEdit');

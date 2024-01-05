@@ -45,13 +45,13 @@ class UserController extends Controller
         If(Auth::attempt($credentials)){
             $users = Auth::user();
             if($users->level == 1){
-                return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'message' => 'Đăng nhập trang quản trị viên thành công']);
+                return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'success' => 'Đăng nhập trang quản trị viên thành công']);
             }else{
-                return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
+                return redirect('/')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
             }
-            // return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
+            // return redirect('/')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
         }else{
-            return redirect()->back()->with(['flag' => 'danger', 'message' => 'Đăng nhập không thành công']);
+            return redirect()->back()->with(['flag' => 'danger', 'success' => 'Đăng nhập không thành công']);
         }
     }
 
@@ -70,9 +70,9 @@ class UserController extends Controller
     //     if($users){
     //         $level = $users->level;
     //         if($level == 1){
-    //             return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
+    //             return redirect('/')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
     //         }elseif($level == 2 || $level == 3){
-    //             return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
+    //             return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
     //         }
     //     }else{
     //         return redirect('/dangnhap')->with('error', 'Email hoặc mật khẩu không đúng');
@@ -103,13 +103,14 @@ class UserController extends Controller
             $this->validate($request, [
                 'full_name' => 'required',
                 'password' => 'required',
-                'email' => 'required|email:rfc,dns',
+                'email' => 'required|email:rfc,dns|unique:users',
                 'phone' => 'required',
                 'address' => 'required',
                 'image' => 'mimes:jpg,jpeg,png,gif|max:2048',
                 'level' => 'required|numeric'
             ],[
                 'full_name.required' => 'Bạn chưa nhập tên!',
+                'email.unique' => 'Email này đã tồn tại!',
                 'password.required' => 'Bạn chưa nhập mật khẩu!',
                 'email.required' => 'Bạn chưa nhập Email!',
                 'email.email' => 'Bạn nhập không đúng định dạng Email!',
@@ -121,8 +122,12 @@ class UserController extends Controller
                 'level.numeric' => 'Phải là số!'
             ]);
             $file = $request->file('image');
-            $name=time().'_'.$file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
             $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            // Kiểm tra xem hình ảnh đã tồn tại hay chưa
+            if (file_exists($destinationPath . '/' . $name)) {
+                return redirect('users')->with('success', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
+            }
             $file->move($destinationPath, $name);
         } else {
             $this->validate($request, [
@@ -194,7 +199,7 @@ class UserController extends Controller
                 'level.numeric' => 'Phải là số!'
             ]);
             $file = $request->file('image');
-            $avt=time().'_'.$file->getClientOriginalName();
+            $avt = $file->getClientOriginalName();
             $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $avt);
 

@@ -23,7 +23,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('adminpages.slidebar.products.addproduct');
+        $products = Product::all();
+        $types = product_type::all();
+        return view('adminpages.slidebar.products.addproduct', compact('products', 'types'));
     }
 
     /**
@@ -52,8 +54,11 @@ class ProductController extends Controller
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
             $file = $request->file('image');
-            $name=time().'_'.$file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
             $destinationPath=public_path('images/products'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            if (file_exists($destinationPath . '/' . $name)) {
+                return redirect('products')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
+            }
             $file->move($destinationPath, $name);
         } else {
             $this->validate($request,[
@@ -187,7 +192,39 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
+        // DB::delete('delete from products where id = ?', [$id]);
+
+        $products = Product::find($id);
+
+        // Đảm bảo sản phẩm tồn tại
+        if (!$products) {
+            return redirect('products')->with('message', 'Sản phẩm không tồn tại!');
+        }
+
         DB::delete('delete from products where id = ?', [$id]);
+        // DB::statement("ALTER TABLE products AUTO_INCREMENT = $id");
+        // Lấy giá trị ID tiếp theo
+        $nextId = DB::table('products')->max('id') + 1;
+
+        // Đặt lại AUTO_INCREMENT thành giá trị tiếp theo sau khi xóa
+        DB::statement("ALTER TABLE products AUTO_INCREMENT = $nextId");
+
+        // Image remove
+
+        
+        // Xóa hình ảnh cũ nếu có
+        if (!empty($products->image)) {
+            $oldImagePath = public_path('images/products/') . $products->image;
+
+            // Kiểm tra xem tệp tin tồn tại trước khi xóa
+            if (file_exists($oldImagePath)) {
+                // Thực hiện xóa tệp tin
+                unlink($oldImagePath);
+                return redirect('products')->with('message', 'Xóa thành công!');
+            } else {
+                return redirect('products')->with('message', 'Hình ảnh không tồn tại!');
+            }
+        }
         return redirect('products')->with('success', 'Xóa sản phẩm thành công');
     }
 }

@@ -47,15 +47,15 @@
                                     <p class="single-item-title">{{ $new->name }}</p>
                                     <p class="single-item-price">
                                     @if($new->promotion_price != 0)
-                                        <span class="flash-del" style="font-weight: bold;">{{ number_format($new->unit_price,0,".",",") }}</span>
-                                        <span class="flash-sale" style="font-weight: bold;">{{ number_format($new->promotion_price,0,".",",") }} đồng</span>
+                                        <span class="flash-del" style="font-weight: bold;">Giá cũ: {{ number_format($new->unit_price,0,".",",") }}</span><br>
+                                        <span class="flash-sale" style="font-weight: bold;">Giá mới:{{ number_format($new->promotion_price,0,".",",") }} đồng</span>
                                     @else
-                                        <span class="flash-sale" style="font-weight: bold;">{{ number_format($new->unit_price,0,".",",") }} đồng</span>
+                                        <span class="flash-sale" style="font-weight: bold;">Giá: {{ number_format($new->unit_price,0,".",",") }} đồng</span>
                                     @endif
                                     </p>
                                 </div>
                                 <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="{{ route('banhang.addToCart', $new->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="add-to-cart center" href="{{ route('banhang.addToCart', $new->id)}}"><i class="fa fa-shopping-cart"><text>BUY</text></i></a>
                                     {{-- <a class="beta-btn primary" href="{{route('product', $new->id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a> --}}
                                     <div class="clearfix"></div>
                                 </div>

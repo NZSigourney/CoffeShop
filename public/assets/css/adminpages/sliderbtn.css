@@ -1,0 +1,88 @@
+/* Định nghĩa màu sắc chính */
+:root {
+    --main-color: #007BFF;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+/* Thiết lập các kích thước phổ biến */
+.container-fluid {
+    max-width: 1200px;
+}
+
+/* Định dạng tiêu đề */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+/* Định dạng các nút */
+.btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.edit-button {
+    background-color: var(--secondary-color);
+}
+
+.edit-button:hover {
+    background-color: var(--dark-color);
+}
+
+.delete-button {
+    background-color: var(--danger-color);
+}
+
+.delete-button:hover {
+    background-color: var(--dark-color);
+}
+
+/* Định dạng các thông báo */
+.alert {
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Định dạng bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* .mb-3 {
+    text-align: right;
+} */

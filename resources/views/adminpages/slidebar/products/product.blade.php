@@ -56,7 +56,7 @@
                           @default
                               N/A
                       @endswitch
-                  </td>            
+                    </td>            
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->unit_price }}</td>
                     <td>{{ $product->promotion_price }}</td>

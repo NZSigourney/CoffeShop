@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/addproducts">
+                        <a href="{{ route('products.create') }}">
                             <i class="material-symbols-outlined">add</i>
                             <span>Add Production</span>
                         </a>
@@ -108,6 +108,22 @@
                         <a href="{{route('admin.getBillList')}}">
                             <i class="material-symbols-outlined">receipt_long</i>
                             <span>View List</span>
+                        </a>
+                    </li>
+                </li>
+
+                <li class="header">Slider</li>
+                <li class="active">
+                    <li>
+                        <a href="{{ route('sliders.index') }}">
+                            <i class="material-symbols-outlined">slideshow</i>
+                            <span>Slider</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('sliders.create') }}">
+                            <i class="material-symbols-outlined">add</i>
+                            <span>Add slider</span>
                         </a>
                     </li>
                 </li>
