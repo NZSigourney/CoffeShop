@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailControler;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
@@ -37,7 +38,7 @@ Route::get('product', [PageController::class, 'sanpham_main'])->name('product');
 Route::get('list_like', [PageController::class,'list_like'])->name('list_like');
 Route::get('shopping_cart', [PageController::class,'shopping_cart'])->name('shopping_cart'); 
 
-Route::get('product_type/{type}', [PageController::class,'product_type'])->name('product_type');  
+
 
 // Contacts page
 Route::get('lienhe', [ContactController::class, 'getUserContacts'])->name('contact');
@@ -138,6 +139,7 @@ Route::get('billList', [BillController::class, 'index'])->name('admin.getBillLis
 Route::put('bill/{id}', [BillController::class, 'updateBillAdmin'])->name('admin.updateBill');
 
 // Category
+Route::get('product_type/{type}', [CategoryController::class,'product_type'])->name('getProductType');  
 Route::get('danhsach', [CategoryController::class, 'getCatelist'])->name('admin.getCateList');
 Route::get('them', [CategoryController::class, 'getCateAdd'])->name('admin.getCateAdd');
 Route::post('them', [CategoryController::class, 'postCateAdd'])->name('admin.postCateAdd');
@@ -152,3 +154,5 @@ Route::post('input-email', [MailControler::class, 'postInputEmail'])->name('post
 // Table Pages.
 Route::get('table', [TableController::class, 'getTable'])->name('table');
 Route::post('table', [TableController::class, 'orderTable'])->name('orderTable');
+
+Route::get('search', [PageController::class, 'getSearch'])->name('user.getSearch');

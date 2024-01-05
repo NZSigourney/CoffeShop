@@ -10,8 +10,20 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{route('home')}}" class="active">Home</a></li>
-                        {{-- <li><a href="{{route('table')}}">Book a table</a></li> --}}
+                        @if(isset($loai_sp))
+                        @foreach ($loai_sp as $types)
                         <li><a href="{{route('product')}}">Menu</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+                            <div class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{route('getProductType', $types->id)}}">{{ $types->name }}</a></li>
+                            </div>
+                        </li>
+                        @endforeach
+                        @else
+                        <li><a href="{{route('product')}}">Menu</a></li>
+                        @endif
+
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >About</a>
                           
@@ -22,6 +34,16 @@
                             </div>
                         </li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
+                        <li>
+                            <div class="search-form">
+                                <form action="{{ route('user.getSearch') }}" role="search" method="GET" id="searchform">
+                                    @csrf
+                                    @method('GET')
+                                    <input type="text" name="search" placeholder="Search...">
+                                    <button type="submit"><i class="fa-solid fa-search"></i></button>
+                                </form>
+                            </div>
+                        </li>
                         @if (Auth::check())
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">User</a>

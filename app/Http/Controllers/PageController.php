@@ -10,7 +10,7 @@ use App\Models\List_Like;
 use App\Models\Product;
 use App\Models\product_type;
 use App\Models\Slide;
-use App\Models\User;
+// use App\Models\User;
 
 // use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -51,14 +51,6 @@ class PageController extends Controller
     public function sanpham_main(){
         $details = Product::all();
         return view('product', ['products' => $details]);
-    }
-
-    public function product_type($type){
-        $sp_theoloai = Product::where('id_type', $type)->get();
-        $sp_khac = Product::where('id_type','<>', $type)->paginate(3);
-        $loai = product_type::all();
-        $loai_sp = product_type::where('id', $type)->first();
-        return view('product_type', compact('sp_theoloai', 'sp_khac', 'loai', 'loai_sp'));
     }
 
     public function getChitiet(Request $req){
@@ -170,8 +162,14 @@ class PageController extends Controller
     }
 
     public function getSearch(Request $request){
-        $product = Product::where('name','like','%'.$request->key.'%')->orWhere('unit_price',$request->key)->get();
-        return view('search', compact('product'));
+        $result = $request->input('search');
+        $product = Product::where('name','like','%'.$result.'%')->orWhere('unit_price',$request->unit_price)->get();
+        // $loai = product_type::all();
+        return view('navbar.search', compact('product'));
+
+        // $loai = product_type::all();
+        // $product = Product::where('name','like','%'.$request->key.'%')->orWhere('unit_price',$request->key)->get();
+        // return view('navbar.search', compact('product', 'loai'));
     }
 
     //yêu thích

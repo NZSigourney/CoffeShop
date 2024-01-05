@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Product;
+use App\Models\product_type;
 
 class CategoryController extends Controller
 {
@@ -17,6 +19,14 @@ class CategoryController extends Controller
     //     $cates = Category::all();
     //     return view('adminpages.category.category', compact('cates'));
     // }
+
+    public function product_type($type){
+        $sp_theoloai = Product::where('id_type', $type)->get();
+        $sp_khac = Product::where('id_type','<>', $type)->paginate(3);
+        $loai = product_type::all();
+        $loai_sp = product_type::where('id', $type)->first();
+        return view('product_type', compact('sp_theoloai', 'sp_khac', 'loai', 'loai_sp'));
+    }
 
     public function getCateList(){
         $cates = Category::orderBy('created_at', 'DESC')->get();

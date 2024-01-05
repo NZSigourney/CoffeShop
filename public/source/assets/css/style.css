@@ -221,6 +221,7 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  margin-top: 10px;
 }
 
 .header-area .main-nav .logo em {
@@ -265,6 +266,7 @@ header
 
 .header-area .main-nav .nav li a {
   color: #fff;
+  margin-top: 10px;
 }
 
 .header-area .main-nav .nav li:hover > a,
@@ -415,6 +417,7 @@ header
 @media (max-width: 767px) {
   .header-area .main-nav .logo {
     color: #1e1e1e;
+
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
