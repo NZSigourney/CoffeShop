@@ -34,7 +34,7 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <!-- Nút quay trở lại trang trước -->
-                <a class="back-btn" href="javascript:history.back()">Back</a>
+                {{-- <a class="back-btn" href="javascript:history.back()">Back</a> --}}
                 <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout login100-form validate-form">
                     @csrf
                     @if(session('message'))
@@ -72,8 +72,18 @@
                             </button>
                         </div>
                     </div>
-    
+
                     <div class="text-center p-t-115">
+                        <span class="txt1">
+                            Want to return to the previous page?
+                        </span>
+    
+                        <a class="txt2" href="javascript:history.back()">
+                            back
+                        </a>
+                    </div>
+    
+                    <div class="text-center p-t-0">
                         <span class="txt1">
                             Don’t have an account?
                         </span>

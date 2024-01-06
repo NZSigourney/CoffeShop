@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class MailControler extends Controller
@@ -52,29 +53,59 @@ class MailControler extends Controller
         return view('navbar.profiles.changepwd');
     }
 
-    public function changePassword(Request $request)
+    public function changePassword(Request $request, string $id)
     {
-        $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|string|min:8|confirmed',
-        ]);
+        // $request->validate([
+        //     'current_password' => 'required',
+        //     'new_password' => 'required|string|min:8|confirmed',
+        // ]);
 
-        $user = Auth::user();
+        // $user = Auth::user();
 
-        if (Hash::check($request->current_password, $user->password)) {
-            // Tạo một bản sao của user để tránh vấn đề với foreach
-            $users = User::where('email', $user->email)->get();
+        // if (Hash::check($request->current_password, $user->password)) {
+        //     // Tạo một bản sao của user để tránh vấn đề với foreach
+        //     $users = User::where('email', $user->email)->get();
 
-            foreach ($users as $u) {
-                $u->update([
-                    'password' => Hash::make($request->new_password),
+        //     foreach ($users as $u) {
+        //         $u->update([
+        //             'password' => Hash::make($request->new_password),
+        //         ]);
+        //     }
+
+        //     return redirect()->route('admin.getLogin')->with('message', 'Password changed successfully!');
+        // } else {
+        //     return redirect()->back()->with('message', 'Current password is incorrect.');
+        // }
+
+        // Lấy dữ liệu từ các form
+        $user = User::findOrFail($id);
+        $oldPassword = $request->repassword;
+        $newPassword = $request->password;
+        // $newpsw = $request->input('password');
+
+        // Xác minh mật khẩu hiện tại
+        if (Hash::check($oldPassword, $user->password)) {
+            // Mật khẩu mới không được trùng với mật khẩu hiện tại
+            if ($oldPassword !== $newPassword) {
+                // Mã hóa mật khẩu mới
+                $hashedPassword = Hash::make($newPassword);
+
+                // Cập nhật mật khẩu mới cho người dùng
+                $user->update(['password' => $hashedPassword]);
+                // $user->update(['repassword' => $newPassword]);
+                DB::table('users')->where('id', $id)->update([
+                    'repassword' => $newPassword,
                 ]);
-            }
+                Auth::logout();
 
-            return redirect()->route('admin.getLogin')->with('message', 'Password changed successfully!');
+                // Chuyển hướng đến trang hiển thị thông báo thành công
+                return redirect()->route('admin.getLogin')->with('message', 'Mật khẩu đã được cập nhật thành công');
+            } else {
+                // Chuyển hướng đến trang hiển thị thông báo lỗi
+                return redirect()->route('user.getChangePwd')->with('message', 'Mật khẩu mới không được trùng với mật khẩu hiện tại');
+            }
         } else {
-            return redirect()->back()->with('message', 'Current password is incorrect.');
+            return redirect()->route('user.getChangePwd')->with('message', 'Mật khẩu đúng');
         }
     }
-
 }

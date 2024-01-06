@@ -41,7 +41,7 @@
     
                 <a href="/" class="back-link">Back</a>
     
-                <form action="{{ route('user.postChangePwd') }}" method="post" class="beta-form-checkout">
+                <form action="{{ route('user.postChangePwd', Auth::user()->id) }}" method="post" class="beta-form-checkout">
                     {{-- @method('POST') --}}
                     @csrf
                     @method('POST')
@@ -57,7 +57,7 @@
                         <span class="btn-show-pass">
                             <i class="zmdi zmdi-eye"></i>
                         </span>
-                        <input class="input100" type="password" name="reassword" id="oldpwd">
+                        <input class="input100" type="password" name="repassword" id="oldpwd">
                         <span class="focus-input100" data-placeholder="Current Password"></span>
                     </div>
     
@@ -76,6 +76,16 @@
                                 Change
                             </button>
                         </div>
+                    </div>
+
+                    <div class="text-center p-t-115">
+                        <span class="txt1">
+                            Want to return to the previous page?
+                        </span>
+    
+                        <a class="txt2" href="javascript:history.back()">
+                            back
+                        </a>
                     </div>
                 </form>
             </div>

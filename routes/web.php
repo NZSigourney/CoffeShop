@@ -77,7 +77,7 @@ Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postL
 
 // Change Password
 Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
-Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
+Route::post('doi-mat-khau/account/{id}', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // profile
 Route::get('profile', [ProfileController::class, 'getProfiles'])->name('user.Profiles');
