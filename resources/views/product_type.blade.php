@@ -13,6 +13,7 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
 <div class="container">
 	<div id="content" class="space-top-none">
 		<div class="main-content">
@@ -77,7 +78,7 @@
 							<div class="col-sm-4">
 								<div class="single-item">
 									<div class="single-item-header">
-										<a href="product.html"><img src="/images/{{$sp_k->image}}" alt="" height="250px"></a>
+										<a href="{{route('products', $sp_k->id)}}"><img src="/images/{{$sp_k->image}}" alt="" height="250px"></a>
 									</div>
 									<div class="single-item-body">
 										<p class="single-item-title">{{$sp_k->name}}</p>

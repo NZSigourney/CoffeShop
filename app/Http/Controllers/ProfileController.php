@@ -25,23 +25,32 @@ class ProfileController extends Controller
         $this->validate($request, [
             "full_name" => "required",
             "email" => "required|email:rfc,dns",
-            "address" => "required"
+            "address" => "required",
+            "phone" => "required"
         ],[
             "full_name.required" => "Họ tên không được bỏ trống",
             "email.required" => "Email không được bỏ trống",
             "email.email" => "Email chưa đúng định dạng",
-            "address.required" => "Địa chỉ không được bỏ trống"
+            "address.required" => "Địa chỉ không được bỏ trống",
+            "phone.required" => "Số điện thoại không được bỏ trống"
         ]);
 
-        // $users = User::findOrFail($id);
-        $full_name = $request->full_name;
-        $email = $request->email;
-        $address = $request->address;
+        $users = User::findOrFail($id);
+        $users->full_name = $request->full_name;
+        $users->email = $request->email;
+        $users->address = $request->address;
+        $users->phone = $request->phone;
+        $users->save();
+        return redirect()->route('user.Profiles')->with('message', 'Success1');
+        // $full_name = $request->full_name;
+        // $email = $request->email;
+        // $address = $request->address;
+        // $phone
 
-        DB::table('users')->where('id', $id)->update([
-            'full_name' => $full_name,
-            'email' => $email,
-            'address' => $address
-        ]);
+        // DB::table('users')->where('id', $id)->update([
+        //     'full_name' => $full_name,
+        //     'email' => $email,
+        //     'address' => $address
+        // ]);
     }
 }

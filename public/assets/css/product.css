@@ -72,3 +72,19 @@ input[type="number"]:focus {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
+
+/* Thêm vào phần CSS của bạn hoặc tạo một file CSS riêng */
+.view-details {
+    display: inline-block;
+    background-color: #4CAF50; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    padding: 10px 20px; /* Độ lớn của nút */
+    text-decoration: none;
+    border-radius: 5px; /* Bo tròn góc */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+
+}
+
+.view-details:hover {
+    background-color: #45a049; /* Màu nền khi di chuột qua */
+}

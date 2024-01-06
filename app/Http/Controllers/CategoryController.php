@@ -28,6 +28,11 @@ class CategoryController extends Controller
         return view('product_type', compact('sp_theoloai', 'sp_khac', 'loai', 'loai_sp'));
     }
 
+    // public function header_type_product($type){
+    //     $loai_sp = product_type::where('id', $type)->first();
+    //     return view('layouts.header', compact('loai_sp'));
+    // }
+
     public function getCateList(){
         $cates = Category::orderBy('created_at', 'DESC')->get();
         return view('adminpages.category.category', compact('cates'));

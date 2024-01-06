@@ -1,0 +1,33 @@
+.icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+    color: #3b71ca !important;
+}
+  
+.icon-hover:hover i {
+color: #3b71ca !important;
+}
+
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+  color: #3b71ca !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+
+#qty {
+  width: 50px; /* Đặt chiều rộng theo ý muốn */
+  padding: 10px; /* Đặt giảm đệm theo ý muốn */
+  font-size: 16px; /* Đặt kích thước chữ theo ý muốn */
+  border: 1px solid #ccc; /* Đặt viền input */
+  border-radius: 5px; /* Đặt bo tròn cho input */
+  outline: none; /* Loại bỏ đường viền khi input được chọn */
+}
+
+/* Tùy chỉnh màu sắc khi di chuột vào input */
+#qty:hover {
+  border-color: #666;
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
 use App\Models\Product;
 use App\Models\product_type;
 use Illuminate\Http\Request;
@@ -99,7 +100,9 @@ class ProductController extends Controller
     public function show(string $id)
     {
         // Trả về view hiển thị thông tin chi tiết của món ăn
-        // return view('foods.show', compact('food'));
+        $sp = Product::where('id', $id)->first();
+        $loai = product_type::where('id', $id)->first();
+        return view('navbar.products.product_detail', compact('sp', 'loai'));
     }
 
     /**
@@ -109,6 +112,7 @@ class ProductController extends Controller
     {
         $products = Product::find($id);
         $type = product_type::all();
+        $bill = Bill::get();
         return view('adminpages.slidebar.products.editproduct', compact('products', 'type'));
     }
 

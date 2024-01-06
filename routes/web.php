@@ -34,6 +34,8 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('product/{id}', [PageController::class, 'product']);
 Route::get('product', [PageController::class, 'sanpham_main'])->name('product');
+// Route::get('product/category/{id}', [PageController::class, 'product_category'])->name('product.category');
+
 // Route::resource('Pages', PageController::class);
 
 Route::get('list_like', [PageController::class,'list_like'])->name('list_like');
@@ -75,7 +77,7 @@ Route::post('dangnhap', [UserController::class, 'postLogin'])->name('admin.postL
 
 // Change Password
 Route::get('doi-mat-khau', [MailControler::class, 'getChangePwd'])->name('user.getChangePwd');
-Route::delete('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
+Route::post('doi-mat-khau', [MailControler::class, 'ChangePassword'])->name('user.postChangePwd');
 
 // profile
 Route::get('profile', [ProfileController::class, 'getProfiles'])->name('user.Profiles');
@@ -140,7 +142,8 @@ Route::get('billList', [BillController::class, 'index'])->name('admin.getBillLis
 Route::put('bill/{id}', [BillController::class, 'updateBillAdmin'])->name('admin.updateBill');
 
 // Category
-Route::get('product_type/{type}', [CategoryController::class,'product_type'])->name('getProductType');  
+Route::get('product_type/{type}', [CategoryController::class,'product_type'])->name('getProductType');
+// Route::get('product_type/{type}', [CategoryController::class, 'header_type_product'])->name('product_type');  
 Route::get('danhsach', [CategoryController::class, 'getCatelist'])->name('admin.getCateList');
 Route::get('them', [CategoryController::class, 'getCateAdd'])->name('admin.getCateAdd');
 Route::post('them', [CategoryController::class, 'postCateAdd'])->name('admin.postCateAdd');

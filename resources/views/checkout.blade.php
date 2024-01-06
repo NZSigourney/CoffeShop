@@ -53,7 +53,7 @@
             @csrf
             <div class="row">
                 <div class="col-sm-6">
-                    <h4>Đặt hàng</h4>
+                    {{-- <h4>Đặt hàng</h4> --}}
                     <div class="space20">&nbsp;</div>
 
                     <div class="form-block">
@@ -104,12 +104,12 @@
                                         <span class="color-gray your-order-info">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                                             number_format($cart['item']->unit_price, 0) }}</span>
                                         <span class="color-gray your-order-info">{{ $cart['qty'] }}</span>
-                                        <!-- Thêm nút xóa -->
+                                        {{-- <!-- Thêm nút xóa -->
                                         <form action="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger">Remove</button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                                 @endforeach

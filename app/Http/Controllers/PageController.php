@@ -42,21 +42,19 @@ class PageController extends Controller
                 return abort(404); // Trả về trang lỗi 404
             }
         }
+        $loai = product_type::all();
             
         // $sp_tuongtu = Product::where('id_type', $sanpham->id_type)->paginate(3);
         // return view('product', ['products' => $details]);
-        return view('product', compact('sanpham', 'sp_tuongtu'));
+        return view('product', compact('sanpham', 'sp_tuongtu', 'loai'));
     }
 
     public function sanpham_main(){
         $details = Product::all();
+        // $sliders = Slide::all();
         return view('product', ['products' => $details]);
     }
-
-    public function getChitiet(Request $req){
-        $sp = Product::where('id', $req->id)->first();
-        return view('product_detail', compact('sp'));
-    }
+    
 
     // //liên hệ
     // public function contacts(){
@@ -82,7 +80,12 @@ class PageController extends Controller
     }
 
     public function postCheckout(Request $request){
-       
+        // if ($request->has('clearCart')) {
+        //     // Xóa giỏ hàng và chuyển hướng trở lại trang đặt hàng
+        //     Session::forget('cart');
+        //     return redirect()->back()->with('success', 'Đã xóa giỏ hàng.');
+        // }
+        
         $cart=Session::get('cart');
         $customer=new Customer();
         $customer->name=$request->input('name');
@@ -126,7 +129,8 @@ class PageController extends Controller
         $product = Product::find($id);
         $oldCart = Session('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
-        $cart->add($product,$id);
+        $qty = $request->input('quantity');
+        $cart->add($product, $id, $qty);
         $request->session()->put('cart',$cart);
 
         // if($request->ajax()) {
@@ -160,6 +164,21 @@ class PageController extends Controller
         }else Session::forget('cart');
         return redirect()->back();
     }
+
+    // public function delCartItem($id){
+    //     $oldCart = session()->has('cart') ? session()->get('cart') : null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->removeItem($id);
+    
+    //     if (count($cart->items) > 0) {
+    //         session()->put('cart', $cart);
+    //     } else {
+    //         // Nếu giỏ hàng trống, xóa session
+    //         session()->forget('cart');
+    //     }
+    
+    //     return redirect()->back();
+    // }    
 
     public function getSearch(Request $request){
         $result = $request->input('search');

@@ -3,7 +3,7 @@
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner" id="top">
     <video autoplay muted loop id="bg-video">
-        <source src="/source/assets/images/video.mp4" type="video/mp4" />
+        <source src="/assets/videos/video2.mp4" type="video/mp4" />
     </video>
 
     <div class="video-overlay header-text">

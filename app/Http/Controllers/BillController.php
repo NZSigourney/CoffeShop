@@ -109,6 +109,6 @@ class BillController extends Controller
     public function destroy(string $id)
     {
         Bill::find($id)->delete();
-        return redirect()->back()->with('success','Xóa danh mục thành công');
+        return redirect()->back()->with('success','Xóa bill thành công');
     }
 }

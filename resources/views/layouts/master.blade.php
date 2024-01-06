@@ -13,11 +13,11 @@
 
     {{-- <title>PHPJabbers.com | Free Restaurant Website Template</title> --}}
 
-    <link rel="stylesheet" type="text/css" href="source/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('source/assets/css/bootstrap.min.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="source/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('source/assets/css/font-awesome.css')}}">
 
-    <link rel="stylesheet" href="source/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('source/assets/css/style.css') }}">
     {{-- End --}}
 
     {{-- CSS Login Page --}}

@@ -1,15 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Site</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/css/profiles/editprofiles.css">
-</head>
-<body>
+@extends('layouts.master')
+@section('css')
+    <link rel="stylesheet" href="/assets/css/profiles/editprofiles.css">
+@endsection
+@section('content')
+    <!-- hiện ra toàn bộ thông báo lỗi -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    <section class="section section-bg" id="call-to-action" style="background-image: url(/source/assets/images/banner-image-1-1920x500.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cta-content">
+                        <br>
+                        <br>
+                        <h2>Thông tin cá nhân của <em>Bạn</em></h2>
+                        {{-- <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <div class="container">
         <div class="main-body">
     
@@ -26,7 +45,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                <img src="/images/users/{{ Auth::user()->image }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                 <div class="mt-3">
                                     <h4>{{ Auth::user()->full_name }}</h4>
                                     {{-- <p class="text-secondary mb-1">Full Stack Developer</p>
@@ -103,7 +122,8 @@
                                 <div class="row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-9 text-secondary">
-                                        <a class="btn btn-info" type="submit">Save Changes</a>
+                                        {{-- <a class="btn btn-info" type="submit">Save Changes</a> --}}
+                                        <button type="submit" class="btn btn-primary">edit</button>
                                     </div>
                                 </div>
                             </form>
@@ -143,5 +163,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

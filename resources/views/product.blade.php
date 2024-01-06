@@ -1,7 +1,11 @@
 @extends('layouts.master')
+@section('css')
+    {{-- <link rel="stylesheet" href="/assets/css/product.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+@endsection
 @section('content')
 <!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(/images/sliders/slide1.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -31,35 +35,36 @@
 
         <div class="row">
             @foreach ($products as $product)
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <a href="{{route('product',['id'=>$product->id]) }}"><img src="/images/products/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <h4><p class="single-item-title">{{$product->name}}</p></h4>
-                            @if ($product ->promotion_price !=0)
-                            <p class="single-item-price">
-                            <span class="flash-del">{{number_format($product->unit_price)}}</span>
-                            {{-- <span class="flash-sale">{{number_format($product->promotion_price)}}</span> --}}
-                            </p>
-                            @else
-                            <p class="single-item-price">
-                                <span>{{number_format($product->unit_price)}}</span>
-                            </p>
-                            @endif
-                        </span>
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                            <a href="{{route('products.show', $product->id) }}"><img src="/images/products/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
+                        </div>
+                        <div class="down-content">
+                            <span>
+                                <h4><p class="single-item-title">{{$product->name}}</p></h4>
+                                @if ($product ->promotion_price !=0)
+                                <p class="single-item-price">
+                                <span class="flash-del">{{number_format($product->unit_price)}}</span>
+                                {{-- <span class="flash-sale">{{number_format($product->promotion_price)}}</span> --}}
+                                </p>
+                                @else
+                                <p class="single-item-price">
+                                    <span>{{number_format($product->unit_price)}}</span>
+                                </p>
+                                @endif
+                            </span>
 
-                        {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
+                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
 
-                        <ul class="social-icons">
-                            <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
+                            <ul class="social-icons">
+                                <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                {{-- <!-- Nút chi tiết -->
+                                <li><a class="view-details" href="{{ route('product', ['id' => $product->id]) }}"><i class="fas fa-info-circle"></i> Chi tiết</a></li> --}}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
             @endforeach
         </div>
 

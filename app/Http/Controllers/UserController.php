@@ -18,7 +18,37 @@ class UserController extends Controller
 
     public function destroy(string $id)
     {
+        $users = User::find($id);
+
+        // Đảm bảo sản phẩm tồn tại
+        if (!$users) {
+            return redirect('users')->with('message', 'Sản phẩm không tồn tại!');
+        }
+
         DB::delete('delete from users where id = ?', [$id]);
+        // DB::statement("ALTER TABLE users AUTO_INCREMENT = $id");
+        // Lấy giá trị ID tiếp theo
+        $nextId = DB::table('users')->max('id') + 1;
+
+        // Đặt lại AUTO_INCREMENT thành giá trị tiếp theo sau khi xóa
+        DB::statement("ALTER TABLE users AUTO_INCREMENT = $nextId");
+
+        // Image remove
+
+        
+        // Xóa hình ảnh cũ nếu có
+        if (!empty($users->image)) {
+            $oldImagePath = public_path('images/users/') . $users->image;
+
+            // Kiểm tra xem tệp tin tồn tại trước khi xóa
+            if (file_exists($oldImagePath)) {
+                // Thực hiện xóa tệp tin
+                unlink($oldImagePath);
+                return redirect('users')->with('message', 'Xóa thành công!');
+            } else {
+                return redirect('users')->with('message', 'Hình ảnh không tồn tại!');
+            }
+        }
         return redirect('users')->with('success', 'Xóa sản phẩm thành công');
     }
     
@@ -250,21 +280,56 @@ class UserController extends Controller
     }
 
     public function postSignin(Request $req){
-        $this->validate($req,
-        [
-            'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:6|max:20',
-            'full_name'=>'required',
-            'repassword'=>'required|same:password'
-        ],
-        [
-            'email.required'=>'Vui lòng nhập email',
-            'email.email'=>'Không đúng định dạng email',
-            'email.unique'=>'Email đã có người sử  dụng',
-            'password.required'=>'Vui lòng nhập mật khẩu',
-            'repassword.same'=>'Mật khẩu không giống nhau',
-            'password.min'=>'Mật khẩu ít nhất 6 ký tự'
-        ]);
+        $name = "";
+        if($req->hasFile('image')){
+            $this->validate($req,
+            [
+                'email'=>'required|email|unique:users,email',
+                'password'=>'required|min:6|max:20',
+                'full_name'=>'required',
+                'repassword'=>'required|same:password',
+                'image' => 'mimes:jpg,jpeg,png,gif|max:2048'
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Không đúng định dạng email',
+                'email.unique'=>'Email đã có người sử  dụng',
+                'password.required'=>'Vui lòng nhập mật khẩu',
+                'repassword.same'=>'Mật khẩu không giống nhau',
+                'password.min'=>'Mật khẩu ít nhất 6 ký tự',
+                'image.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+            ]);
+            $file = $req->file('image');
+            $name = $file->getClientOriginalName();
+            $destinationPath=public_path('images/users');
+
+            // Kiểm tra xem hình ảnh đã tồn tại hay chưa
+            if (file_exists($destinationPath . '/' . $name)) {
+                return redirect('users')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
+            }
+
+            $file->move($destinationPath, $name);
+        }else{
+            $this->validate($req,
+            [
+                'email'=>'required|email|unique:users,email',
+                'password'=>'required|min:6|max:20',
+                'full_name'=>'required',
+                'repassword'=>'required|same:password',
+                'image' => 'mimes:jpg,jpeg,png,gif|max:2048'
+            ],
+            [
+                'email.required'=>'Vui lòng nhập email',
+                'email.email'=>'Không đúng định dạng email',
+                'email.unique'=>'Email đã có người sử  dụng',
+                'password.required'=>'Vui lòng nhập mật khẩu',
+                'repassword.same'=>'Mật khẩu không giống nhau',
+                'password.min'=>'Mật khẩu ít nhất 6 ký tự',
+                'image.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                'image.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+            ]);
+        }
 
         $user=new User();
         $user->full_name = $req->full_name;
@@ -274,6 +339,10 @@ class UserController extends Controller
         $user->phone = $req->phone;
         $user->address = $req->address;
         $user->level = 3;  //level=1: admin; level=2:kỹ thuật; level=3: khách hàng
+        if($name == ''){
+            $user->image = $name;
+        }
+        $user->image = $name;
         $user->save();
         return redirect()->route('admin.getLogin')->with('success','Tạo tài khoản thành công');
     }

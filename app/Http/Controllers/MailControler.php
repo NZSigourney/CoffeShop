@@ -49,7 +49,7 @@ class MailControler extends Controller
     }//hết postInputEmail
 
     public function getChangePwd(){
-        return view('navbar.changepwd');
+        return view('navbar.profiles.changepwd');
     }
 
     public function changePassword(Request $request)
