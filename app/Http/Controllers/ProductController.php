@@ -231,4 +231,12 @@ class ProductController extends Controller
         }
         return redirect('products')->with('success', 'Xóa sản phẩm thành công');
     }
+
+    // public function getRanking(){
+    //     $products = Product::all();
+
+    //     foreach($products as $product) {
+
+    //     }
+    // }
 }

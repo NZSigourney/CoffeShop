@@ -13,8 +13,8 @@
                         <i class="material-icons">playlist_add_check</i>
                     </div>
                     <div class="content">
-                        <div class="text">Table</div>
-                        <div class="number count-to" data-from="0" data-to="30" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">Products</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $products_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -24,8 +24,8 @@
                         <i class="material-icons">help</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW TICKETS</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">BILL</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $bill_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -35,8 +35,8 @@
                         <i class="material-icons">forum</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW COMMENTS</div>
-                        <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">Total bill</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $bill_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -47,14 +47,14 @@
                     </div>
                     <div class="content">
                         <div class="text">NEW VISITORS</div>
-                        <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="{{ $user_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- #END# Widgets -->
         <!-- CPU Usage -->
-        <div class="row clearfix">
+        {{-- <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="header">
@@ -87,11 +87,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- #END# CPU Usage -->
-        <div class="row clearfix">
+        {{-- <div class="row clearfix"> --}}
             <!-- Visitors -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg-pink">
                         <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
@@ -117,9 +117,9 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# Visitors -->
+            <!-- #END# Visitors --> --}}
             <!-- Latest Social Trends -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg-cyan">
                         <div class="m-b--35 font-bold">LATEST SOCIAL TRENDS</div>
@@ -148,10 +148,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- #END# Latest Social Trends -->
             <!-- Answered Tickets -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="body bg-teal">
                         <div class="font-bold m-b--35">ANSWERED TICKETS</div>
@@ -183,9 +183,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- #END# Answered Tickets -->
-        </div>
+        {{-- </div> --}}
 
         <div class="row clearfix">
             <!-- Task Info -->
@@ -284,7 +284,7 @@
             </div>
             <!-- #END# Task Info -->
             <!-- Browser Usage -->
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="header">
                         <h2>BROWSER USAGE</h2>
@@ -305,7 +305,7 @@
                         <div id="donut_chart" class="dashboard-donut-chart"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- #END# Browser Usage -->
         </div>
     </div>

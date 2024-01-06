@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-    {{-- <link rel="stylesheet" href="/assets/css/product.css"> --}}
+    <link rel="stylesheet" href="/assets/css/product-menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 @endsection
 @section('content')
@@ -45,12 +45,12 @@
                                 <h4><p class="single-item-title">{{$product->name}}</p></h4>
                                 @if ($product ->promotion_price !=0)
                                 <p class="single-item-price">
-                                <span class="flash-del">{{number_format($product->unit_price)}}</span>
-                                {{-- <span class="flash-sale">{{number_format($product->promotion_price)}}</span> --}}
+                                <span class="flash-del">Giá gốc: {{number_format($product->unit_price)}}</span>
+                                <span class="flash-sale">Giá Khuyến Mãi;{{number_format($product->promotion_price)}}</span>
                                 </p>
                                 @else
                                 <p class="single-item-price">
-                                    <span>{{number_format($product->unit_price)}}</span>
+                                    <span>Giá: {{number_format($product->unit_price)}}</span>
                                 </p>
                                 @endif
                             </span>
