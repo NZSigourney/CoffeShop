@@ -1,0 +1,62 @@
+/* Css cho ô sản phẩm */
+.trainer-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: 0.3s;
+   }
+   
+   /* Css cho ảnh sản phẩm */
+   .trainer-item img {
+    width: 100%;
+    height: auto;
+   }
+   
+   /* Css cho tiêu đề sản phẩm */
+   .single-item-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+   }
+   
+   /* Css cho giá sản phẩm */
+   .single-item-price {
+    font-size: 25px;
+    color: #999;
+    margin-bottom: 10px;
+   }
+   
+   /* Css cho nút mua */
+   .add-to-cart {
+    color: #fff;
+    background-color: #007bff;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+   }
+   
+   .add-to-cart:hover {
+    background-color: #5534e9;
+   }
+   
+   /* Css cho ô thông tin sản phẩm */
+   .down-content {
+    text-align: center;
+   }
+   
+   /* Css cho nút xem chi tiết */
+   .view-details {
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+   }
+   
+   .view-details:hover {
+    color: #555;
+   }
