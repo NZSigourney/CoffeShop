@@ -87,6 +87,7 @@ class ProductController extends Controller
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
         $products->new = 1;
+        $products->popular = 0;
         $products->id_type = $request->id_type;
         // $products->unit = $request->unit;
         $products->image = $name;
@@ -162,14 +163,16 @@ class ProductController extends Controller
                 'description' => 'required',
                 'unit_price' => 'required',
                 'promotion_price' => 'required',
-                'id_type' => 'required'
+                'id_type' => 'required',
+                'popular' => 'required'
                 // 'unit' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
                 'description.required' => 'Bạn chưa nhập mô tả',
                 'unit_price.required' => 'Bạn chưa nhập giá gốc',
                 'promotion_price.required' => 'Bạn chưa nhập giá khuyến mãi',
-                'id_type.required' => 'vui lòng chọn danh mục'
+                'id_type.required' => 'vui lòng chọn danh mục',
+                'popular.required' => 'vui lòng không để trống'
                 // 'unit.required' => 'Bạn cần phải nhập Đơn vị của sản phẩm (Hộp/Cái)'
             ]);
             $img = $products->image;
@@ -182,10 +185,19 @@ class ProductController extends Controller
         $products->promotion_price = $request->promotion_price;
         //$product->image = $request->image;
         // $products->unit = $request->unit;
+        $popular = $request->input('popular');
         $products->id_type = $request->id_type;
-        // if($img == ''){
-        //     $img = $products->image;
-        // }
+        if($popular == 1){
+            $products->popular = $request->popular;
+        }else{
+            // if(isset($popular))
+            // {
+            //     $products->popular = 0;
+            //     return redirect()->with('error', 'không được để trống1');
+            // }
+            $products->popular = 0;
+            // return redirect()->with('error', 'không thể lớn hơn 1 hoặc 0');
+        }
         $products->image = $img;
         $products->save();
         return redirect()->route('products.index')->with('success','Bạn đã cập nhật thành công');

@@ -18,7 +18,7 @@
 </div>
 <!-- ***** Main Banner Area End ***** -->
 <!-- ***** Cars Starts ***** -->
-<section class="section" id="trainers">
+{{-- <section class="section" id="trainers">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
@@ -29,68 +29,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            {{-- <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="assets/images/other-1-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
-                        </span>
-
-                        <h4>Weddings</h4>
-
-                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
-
-                        <ul class="social-icons">
-                            <li><a href="book-table.html">+ Book a table</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="assets/images/other-2-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
-                        </span>
-
-                        <h4>Birthdays</h4>
-
-                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
-
-                        <ul class="social-icons">
-                            <li><a href="book-table.html">+ Book a table</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="trainer-item">
-                    <div class="image-thumb">
-                        <img src="assets/images/other-3-720x480.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                        <span>
-                            <sup>$</sup>1500.00 - <sup>$</sup>3500.00
-                        </span>
-
-                        <h4>Anniversaries</h4>
-
-                        <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
-
-                        <ul class="social-icons">
-                            <li><a href="book-table.html">+ Book a table</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
 
         <br>
 
@@ -98,10 +36,62 @@
             <a href="/product">View our Menu</a>
         </div>
     </div>
+</section> --}}
+
+<!-- Call to Action Popular Products -->
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2><em>Sản phẩm</em> nổi bật</h2>
+                    <img src="/source/assets/images/line-dec.png" alt="">
+                    <p>Các sản phẩm nổi bật nhất của chúng tôi.</p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            @foreach($popularProducts as $product)
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-item">
+                        <div class="product-title">
+                            {{-- <a href="#" class="product-name">{{ $product->name }}</a> --}}
+                            <div class="product-name">{{ $product->name }}</div>
+                            {{-- <div class="ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div> --}}
+                        </div>
+                        <div class="product-image">
+                            <a href="product-detail.html">
+                                <img src="{{ asset('images/products/' . $product->image) }}" alt="Product Image" class="item-image">
+                            </a>
+                            {{-- <div class="product-action">
+                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a href="#"><i class="fa fa-heart"></i></a>
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </div> --}}
+                        </div>
+                        <div class="product-price">
+                            <h3>{{ $product->unit_price }} <span>VND</span></h3>
+                            <a class="btn" href="{{ route('banhang.addToCart', $product->id)}}"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 </section>
+<!-- End to Action Popular Products -->
 
 <!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+<section class="section section-bg" id="call-to-action" style="background-image: url(/images/sliders/banner1.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">

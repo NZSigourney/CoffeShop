@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('source/assets/css/font-awesome.css')}}">
 
     <link rel="stylesheet" href="{{ asset('source/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/product-popular.css') }}">
     {{-- End --}}
 
     {{-- CSS Login Page --}}

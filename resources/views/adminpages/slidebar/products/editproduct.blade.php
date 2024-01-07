@@ -66,6 +66,14 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 <!------------------------------------------------------------------------------>
+<div class="form-group">
+    <label for="popular">Popular</label>
+    <input type="number" name="popular" id="popular" class="form-control" value="{{ isset($products) ? $products->popular:'' }}" require="require">
+</div>
+{{-- @error('old_price')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror --}}
+<!------------------------------------------------------------------------------>
     <div class="form-group">
         <label for="id_type">Danh Mục</label>
         <select name="id_type" id="id_type" class="form-control" require="require">

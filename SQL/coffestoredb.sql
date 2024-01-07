@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 28, 2023 lúc 04:36 PM
+-- Thời gian đã tạo: Th1 07, 2024 lúc 10:40 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -39,15 +39,6 @@ CREATE TABLE `bills` (
   `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Đang đổ dữ liệu cho bảng `bills`
---
-
-INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `status`, `note`, `created_at`, `updated_at`) VALUES
-(1, 18, '2023-09-13', 40000, 'COD', 2, NULL, '2023-09-23 02:58:08', '2023-09-22 19:47:14'),
-(2, 22, '2023-09-23', 25000, 'COD', NULL, NULL, '2023-09-23 02:58:08', '2023-09-22 19:57:15'),
-(3, 23, '2023-09-23', 64000, 'ATM', NULL, NULL, '2023-09-23 06:11:11', '2023-09-23 06:11:11');
-
 -- --------------------------------------------------------
 
 --
@@ -78,7 +69,11 @@ INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_pric
 (24, 2, 1, 1, 25000, '2023-09-13 00:52:08', '2023-09-13 00:52:08'),
 (23, 1, 2, 1, 12000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
 (22, 1, 5, 1, 15000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
-(21, 1, 1, 2, 25000, '2023-09-11 00:44:39', '2023-09-11 00:44:39');
+(21, 1, 1, 2, 25000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
+(31, 4, 2, 1, 12000, '2023-12-29 01:53:06', '2023-12-29 01:53:06'),
+(32, 5, 1, 1, 32000, '2024-01-05 20:44:11', '2024-01-05 20:44:11'),
+(33, 6, 1, 1, 32000, '2024-01-05 20:57:07', '2024-01-05 20:57:07'),
+(34, 7, 1, 1, 32000, '2024-01-05 20:58:47', '2024-01-05 20:58:47');
 
 -- --------------------------------------------------------
 
@@ -142,7 +137,11 @@ INSERT INTO `customer` (`id`, `name`, `gender`, `email`, `address`, `phone_numbe
 (20, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:51:08', '2023-09-22 19:51:08'),
 (21, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:56:48', '2023-09-22 19:56:48'),
 (22, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:57:15', '2023-09-22 19:57:15'),
-(23, 'Long', 'nam', 'vhoang2003n@gmail.com', 'ha huy tao', '9051165522', 'xin chào', '2023-09-23 06:11:11', '2023-09-23 06:11:11');
+(23, 'Long', 'nam', 'vhoang2003n@gmail.com', 'ha huy tao', '9051165522', 'xin chào', '2023-09-23 06:11:11', '2023-09-23 06:11:11'),
+(24, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', '12313', '2023-12-29 01:53:06', '2023-12-29 01:53:06'),
+(25, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'dsadasdasda', '2024-01-05 20:44:11', '2024-01-05 20:44:11'),
+(26, 'Long', 'nam', 'longthaithien98@gmail.com', 'dasadad232', 'eqweqe', 'dasdasd', '2024-01-05 20:57:07', '2024-01-05 20:57:07'),
+(27, 'Cà phê sữa', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '12312313', '12sdadsa', '2024-01-05 20:58:47', '2024-01-05 20:58:47');
 
 -- --------------------------------------------------------
 
@@ -254,6 +253,7 @@ CREATE TABLE `products` (
   `promotion_price` float DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `new` tinyint(4) DEFAULT 0,
+  `popular` int(2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -262,15 +262,9 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `promotion_price`, `image`, `new`, `created_at`, `updated_at`) VALUES
-(1, 'Cà phê sữa', 1, 'ngon', 24000, 12000, '1703176140_hinh-anh-ly-cafe-sua-da_3.jpg', 1, '2023-09-08 18:34:46', '2023-12-21 09:29:01'),
-(2, 'Cà Phê Đen', 1, 'thơm', 18000, 12000, '1703224841_3-ca-phe-den-1586320560.jpg', 1, '2023-09-08 18:36:05', '2023-12-21 23:00:41'),
-(3, 'Bạc Xỉu', 1, '3 tầng', 30000, 15000, '1703176188_bac-xiu.jpg', 1, '2023-09-08 20:46:00', '2023-12-21 09:29:48'),
-(4, '7up', 2, 'chai nhưa', 15000, 5000, '1703176382_anh1.jpg', 1, '2023-12-21 09:22:31', '2023-12-21 09:33:02'),
-(5, 'pepsi', 2, 'chai nhựa', 17, 5000, '1703176408_tải xuống.jfif', 1, '2023-12-21 09:31:29', '2023-12-21 09:33:28'),
-(6, 'chanh', 2, 'chua', 28000, 5000, '1703176429_2.jpg', 1, '2023-12-21 09:32:35', '2023-12-21 09:33:49'),
-(7, 'Bánh donut', NULL, 'bánh ngọt', 23000, 5000, '1703224928_banh_donut_kem_trung_nhan_kem_beo_ngay_hap_dan.jpg', 1, '2023-12-21 23:02:08', '2023-12-21 23:02:08'),
-(8, 'Bánh nhân kem222', 1, 'asdasd', 25000, 5000, '1703384345_logo.png', 1, '2023-12-21 23:03:19', '2023-12-23 19:19:05');
+INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `promotion_price`, `image`, `new`, `popular`, `created_at`, `updated_at`) VALUES
+(1, 'Long', 1, '12345', 32000, 0, 'Screenshot (172).png', 1, 1, '2024-01-05 23:20:29', '2024-01-05 23:20:29'),
+(2, 'Capuchino', 1, 'qweqeew', 32000, 1, 'logo.png', 1, 0, '2024-01-07 01:29:59', '2024-01-07 02:32:20');
 
 -- --------------------------------------------------------
 
@@ -280,19 +274,17 @@ INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `p
 
 CREATE TABLE `slide` (
   `id` int(11) NOT NULL,
-  `link` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `slide`
 --
 
-INSERT INTO `slide` (`id`, `link`, `image`) VALUES
-(1, '', 'b1.jpg'),
-(2, '', 'b2.jpg'),
-(3, '', 'b3.jpg'),
-(4, '', 'b4.jpg');
+INSERT INTO `slide` (`id`, `image`, `created_at`, `updated_at`) VALUES
+(1, '1704472121_logo.png', '2024-01-05 08:59:56', '2024-01-05 09:28:41');
 
 -- --------------------------------------------------------
 
@@ -328,7 +320,7 @@ CREATE TABLE `type_products` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -338,9 +330,7 @@ CREATE TABLE `type_products` (
 --
 
 INSERT INTO `type_products` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Cà Phê', 'Cà Phê Bao gồm nhiều loại (Đen, Sữa, Bạc Sỉu, Capuchino)', 'banh-man-thu-vi-nhat-1.jpg', '2023-09-12 02:19:58', '2023-09-13 02:19:58'),
-(2, 'Giải Khát', 'Nước Khoáng V.v', '20131108144733.jpg', '2016-10-12 02:16:15', '2016-10-13 01:38:35'),
-(3, 'Nước Ngọt', 'Nước giải khát 2', '1694497729_ny6ho4jk_1920x1080-vothantrieutulong-khongtitle_1920_1080.jpg', '2016-10-18 00:33:33', '2016-10-15 07:25:27');
+(1, 'Cà phê', 'Cà phê', 'Screenshot 2023-12-23 081737.png', '2024-01-05 09:17:20', '2024-01-05 09:17:20');
 
 -- --------------------------------------------------------
 
@@ -356,6 +346,7 @@ CREATE TABLE `users` (
   `repassword` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -366,11 +357,9 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `repassword`, `phone`, `address`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Long Thái', 'cpevnteam2018@gmail.com', '$2y$10$2sRNgAPrIMEhhJrlP3OMNuGzhBKjipgbkNBVFvEAEtHZw/tP/iaVO', NULL, '1232456789', '21 Ngo Quyen', 3, NULL, '2023-09-13 00:00:36', '2023-12-27 02:04:19'),
-(4, 'test', 'admin@gmail.com', '$2y$10$40XDoPFnuhJq3YBYZS/hpOVdNRZujIIljAtY0PCUHDdj0ApW9MzwC', NULL, '1232456789', 'đâsdadsa', 3, NULL, '2023-09-23 06:10:10', '2023-09-23 06:10:10'),
-(5, 'Tử Long', 'longthaithien98@gmail.com', '$2y$10$CwChrUdSXR9VvTTp6.2Q1.Ad9E44RQ//Kn9cQrjh4fMHtGs9wsCXy', NULL, '0905116522', 'Hồ vương', 1, NULL, '2023-10-04 07:00:10', '2023-12-28 01:44:52'),
-(6, 'Duy Vũ', 'blackdergamming@gmail.com', '$2y$10$HKO34J6nEY//qeoPaj9AceQpYZab.glDxM61fGddl/5cjfZdBQKmu', 'thienlong2003', '09123456789', '01 ngo quyen', 3, NULL, '2023-12-27 02:28:29', '2023-12-27 02:28:29');
+INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `repassword`, `phone`, `address`, `image`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'LongTHien', 'longthaithien98@gmail.com', '$2y$10$D.U0U.UMH7LeKsVKE/k.leUwcEm35tXz6HaOyiWHBFt0epXXMumxy', 'tthanh149dn', '0905116522', '21 Ngo Quyen', 'tải xuống.jpg', 1, NULL, '2024-01-05 23:37:31', '2024-01-06 00:10:56'),
+(2, 'Đức', 'cpevnteam2018@gmail.com', '$2y$10$ZoSVL4ieTDnbMQSZI3qBlOgvsICzpxh9EA5Gr745gU2bYEh.aF17u', NULL, '0905116522123', 'adsada', 'LSPD.png', 1, NULL, '2024-01-05 23:39:40', '2024-01-05 23:39:40');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -475,13 +464,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `contacts`
@@ -493,7 +482,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -517,13 +506,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `tables`
@@ -535,13 +524,13 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT cho bảng `type_products`
 --
 ALTER TABLE `type_products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
