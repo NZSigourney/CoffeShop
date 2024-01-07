@@ -43,6 +43,7 @@ class ProductController extends Controller
                 'unit_price' => 'required',
                 'promotion_price' => 'required',
                 'id_type' => 'required',
+                // 'popular' => 'required'
                 // 'unit' => 'required'
             ],[
                 'name.required' => 'Bạn chưa nhập tên sản phẩm',
@@ -56,7 +57,7 @@ class ProductController extends Controller
             ]);
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
-            $destinationPath=public_path('images/products'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath=public_path('assets/images/products'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             if (file_exists($destinationPath . '/' . $name)) {
                 return redirect('products')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
             }
@@ -87,6 +88,7 @@ class ProductController extends Controller
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
         $products->new = 1;
+        $products->popular = $request->popular;
         $products->id_type = $request->id_type;
         // $products->unit = $request->unit;
         $products->image = $name;
@@ -146,12 +148,12 @@ class ProductController extends Controller
 
             $file = $request->file('image');
             $name = time().'_'.$file->getClientOriginalName();
-            $destinationPath = public_path('images/products'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath = public_path('assets/images/products'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/car
 
             // Đảm bảo xóa hình ảnh cũ nếu có
             if (!empty($products->image)) {
-                $oldImagePath = public_path('images/products/') . $products->image;
+                $oldImagePath = public_path('assets/images/products/') . $products->image;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -218,7 +220,7 @@ class ProductController extends Controller
         
         // Xóa hình ảnh cũ nếu có
         if (!empty($products->image)) {
-            $oldImagePath = public_path('images/products/') . $products->image;
+            $oldImagePath = public_path('assets/images/products/') . $products->image;
 
             // Kiểm tra xem tệp tin tồn tại trước khi xóa
             if (file_exists($oldImagePath)) {
