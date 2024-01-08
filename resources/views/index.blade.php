@@ -1,4 +1,8 @@
 @extends('layouts.master')
+@section('css')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+@endsection
 @section('content')
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner" id="top">
@@ -54,37 +58,35 @@
         <br>
 
         <div class="row">
-            @foreach($popularProducts as $product)
-                <div class="col-lg-3 col-md-6">
-                    <div class="product-item">
-                        <div class="product-title">
-                            {{-- <a href="#" class="product-name">{{ $product->name }}</a> --}}
-                            <div class="product-name">{{ $product->name }}</div>
-                            {{-- <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div> --}}
-                        </div>
-                        <div class="product-image">
-                            <a href="product-detail.html">
-                                <img src="{{ asset('images/products/' . $product->image) }}" alt="Product Image" class="item-image">
-                            </a>
-                            {{-- <div class="product-action">
-                                <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                <a href="#"><i class="fa fa-heart"></i></a>
-                                <a href="#"><i class="fa fa-search"></i></a>
-                            </div> --}}
-                        </div>
-                        <div class="product-price">
-                            <h3>{{ $product->unit_price }} <span>VND</span></h3>
-                            <a class="btn" href="{{ route('banhang.addToCart', $product->id)}}"><i class="fa fa-shopping-cart"></i>Buy Now</a>
+            @if(count($popularProducts) == 1)
+                @foreach($popularProducts as $product)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <div class="product-name">{{ $product->name }}</div>
+                            </div>
+                            <div class="product-image">
+                                <a href="product-detail.html">
+                                    <img src="{{ asset('images/products/' . $product->image) }}" alt="Product Image" class="item-image">
+                                </a>
+                            </div>
+                            <div class="product-price">
+                                <h3>{{ $product->unit_price }} <span>VND</span></h3>
+                            </div>
+                            <div class="product-btn-buy">
+                                <a class="btn" href="{{ route('banhang.addToCart', $product->id)}}"><i class="fas fa-shopping-cart"></i>Buy Now</a>
+                            </div>
                         </div>
                     </div>
+                @endforeach
+            @else
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="product-popular-announce">
+                        <img src="/source/assets/images/update.png" alt="" style="margin: 0 60% 0 40%">
+                        <p>Các sản phẩm nổi bật hiện đang được cập nhật!</p>
+                    </div>
                 </div>
-            @endforeach
+            @endif
         </div>
     </div>
 </section>
