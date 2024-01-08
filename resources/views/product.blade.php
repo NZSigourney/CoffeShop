@@ -36,31 +36,25 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-lg-4">
-                    <div class="trainer-item">
+                    <div class="product-wrapper">
                         <div class="image-thumb">
-                            <a href="{{route('products.show', $product->id) }}"><img src="/images/products/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
+                            <img src="{{asset('/images/products/'.$product->image)}}" alt="{{$product->name}}">
                         </div>
                         <div class="down-content">
-                            <span>
-                                <h4><p class="single-item-title">{{$product->name}}</p></h4>
-                                @if ($product ->promotion_price !=0)
-                                <p class="single-item-price">
-                                <span class="flash-del">Giá gốc: {{number_format($product->unit_price)}}</span>
-                                <span class="flash-sale">Giá Khuyến Mãi;{{number_format($product->promotion_price)}}</span>
-                                </p>
-                                @else
-                                <p class="single-item-price">
-                                    <span>Giá: {{number_format($product->unit_price)}}</span>
-                                </p>
+                            <h4 class="single-item-title">{{$product->name}}</h4>
+                            <span class="single-item-price">
+                                Giá: {{number_format($product->unit_price)}} VNĐ
+                                @if ($product->promotion_price > 0)
+                                <span class="flash-sale"> - Sales: {{ $product->promotion_price }}%</span>
                                 @endif
                             </span>
-
-                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
-
+                            {{-- <span class="single-item-price">
+                                Giá mới: {{number_format($product->promotion_price)}} VNĐ
+                            </span> --}}
                             <ul class="social-icons">
-                                <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                {{-- <!-- Nút chi tiết -->
-                                <li><a class="view-details" href="{{ route('product', ['id' => $product->id]) }}"><i class="fas fa-info-circle"></i> Chi tiết</a></li> --}}
+                                <li><a class="add-to-cart" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                <!-- Nút chi tiết -->
+                                <li><a class="view-details" href="{{ route('products.show', $product->id) }}"><i class="fas fa-info-circle"></i> Chi tiết</a></li>
                             </ul>
                         </div>
                     </div>

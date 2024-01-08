@@ -59,7 +59,7 @@
     @enderror
 <!------------------------------------------------------------------------------>
     <div class="form-group">
-        <label for="old_price">Promotion Price</label>
+        <label for="old_price">Phần trăm giảm giá (Giảm giá % - chỉ từ 10-30 không cần dấu %)</label>
         <input type="text" name="promotion_price" id="promotion_price" class="form-control" value="{{ isset($products) ? $products->promotion_price:'' }}" require="require">
     </div>
     @error('old_price')
@@ -67,7 +67,7 @@
     @enderror
 <!------------------------------------------------------------------------------>
     <div class="form-group">
-        <label for="popular">Popular</label>
+        <label for="popular">Popular (0 = False, 1 = True)</label>
         <input type="number" name="popular" id="popular" class="form-control" value="{{ isset($products) ? $products->popular:'' }}" require="require">
     </div>
     {{-- @error('old_price')
@@ -76,14 +76,14 @@
 <!------------------------------------------------------------------------------>
     <div class="form-group">
         <label for="id_type">Danh Mục</label>
-        @foreach($types as $type)
-            <select name="id_type" id="id_type" class="form-control" required>
-                <option value="{{$type -> id}}">{{$type -> name}}</option>
-                {{-- <option value="1" @if(isset($products) && $products->id_type == 1) selected @endif>Cà Phê</option>
-                <option value="2" @if(isset($products) && $products->id_type == 2) selected @endif>Giải Khát</option>
-                <option value="3" @if(isset($products) && $products->id_type == 3) selected @endif>Nước Ngọt</option> --}}
-            </select>
-        @endforeach
+        <select name="id_type" id="id_type" class="form-control" required>
+            @foreach($types as $type)
+            <option value="{{$type -> id}}">{{$type -> name}}</option>
+            {{-- <option value="1" @if(isset($products) && $products->id_type == 1) selected @endif>Cà Phê</option>
+            <option value="2" @if(isset($products) && $products->id_type == 2) selected @endif>Giải Khát</option>
+            <option value="3" @if(isset($products) && $products->id_type == 3) selected @endif>Nước Ngọt</option> --}}
+            @endforeach
+        </select>
     </div>
     @error('name')
         <div class="alert alert-danger">{{ $message }}</div>

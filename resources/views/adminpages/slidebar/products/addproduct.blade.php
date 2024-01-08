@@ -60,7 +60,7 @@
         @enderror
     <!------------------------------------------------------------------------------>
         <div class="form-group">
-            <label for="old_price">Promotion Price</label>
+            <label for="old_price">Phần trăm giảm giá (Giảm giá % - chỉ từ 10-30 không cần dấu %)</label>
             <input type="text" name="promotion_price" id="promotion_price" class="form-control" required>
         </div>
         @error('old_price')
