@@ -12,9 +12,14 @@
           <nav class="tm-nav">
             <ul>
               <li><a href="/" class="active">Home</a></li>
-              <li><a href="today-special.html">Today Special</a></li>
+              {{-- <li><a href="today-special.html">Today Special</a></li> --}}
               <li><a href="{{route('product')}}">Menu</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li class="dropdown">
+                <a href="{{route('contact')}}" class="dropbtn">Contact</a>
+                <div class="dropdown-content">
+                  <a href="{{ route('about') }}">About</a>
+                </div>
+              </li>
             </ul>
           </nav>   
         </div>           

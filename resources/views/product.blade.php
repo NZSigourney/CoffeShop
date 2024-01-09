@@ -4,95 +4,74 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 @endsection
 @section('content')
-<!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action" style="background-image: url(/images/sliders/slide1.jpg)">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1">
-                <div class="cta-content">
-                    <br>
-                    <br>
-                    <h2><em>Menu</em> của chúng tôi</h2>
-                    <p>Có những ly Nước, Cafe giải khát siêu đỉnh!</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="tm-welcome-section">
+    <div class="container tm-position-relative">
+      <div class="tm-lights-container">
+        <img src="source/img/light.png" alt="Light" class="light light-1">
+        <img src="source/img/light.png" alt="Light" class="light light-2">
+        <img src="source/img/light.png" alt="Light" class="light light-3">  
+      </div>        
+      <div class="row tm-welcome-content">
+        <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Our Menus&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
+        <h2 class="gold-text tm-welcome-header-2">Cafe House</h2>
+        <p class="gray-text tm-welcome-description">Cafe House template is a mobile-friendly responsive <span class="gold-text">Bootstrap v3.3.5 layout</span> by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+        <a href="#main" class="tm-more-button tm-more-button-welcome">Read More</a>      
+      </div>
+      <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">  
+    </div>      
 </section>
-<!-- ***** Call to Action End ***** -->
-
-<!-- ***** Fleet Starts ***** -->
-<section class="section" id="trainers">
-    <div class="container">
-        <br>
-        <br>
-
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <div class="row">
-            @foreach ($products as $product)
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <a href="{{route('products.show', $product->id) }}"><img src="/images/products/{{$product->image}}" alt="{{$product->image}}" width="270px" height="320px"></a>
-                        </div>
-                        <div class="down-content">
-                            <span>
-                                <h4><p class="single-item-title">{{$product->name}}</p></h4>
-                                @if ($product ->promotion_price !=0)
-                                <p class="single-item-price">
-                                <span class="flash-del">Giá gốc: {{number_format($product->unit_price)}}</span>
-                                <span class="flash-sale">Giá Khuyến Mãi;{{number_format($product->promotion_price)}}</span>
-                                </p>
-                                @else
-                                <p class="single-item-price">
-                                    <span>Giá: {{number_format($product->unit_price)}}</span>
-                                </p>
-                                @endif
-                            </span>
-
-                            {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, libero, reprehenderit? Aliquam vel, voluptate placeat, porro nemo impedit reprehenderit eligendi.</p> --}}
-
-                            <ul class="social-icons">
-                                <li><a class="add-to-cart pull-left" href="{{route('banhang.addToCart',$product ->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
-                                {{-- <!-- Nút chi tiết -->
-                                <li><a class="view-details" href="{{ route('product', ['id' => $product->id]) }}"><i class="fas fa-info-circle"></i> Chi tiết</a></li> --}}
-                            </ul>
-                        </div>
-                    </div>
+<div class="tm-main-section light-gray-bg">
+<div class="container" id="main">
+    <section class="tm-section row">
+    <div class="col-lg-9 col-md-9 col-sm-8">
+        <h2 class="tm-section-header gold-text tm-handwriting-font">Variety of Menus</h2>
+        <h2>Cafe House</h2>
+        <p class="tm-welcome-description">This is free HTML5 website template from <span class="blue-text">template</span><span class="green-text">mo</span>. Fndimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Ettiam sit amet orci eget eros faucibus tincidunt.</p>
+        <a href="#" class="tm-more-button margin-top-30">Read More</a> 
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 tm-welcome-img-container">
+        <div class="inline-block shadow-img">
+        <img src="source/img/1.jpg" alt="Image" class="img-circle img-thumbnail">  
+        </div>              
+    </div>            
+    </section>          
+    <section class="tm-section row">
+    <div class="col-lg-12 tm-section-header-container margin-bottom-30">
+        <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Our Menus</h2>
+        <div class="tm-hr-container"><hr class="tm-hr"></div>
+    </div>
+    <div>
+        <div class="col-lg-3 col-md-3">
+        <div class="tm-position-relative margin-bottom-30">              
+            <nav class="tm-side-menu">
+            <ul>
+                @foreach($loai as $types)
+                <li><a href="{{ route('getProductType', $types->id) }}" class="active">{{ $types->name }}</a></li>
+                @endforeach
+            </ul>              
+            </nav>    
+            <img src="source/img/vertical-menu-bg.png" alt="Menu bg" class="tm-side-menu-bg">
+        </div>  
+        </div>            
+        <div class="tm-menu-product-content col-lg-9 col-md-9"> <!-- menu content -->
+            @foreach($products as $p)
+            <div class="tm-product">
+                <img src="assets/images/products/{{ $p->images }}" alt="Product">
+                <div class="tm-product-text">
+                <h3 class="tm-product-title">{{ $p->name }}</h3>
+                <p class="tm-product-description">{{ $p->desciprtion }}.</p>
                 </div>
+                <div class="tm-product-price">
+                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
+                </div>
+            </div>
             @endforeach
+            <br>
         </div>
-
-        <br>
-            
-        <nav>
-          <ul class="pagination pagination-lg justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-    </div>
-</section>
-<!-- ***** Fleet Ends ***** -->
+    </div>          
+    </section>
+</div>
+</div> 
 @endsection
 
 @section('js')

@@ -43,17 +43,18 @@ class PageController extends Controller
                 return abort(404); // Trả về trang lỗi 404
             }
         }
-        $loai = product_type::all();
+        // $loai = product_type::all();
             
         // $sp_tuongtu = Product::where('id_type', $sanpham->id_type)->paginate(3);
         // return view('product', ['products' => $details]);
-        return view('product', compact('sanpham', 'sp_tuongtu', 'loai'));
+        return view('product', compact('sanpham', 'sp_tuongtu'));
     }
 
     public function sanpham_main(){
-        $details = Product::all();
+        $products = Product::all();
+        $loai = product_type::all();
         // $sliders = Slide::all();
-        return view('product', ['products' => $details]);
+        return view('product', ['products' => $products, 'loai' => $loai]);
     }
 
     // public function getPopular(string $id){
