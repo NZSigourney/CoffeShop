@@ -52,10 +52,10 @@ class PageController extends Controller
         return view('product', compact('sanpham', 'sp_tuongtu', 'loai'));
     }
 
-    public function sanpham_main(){
-        $details = Product::all();
+    public function getProductIndex(){
+        $products = Product::paginate(6);
         // $sliders = Slide::all();
-        return view('product', ['products' => $details]);
+        return view('product', ['products' => $products]);
     }
     
 
@@ -91,12 +91,12 @@ class PageController extends Controller
         
         $cart=Session::get('cart');
         $customer=new Customer();
-        $customer->name=$request->input('name');
-        $customer->gender=$request->input('gender');
-        $customer->email=$request->input('email');
-        $customer->address=$request->input('address');
-        $customer->phone_number=$request->input('phone_number');
-        $customer->note=$request->input('note');
+        $customer->name = $request->input('name');
+        $customer->gender = $request->input('gender');
+        $customer->email = $request->input('email');
+        $customer->address = $request->input('address');
+        $customer->phone_number = $request->input('phone_number');
+        $customer->note = $request->input('note');
         // $customer->status = $request->input('status');
         $customer->save();
 
@@ -104,9 +104,9 @@ class PageController extends Controller
         $bill->id_customer=$customer->id;
         $bill->date_order=date('Y-m-d');
         $bill->total=$cart->totalPrice;
-        $bill->payment=$request->input('payment_method');
-        $bill->note=$request->input('notes');
-        $bill->status = $request->input('status');
+        $bill->payment = $request->input('payment_method');
+        $bill->note = $request->input('note');
+        $bill->status = 0;
         $bill->save();
 
         foreach($cart->items as $key=>$value)

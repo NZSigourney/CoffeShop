@@ -74,7 +74,7 @@
 
                     <div class="form-block">
                         <label for="adress">Địa chỉ*</label>
-                        <input type="text" id="adress" name="address" placeholder="Street Address" required>
+                        <input type="text" id="address" name="address" placeholder="Street Address" required>
                     </div>
                     
 
@@ -84,8 +84,8 @@
                     </div>
                     
                     <div class="form-block">
-                        <label for="notes">Ghi chú</label>
-                        <textarea id="notes" name="note"></textarea>
+                        <label for="note">Ghi chú</label>
+                        <textarea id="note" name="note"></textarea>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -129,7 +129,7 @@
                         <div class="your-order-body">
                             <select id="payment_method" name="payment_method">
                                 <option value="COD" selected="selected">Thanh toán khi nhận hàng</option>
-                                <option value="ATM">Chuyển khoản</option>
+                                <option value="{{ route('atm.VNPAY_PAYMENT') }}">Chuyển khoản</option>
                             </select>
                             
                             <div id="payment_method_details" class="payment_box" style="display: none;">

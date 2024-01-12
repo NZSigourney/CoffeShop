@@ -43,9 +43,9 @@
                         <div class="down-content">
                             <h4 class="single-item-title">{{$product->name}}</h4>
                             <span class="single-item-price">
-                                Giá: {{number_format($product->unit_price)}} VNĐ
+                                Giá gốc: {{number_format($product->unit_price)}} VNĐ
                                 @if ($product->promotion_price > 0)
-                                <span class="flash-sale"> - Sales: {{ $product->promotion_price }}%</span>
+                                <span class="flash-sale"> - Giảm giá còn: {{ number_format($product->promotion_price) }} VND</span>
                                 @endif
                             </span>
                             {{-- <span class="single-item-price">
@@ -66,15 +66,20 @@
             
         <nav>
           <ul class="pagination pagination-lg justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+            <li class="page-item {{ ($products->currentPage() == 1)? 'disabled' : '' }}">
+              <a class="page-link" href="{{ $products->previousPageUrl() }}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span class="sr-only">Previous</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            @for ($i = 1; $i < $products->lastPage(); $i++)
+            <li class="page-item {{ ($i == $products->currentPage()) ? 'active' : '' }}">
+                <a class="page-link" href="{{ $products->url($i) }}">{{ $i }}</a>
+            </li>
+            @endfor
+            {{-- <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> --}}
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>

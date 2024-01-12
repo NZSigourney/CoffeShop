@@ -67,7 +67,7 @@
                                             @method('PUT')
                                             
                                             <select name="status" style="background-color:#00CCFF">
-                                                <option value="0" {{ $bill->status == '0' ? 'selected' : '' }} >Đơn hàng mới</option>
+                                                <option value="0" {{ $bill->status == '0' ? 'selected' : '' }}>Đơn hàng mới</option>
                                                 <option value="1" {{ $bill->status == '1' ? 'selected' : '' }}>Đơn hàng đang giao</option>
                                                 <option value="2" {{ $bill->status == '2' ? 'selected' : '' }}>Đơn hàng đã giao</option>
                                                 <option value="3" {{ $bill->status == '3' ? 'selected' : '' }}>Đơn hàng đã hủy</option>
@@ -105,4 +105,17 @@
 <script src="/source/assets/dest/js/scripts1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="/source/assets/dest/js/datatables-simple-demo.js"></script>
+
+<script>
+    document.getElementById('payment_method').addEventListener('change', function() {
+        var paymentMethodDetails = document.getElementById('payment_method_details');
+        paymentMethodDetails.style.display = 'block';
+    
+        var selectedPaymentMethod = this.value;
+        var paymentMethodDetailElements = paymentMethodDetails.getElementsByTagName('p');
+        for (var i = 0; i < paymentMethodDetailElements.length; i++) {
+            paymentMethodDetailElements[i].style.display = paymentMethodDetailElements[i].id === 'payment_method_details_' + selectedPaymentMethod ? 'block' : 'none';
+        }
+    });
+</script>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailControler;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
@@ -33,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('product/{id}', [PageController::class, 'product']);
-Route::get('product', [PageController::class, 'sanpham_main'])->name('product');
+Route::get('product', [PageController::class, 'getProductIndex'])->name('product');
 // Route::get('product/category/{id}', [PageController::class, 'product_category'])->name('product.category');
 
 // Route::resource('Pages', PageController::class);
@@ -163,3 +164,8 @@ Route::get('search', [PageController::class, 'getSearch'])->name('user.getSearch
 
 Route::resource('sliders', SlideController::class);
 Route::put('edit/slider/{id}', [SlideController::class, 'update'])->name('admin.SliderEdit');
+
+
+// PAYMENT METTHOD
+
+route::get('VN_PAYMENT', [PaymentController::class, 'vnpay_payment'])->name('atm.VNPAY_PAYMENT');
