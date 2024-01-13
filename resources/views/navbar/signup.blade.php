@@ -31,7 +31,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-    <div class="alert alert-dismissible fade show" role="alert">
+    {{-- <div class="alert alert-dismissible fade show" role="alert">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -46,14 +46,19 @@
             </div>
         @endif
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>    
+    </div>     --}}
     <form action="{{ route('postsignin') }}" method="post" class="beta-form-checkout" enctype="multipart/form-data">
         {{-- @method('POST') --}}
         @csrf
+        @if(session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
-                    <a class="back-btn" href="javascript:history.back()">Back</a>
+                    {{-- <a class="back-btn" href="javascript:history.back()">Back</a> --}}
                     <form class="login100-form validate-form">
                         <span class="login100-form-title p-b-26">
                             Welcome
@@ -126,6 +131,16 @@
                                 Log in
                             </a>
                         </div>
+
+                        <div class="text-center p-t-0">
+                            <span class="txt1">
+                                Want to return to the previous page?
+                            </span>
+        
+                            <a class="txt2" href="javascript:history.back()">
+                                back
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -151,6 +166,5 @@
 	<script src="/source/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
 </body>
 </html>

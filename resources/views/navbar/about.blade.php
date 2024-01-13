@@ -3,20 +3,13 @@
 	<link rel="stylesheet" href="/assets/css/about.css">
 @endsection
 @section('content')
-<section class="section section-bg" id="call-to-action" style="background-image: url(/images/sliders/slide2about.jpg)">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-				<div class="cta-content">
-					<br>
-					<br>
-					<h2>TÌM HIỂU THÊM VỀ <em>CHÚNG TÔI</em></h2>
-					<p>Những thông tin cần thiết của chúng tôi đều ở đây</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<!-- Preloader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- End Preloader -->
 
 <!-- ***** Our Classes Start ***** -->
 <section class="section" id="our-classes">
@@ -67,21 +60,4 @@
 	</div>
 </section>
 <!-- ***** Our Classes End ***** -->
-<!-- ***** Call to Action Start ***** -->
-<section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-				<div class="cta-content">
-					<h2>Send us a <em>message</em></h2>
-					<p>Hãy liên hệ chúng tôi nếu bạn cần! chúng tôi luôn sẵn sàng giúp đỡ bạn!</p>
-					<div class="main-button">
-						<a href="{{ route('contact') }}">Contact us</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ***** Call to Action End ***** -->
 @endsection

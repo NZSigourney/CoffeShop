@@ -8,11 +8,11 @@
   <div class="main-body">
     
     <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="main-breadcrumb">
+    {{-- <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
       </ol>
-    </nav>
+    </nav> --}}
     <!-- /Breadcrumb -->
     
     <div class="row gutters-sm">
@@ -62,6 +62,8 @@
         <div class="card mb-3">
           <div class="card-body">
             <form action="{{route('user.PostEditProfile', Auth::user()->id)}}" method="post">
+              @csrf
+              @method('POST')
               <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <h6 class="mb-2 text-primary">Personal Details</h6>
@@ -100,7 +102,7 @@
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <div class="text-right">
                           {{-- <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button> --}}
-                          <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                          <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                       </div>
                   </div>
               </div>

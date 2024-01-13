@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('content')
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+<!-- End Preloader -->
     <section class="tm-welcome-section">
         <div class="container tm-position-relative">
         <div class="tm-lights-container">

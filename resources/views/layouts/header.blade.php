@@ -14,12 +14,13 @@
               <li><a href="/" class="active">Home</a></li>
               {{-- <li><a href="today-special.html">Today Special</a></li> --}}
               <li><a href="{{route('product')}}">Menu</a></li>
-              <li class="dropdown">
+              <li><a href="{{route('contact')}}" class="dropbtn">Contact</a></li>
+              {{-- <li class="dropdown">
                 <a href="{{route('contact')}}" class="dropbtn">Contact</a>
                 <div class="dropdown-content">
                   <a href="{{ route('about') }}">About</a>
                 </div>
-              </li>
+              </li> --}}
               <li class="dropdown">
                 @if(Auth::check())
                 <a href="{{ route('user.Profiles') }}" class="dropbtn">{{ Auth::user()->full_name }}</a>

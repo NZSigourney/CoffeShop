@@ -82,7 +82,7 @@ Route::post('doi-mat-khau/account/{id}', [MailControler::class, 'ChangePassword'
 // profile
 Route::get('profile', [ProfileController::class, 'getProfiles'])->name('user.Profiles');
 Route::get('profile/{id}', [ProfileController::class, 'getEditProfiles'])->name('user.GetEditProfile');
-Route::put('profile/{id}', [ProfileController::class, 'postEditProfiles'])->name('user.PostEditProfile');
+Route::post('profile/{id}', [ProfileController::class, 'postEditProfiles'])->name('user.PostEditProfile');
 
 // Route::get('profile/{id}', [UserController::class, 'getTestProfile'])->name('user.GetTestProfile');
 

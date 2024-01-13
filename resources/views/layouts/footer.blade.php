@@ -5,11 +5,7 @@
           <nav class="col-lg-3 col-md-3 tm-footer-nav tm-footer-div">
             <h3 class="tm-footer-div-title">Main Menu</h3>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Directory</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Our Services</a></li>
+              <li><a href="/">Home</a></li>
             </ul>
           </nav>
           <div class="col-lg-5 col-md-5 tm-footer-div">
@@ -20,13 +16,13 @@
           <div class="col-lg-4 col-md-4 tm-footer-div">
             <h3 class="tm-footer-div-title">Get Social</h3>
             <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante.</p>
-            <div class="tm-social-icons-container">
+            {{-- <div class="tm-social-icons-container">
               <a href="#" class="tm-social-icon"><i class="fa fa-facebook"></i></a>
               <a href="#" class="tm-social-icon"><i class="fa fa-twitter"></i></a>
               <a href="#" class="tm-social-icon"><i class="fa fa-linkedin"></i></a>
               <a href="#" class="tm-social-icon"><i class="fa fa-youtube"></i></a>
               <a href="#" class="tm-social-icon"><i class="fa fa-behance"></i></a>
-            </div>
+            </div> --}}
           </div>
         </div>          
       </div>  

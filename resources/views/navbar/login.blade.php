@@ -75,12 +75,12 @@
 
                     <div class="text-center p-t-115">
                         <span class="txt1">
-                            Want to return to the previous page?
+                            Want to back previous page/Homepage?
                         </span>
     
                         <a class="txt2" href="javascript:history.back()">
                             back
-                        </a>
+                        </a>/<a href="/" class="txt2">home</a>
                     </div>
     
                     <div class="text-center p-t-0">
