@@ -1,17 +1,15 @@
-body{
-    margin-top:20px;
+body {
+    margin-top: 20px;
     color: #1a202c;
-    text-align: left;
-    background-color: #e2e8f0;    
-}
-.main-body {
+    text-: left;
+   background-color: #e2e8f0;
+  }
+  
+  .main-body {
     padding: 15px;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-}
-
-.card {
+  }
+  
+  .card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -19,35 +17,93 @@ body{
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
+    border: 0 solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
-}
-
-.card-body {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+  }
+  
+  .card-body {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
-}
-
-.gutters-sm {
+  }
+  
+  .gutters-sm {
     margin-right: -8px;
     margin-left: -8px;
-}
-
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
+  }
+  
+  .gutters-sm>.col,
+  .gutters-sm>[class*=col-] {
     padding-right: 8px;
     padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
-}
-
-.bg-gray-300 {
+  }
+  
+  .mb-3,
+  .my-3 {
+    margin-bottom: 1rem !important;
+  }
+  
+  .bg-gray-300 {
     background-color: #e2e8f0;
-}
-.h-100 {
-    height: 100%!important;
-}
-.shadow-none {
-    box-shadow: none!important;
-}
+  }
+  
+  .h-100 {
+    height: 100% !important;
+  }
+  
+  .shadow-none {
+    box-shadow: none !important;
+  }
+  
+  /* Added custom styles */
+  .user-profile img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .user-profile .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .user-profile .list-group-item {
+    padding: .5rem 1.5rem;
+  }
+  
+  .user-profile .list-group-item i {
+    font-size: 1.5rem;
+    margin-right: .5rem;
+  }
+  
+  .user-profile .list-group-item svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
+  }
+  
+  .user-profile .list-group-item span {
+    font-size: .875rem;
+    opacity: .6;
+  }
+  
+  .user-profile .card.mb-3:last-child {
+    margin-bottom: 0;
+  }
+  
+  .user-profile .card-body h6 {
+    margin-bottom: .25rem;
+  }
+  
+  .user-profile .card-body p {
+    margin-bottom: 1rem;
+  }
+  
+  .user-profile .btn-info {
+    margin-top: 1rem;
+  }

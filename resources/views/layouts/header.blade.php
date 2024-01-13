@@ -20,6 +20,17 @@
                   <a href="{{ route('about') }}">About</a>
                 </div>
               </li>
+              <li class="dropdown">
+                @if(Auth::check())
+                <a href="{{ route('user.Profiles') }}" class="dropbtn">{{ Auth::user()->full_name }}</a>
+                <div class="dropdown-content">
+                  <a href="{{ route('getLogout') }}">Sign Out</a>
+                </div>
+                @else
+                <a href="{{ route('admin.getLogin') }}" class="dropbtn">Login</a>
+                <a href="{{ route('getsignin') }}">Sign in</a>
+                @endif
+              </li>
             </ul>
           </nav>   
         </div>           
