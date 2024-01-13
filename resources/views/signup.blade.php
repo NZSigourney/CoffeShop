@@ -1,5 +1,14 @@
 @extends('layouts.master')
 @section('content')
+
+<!-- Preloader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- End Preloader -->
+
 <div class="inner-header">
     <div class="container">
         <div class="pull-left">

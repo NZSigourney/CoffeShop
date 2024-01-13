@@ -31,6 +31,11 @@
                 <a href="{{ route('getsignin') }}">Sign in</a>
                 @endif
               </li>
+              <li class="dropdown">
+                @if(Auth::check())
+                <a href="{{ route('banhang.getdathang') }}"><i class="fa-solid fa-cart-shopping"></i></a>
+                @endif
+            </li>
             </ul>
           </nav>   
         </div>           

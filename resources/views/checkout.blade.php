@@ -12,20 +12,13 @@
 <link rel="stylesheet" title="style" href="/assets/main/source/assets/dest/css/huong-style.css">
 @endsection
 @section('content')
-<section class="section section-bg" id="call-to-action" style="background-image: url(/source/assets/images/banner-image-1-1920x500.jpg)">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-				<div class="cta-content">
-					<br>
-					<br>
-					<h2>Giỏ hàng của <em>Bạn</em></h2>
-					{{-- <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p> --}}
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<!-- Preloader -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- End Preloader -->
 
 <div class="inner-header">
     <div class="container">

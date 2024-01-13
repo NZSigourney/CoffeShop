@@ -4,6 +4,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 @endsection
 @section('content')
+<!-- Preloader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- End Preloader -->
+
 <section class="tm-welcome-section">
     <div class="container tm-position-relative">
       <div class="tm-lights-container">
@@ -62,7 +70,7 @@
                 <p class="tm-product-description">{{ $p->desciprtion }}.</p>
                 </div>
                 <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
+                <a href="{{route('banhang.addToCart',$p->id)}}" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
                 </div>
             </div>
             @endforeach

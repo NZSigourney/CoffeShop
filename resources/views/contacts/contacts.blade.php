@@ -1,129 +1,63 @@
 @extends('layouts.master')
 @section('content')
-<section class="section section-bg" id="call-to-action" style="background-image: url(images/sliders/banner1.jpg)">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-				<div class="cta-content">
-					<br>
-					<br>
-					<h2>Hãy liên lạc với chúng tôi <em>Nếu bạn cần</em></h2>
-					<p>bạn có thể khiếu nại, góp ý tại đây!</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ***** Features Item Start ***** -->
-<section class="section" id="features">
-	<div class="container">
-		<div class="row text-center">
-			<div class="col-lg-6 offset-lg-3">
-				<div class="section-heading">
-					<h2>contact <em> info</em></h2>
-					<img src="/source/assets/images/line-dec.png" alt="waves">
-					
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="icon">
-					<i class="fa fa-phone"></i>
-				</div>
-
-				<h5><a href="#">+1 333 4040 5566</a></h5>
-
-				<br>
-			</div>
-
-			<div class="col-md-4">
-				<div class="icon">
-					<i class="fa fa-envelope"></i>
-				</div>
-
-				<h5><a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=longthaithien98@gmail.com">CoffeStore@gmail.com</a></h5>
-
-				<br>
-			</div>
-
-			<div class="col-md-4">
-				<div class="icon">
-					<i class="fa fa-map-marker"></i>
-				</div>
-
-				<h5>31 Đống Đa, Đà nẵng</h5>
-
-				<br>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ***** Features Item End ***** -->
-
-<!-- ***** Contact Us Area Starts ***** -->
-<section class="section" id="contact-us" style="margin-top: 0">
-	@if(session('message'))
-		<div class="alert alert-success">
-				{{ session('message') }}
-		</div>
-		@endif
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-6 col-md-6 col-xs-12">
-				<div id="map">
-				  <iframe src="https://maps.google.com/maps?q=31+Đống+Đa,+Đà+Nẵng&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-6 col-xs-12">
-				<div class="contact-form section-bg" style="background-image: url(assets/images/contact-1-720x480.jpg)">
-					<form action="{{ route('admin.postContactMail') }}" method="post">
-						@csrf
-					  <div class="row">
-						<div class="col-md-6 col-sm-12">
-						  <fieldset>
-							<input name="name" type="text" placeholder="Your Name (required)" value="{{  isset($request->name)?$request->name:'' }}">
-							@error('name')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
-						  </fieldset>
-						</div>
-						<div class="col-md-6 col-sm-12">
-						  <fieldset>
-							{{-- <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required=""> --}}
-							<input name="email" type="email" placeholder="Your Email (required)" {{  isset($request->email)?$request->email:'' }}>
-							@error('email')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
-						  </fieldset>
-						</div>
-						<div class="col-md-12 col-sm-12">
-						  <fieldset>
-							<input name="subject" type="text" id="subject" placeholder="Subject" {{ isset($request->subject)?$request->subject:'' }}>
-							@error('subject')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
-						  </fieldset>
-						</div>
-						<div class="col-lg-12">
-						  <fieldset>
-							<textarea name="message" placeholder="Your Message"></textarea>
-							@error('message')
-								<div class="alert alert-danger">{{ $message }}</div>
-							@enderror
-						  </fieldset>
-						</div>
-						<div class="col-lg-12">
-						  <fieldset>
-							<button type="submit" id="form-submit" class="main-button">Send Message</button>
-						  </fieldset>
-						</div>
-					  </div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ***** Contact Us Area Ends ***** -->
+    <section class="tm-welcome-section">
+        <div class="container tm-position-relative">
+        <div class="tm-lights-container">
+            <img src="source/img/light.png" alt="Light" class="light light-1">
+            <img src="source/img/light.png" alt="Light" class="light light-2">
+            <img src="source/img/light.png" alt="Light" class="light light-3">  
+        </div>        
+        <div class="row tm-welcome-content">
+            <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Contact Us&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
+            <h2 class="gold-text tm-welcome-header-2">Cafe House</h2>
+            <p class="gray-text tm-welcome-description">Cafe House is free <span class="gold-text">responsive Bootstrap</span> v3.3.5 layout by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+            <a href="#main" class="tm-more-button tm-more-button-welcome">Message Us</a>      
+        </div>
+        <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">            
+        </div>      
+    </section>
+    <div class="tm-main-section light-gray-bg">
+        <div class="container" id="main">
+        <section class="tm-section row">
+            <h2 class="col-lg-12 margin-bottom-30">Send us a message</h2>
+            <form action="{{ route('admin.postContactMail') }}" method="post" class="tm-contact-form">
+                @csrf
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="name" id="contact_name" class="form-control" placeholder="NAME" />
+                        @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" id="contact_email" class="form-control" placeholder="EMAIL" />
+                        @error('email')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" id="contact_subject" class="form-control" placeholder="SUBJECT" />
+                        @error('subject')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact_message" name="message" class="form-control" rows="6" placeholder="MESSAGE"></textarea>
+                        @error('message')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                    <button class="tm-more-button" type="submit" name="submit">Send message</button> 
+                    </div>               
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div id="google-map">
+                        <iframe src="https://maps.google.com/maps?q=31+Đống+Đa,+Đà+Nẵng&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div> 
+            </form>
+        </section>
+        </div>
+    </div>
 @endsection
