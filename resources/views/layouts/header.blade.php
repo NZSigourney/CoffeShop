@@ -4,17 +4,17 @@
         <div class="tm-top-header-inner">
           <div class="tm-logo-container">
             {{-- <img src="#" alt="Logo" class="tm-site-logo"> --}}
-            <h1 class="tm-site-name tm-handwriting-font">Cafe House</h1>
+            <h1 class="tm-site-name tm-handwriting-font">Blue Sky - Cafe</h1>
           </div>
           <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
           </div>
           <nav class="tm-nav">
             <ul>
-              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/" class="active">Trang chính</a></li>
               {{-- <li><a href="today-special.html">Today Special</a></li> --}}
-              <li><a href="{{route('product')}}">Menu</a></li>
-              <li><a href="{{route('contact')}}" class="dropbtn">Contact</a></li>
+              <li><a href="{{route('product')}}">Thực Đơn</a></li>
+              <li><a href="{{route('contact')}}" class="dropbtn">Liên Hệ</a></li>
 
               {{-- <form action="">
                 <input type="search" required>
@@ -32,11 +32,11 @@
                 @if(Auth::check())
                 <a href="{{ route('user.Profiles') }}" class="dropbtn">{{ Auth::user()->full_name }}</a>
                 <div class="dropdown-content">
-                  <a href="{{ route('getLogout') }}">Sign Out</a>
+                  <a href="{{ route('getLogout') }}">Đăng xuất</a>
                 </div>
                 @else
                 <a href="{{ route('admin.getLogin') }}" class="dropbtn">Login</a>
-                <a href="{{ route('getsignin') }}">Sign in</a>
+                <a href="{{ route('getsignin') }}">Đăng xuất</a>
                 @endif
               </li>
               <li class="dropdown">

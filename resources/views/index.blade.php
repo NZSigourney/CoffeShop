@@ -15,9 +15,9 @@
         <img src="source/img/light.png" alt="Light" class="light light-3">  
       </div>        
       <div class="row tm-welcome-content">
-        <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Welcome To&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
-        <h2 class="gold-text tm-welcome-header-2">Koppee Cafe</h2>
-        <p class="gray-text tm-welcome-description">Chúng tôi hân hạnh chào đón bạn đến với <span class="gold-text">KOPPEE CAFE</span> - không gian ấm cúng và đầy tinh tế nằm giữa trung tâm thành phố. Chúng tôi mang đến cho bạn một trải nghiệm cà phê độc đáo, nơi bạn có thể tận hưởng không khí yên bình và thư giãn.</p>
+        <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Chào Mừng đến&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
+        <h2 class="gold-text tm-welcome-header-2">Blue Sky - Cafe</h2>
+        <p class="gray-text tm-welcome-description">Chúng tôi hân hạnh chào đón bạn đến với <span class="blue-text">BLUE SKY</span> - <span class="gold-text">CAFE</span> - không gian ấm cúng và đầy tinh tế nằm giữa trung tâm thành phố. Chúng tôi mang đến cho bạn một trải nghiệm cà phê độc đáo, nơi bạn có thể tận hưởng không khí yên bình và thư giãn.</p>
         <a href="#main" class="tm-more-button tm-more-button-welcome">Details</a>      
       </div>
       <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">             
@@ -27,9 +27,9 @@
     <div class="container" id="main">
       <section class="tm-section row">
         <div class="col-lg-9 col-md-9 col-sm-8">
-          <h2 class="tm-section-header gold-text tm-handwriting-font">The Best Coffee for you</h2>
-          <h2>Koppee Cafe</h2>
-          <p class="tm-welcome-description">Tại <span class="blue-text">KOPPEE</span> <span class="green-text">CAFE</span>, chúng tôi tự hào về việc chọn lựa những hạt cà phê chất lượng nhất từ những nguồn cung cấp uy tín. Mỗi tách cà phê đều là một tác phẩm nghệ thuật, được pha chế đặc biệt để mang đến trải nghiệm tuyệt vời nhất cho khách hàng của chúng tôi.</p>
+          <h2 class="tm-section-header gold-text tm-handwriting-font">Cà phê tốt nhất cho bạn</h2>
+          <h2>Blue Sky - Cafe</h2>
+          <p class="tm-welcome-description">Tại <span class="blue-text">BLUE SKY</span> - <span class="gold-text">CAFE</span>, chúng tôi tự hào về việc chọn lựa những hạt cà phê chất lượng nhất từ những nguồn cung cấp uy tín. Mỗi tách cà phê đều là một tác phẩm nghệ thuật, được pha chế đặc biệt để mang đến trải nghiệm tuyệt vời nhất cho khách hàng của chúng tôi.</p>
           {{-- <a href="#" class="tm-more-button margin-top-30">Read More</a>  --}}
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 tm-welcome-img-container">
@@ -40,7 +40,7 @@
       </section>          
       <section class="tm-section tm-section-margin-bottom-0 row">
         <div class="col-lg-12 tm-section-header-container">
-          <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Popular Items</h2>
+          <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Sản phẩm nổi bật </h2>
           <div class="tm-hr-container"><hr class="tm-hr"></div>
         </div>
         <div class="col-lg-12 tm-popular-items-container">
@@ -64,68 +64,11 @@
             <!-- End -->    
         </div>          
       </section>
-      {{-- <section class="tm-section row">
-        <div class="col-lg-12 tm-section-header-container">
-          <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Today's Special</h2>
-          <div class="tm-hr-container"><hr class="tm-hr"></div>
-        </div>          
-        <div class="col-lg-12 tm-special-container margin-top-60">
-          <div class="tm-special-container-left"> <!-- left -->
-            <div class="tm-special-item">
-              <div class="tm-special-img-container">
-                <img src="source/img/special-1.jpg" alt="Special" class="tm-special-img img-responsive">  
-                <a href="#">
-                  <div class="tm-special-description">
-                    <h3 class="tm-special-title">Donec pede justo</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>  
-                  </div>            
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="tm-special-container-right"> <!-- right -->
-            <div>
-              <div class="tm-special-item">
-                <div class="tm-special-img-container">
-                  <img src="source/img/special-2.jpg" alt="Special" class="img-responsive">  
-                  <a href="#">
-                    <div class="tm-special-description">
-                      <h3 class="tm-special-title">Etiam sit amet</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>  
-            </div>
-            <div class="tm-special-container-lower">
-              <div class="tm-special-item">
-                <div class="tm-special-img-container">
-                  <img src="source/img/special-3.jpg" alt="Special" class="img-responsive">  
-                  <a href="#">
-                    <div class="tm-special-description">
-                      <p>Vivamus elementum</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="tm-special-item">
-                <div class="tm-special-img-container">
-                  <img src="source/img/special-4.jpg" alt="Special" class="img-responsive">  
-                  <a href="#">
-                    <div class="tm-special-description">
-                      <p>Quisque rutrum.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>  
-            </div>              
-          </div>
-        </div>
-      </section> --}}
+      
       <section class="tm-section">
         <div class="row">
           <div class="col-lg-12 tm-section-header-container">
-            <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Daily Menu</h2> 
+            <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Thực đơn hàng ngày</h2> 
             <div class="tm-hr-container"><hr class="tm-hr"></div> 
           </div>  
         </div>          
@@ -135,7 +78,7 @@
               <img src="source/img/menu-board.png" alt="Menu board" class="tm-daily-menu-img">      
             </div>            
             <div class="col-lg-8 col-md-8">
-              <p>Chào mừng bạn đến <span class="gold-text">KOPPEE</span> <span class="blue-text">CAFE</span>! Hôm nay, chúng tôi rất vui được chia sẻ với bạn những hương vị mới lạ và tuyệt vời nhất. Dưới đây là một số món đặc biệt mà chúng tôi đã chuẩn bị:</p>
+              <p>Chào mừng bạn đến <span class="blue-text">BLUE SKY</span> - <span class="gold-text">CAFE</span>! Hôm nay, chúng tôi rất vui được chia sẻ với bạn những hương vị mới lạ và tuyệt vời nhất. Dưới đây là một số món đặc biệt mà chúng tôi đã chuẩn bị:</p>
               <ol class="margin-top-30">
                 @foreach($daily as $p)
                   @if($p->promotion_price == 0)
@@ -144,12 +87,6 @@
                     <li>{{ $p->name }} - {{ number_format($p->promotion_price) }} VND - SALES: {{ number_format((($p->unit_price - $p->promotion_price) / $p->unit_price) * 100) }} %</li>
                   @endif
                 @endforeach
-                {{-- <li>Tellus eget condimentum rhoncus.</li> 
-                <li>Sem quam semper libero.</li>
-                <li>Sit amet adipiscing sem neque sed ipsum.</li> 
-                <li>Nam quam nunc, blandit vel, luctus pulvinar.</li> 
-                <li>Maecenas nec odio et ante tincidunt tempus.</li> 
-                <li>Donec vitae sapien ut libero ventenatis faucibus.</li>  --}}
               </ol>
               <a href="#" class="tm-more-button margin-top-30">Read More</a>    
             </div>
