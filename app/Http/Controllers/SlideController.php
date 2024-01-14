@@ -41,7 +41,7 @@ class SlideController extends Controller
 
             $file = $request->file('image');
             $img = $file->getClientOriginalName();
-            $destinationPath=public_path('images/sliders'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath=public_path('assets/images/sliders'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
 
             // Kiểm tra xem hình ảnh đã tồn tại hay chưa
             if (file_exists($destinationPath . '/' . $img)) {
@@ -100,12 +100,12 @@ class SlideController extends Controller
             ]);
             $file = $request->file('image');
             $img = $file->getClientOriginalName();
-            $destinationPath=public_path('images/sliders'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath=public_path('assets/images/sliders'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $img);
 
             // Đảm bảo xóa hình ảnh cũ nếu có
             if (!empty($sliders->image)) {
-                $oldImagePath = public_path('images/sliders/') . $sliders->image;
+                $oldImagePath = public_path('assets/images/sliders/') . $sliders->image;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -149,7 +149,7 @@ class SlideController extends Controller
         
         // Xóa hình ảnh cũ nếu có
         if (!empty($sliders->image)) {
-            $oldImagePath = public_path('images/sliders/') . $sliders->image;
+            $oldImagePath = public_path('assets/images/sliders/') . $sliders->image;
 
             // Kiểm tra xem tệp tin tồn tại trước khi xóa
             if (file_exists($oldImagePath)) {

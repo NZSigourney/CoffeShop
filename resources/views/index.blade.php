@@ -16,8 +16,8 @@
       </div>        
       <div class="row tm-welcome-content">
         <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Welcome To&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
-        <h2 class="gold-text tm-welcome-header-2">Cafe House</h2>
-        <p class="gray-text tm-welcome-description">Cafe House template is a mobile-friendly responsive <span class="gold-text">Bootstrap v3.3.5</span> layout by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+        <h2 class="gold-text tm-welcome-header-2">Koppee Cafe</h2>
+        <p class="gray-text tm-welcome-description">Chúng tôi hân hạnh chào đón bạn đến với <span class="gold-text">KOPPEE CAFE</span> - không gian ấm cúng và đầy tinh tế nằm giữa trung tâm thành phố. Chúng tôi mang đến cho bạn một trải nghiệm cà phê độc đáo, nơi bạn có thể tận hưởng không khí yên bình và thư giãn.</p>
         <a href="#main" class="tm-more-button tm-more-button-welcome">Details</a>      
       </div>
       <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">             
@@ -28,9 +28,9 @@
       <section class="tm-section row">
         <div class="col-lg-9 col-md-9 col-sm-8">
           <h2 class="tm-section-header gold-text tm-handwriting-font">The Best Coffee for you</h2>
-          <h2>Cafe House</h2>
-          <p class="tm-welcome-description">This is free HTML5 website template from <span class="blue-text">template</span><span class="green-text">mo</span>. Fndimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Ettiam sit amet orci eget eros faucibus tincidunt.</p>
-          <a href="#" class="tm-more-button margin-top-30">Read More</a> 
+          <h2>Koppee Cafe</h2>
+          <p class="tm-welcome-description">Tại <span class="blue-text">KOPPEE</span> <span class="green-text">CAFE</span>, chúng tôi tự hào về việc chọn lựa những hạt cà phê chất lượng nhất từ những nguồn cung cấp uy tín. Mỗi tách cà phê đều là một tác phẩm nghệ thuật, được pha chế đặc biệt để mang đến trải nghiệm tuyệt vời nhất cho khách hàng của chúng tôi.</p>
+          {{-- <a href="#" class="tm-more-button margin-top-30">Read More</a>  --}}
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 tm-welcome-img-container">
           <div class="inline-block shadow-img">
@@ -45,18 +45,22 @@
         </div>
         <div class="col-lg-12 tm-popular-items-container">
             <!-- khu vực foreach Popular item -->
-            @foreach($populars as $p)
-            <div class="tm-popular-item">
-                <img src="/assets/images/products/{{ $p->image }}" alt="Popular" class="tm-popular-item-img">
-                <div class="tm-popular-item-description">
-                    <h3 class="tm-handwriting-font tm-popular-item-title"><span class="tm-handwriting-font bigger-first-letter">{{ $p->name }}</h3><hr class="tm-popular-item-hr">
-                    <p>{{ $p->description }}.</p>
-                    <div class="order-now-container">
-                        <a href="{{route('banhang.addToCart', $p->id)}}" class="order-now-link tm-handwriting-font">Order Now</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+            @if(count($popularProducts) == 1)
+              @foreach($populars as $p)
+              <div class="tm-popular-item">
+                  <img src="/assets/images/products/{{ $p->image }}" alt="Popular" class="tm-popular-item-img">
+                  <div class="tm-popular-item-description">
+                      <h3 class="tm-handwriting-font tm-popular-item-title"><span class="tm-handwriting-font bigger-first-letter">{{ $p->name }}</h3><hr class="tm-popular-item-hr">
+                      <p>{{ $p->description }}.</p>
+                      <div class="order-now-container">
+                          <a href="{{route('banhang.addToCart', $p->id)}}" class="order-now-link tm-handwriting-font">Order Now</a>
+                      </div>
+                  </div>
+              </div>
+              @endforeach
+            @else
+              <h3><span class="gold-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">ITEM UPDATING</span></h3>
+            @endif
             <!-- End -->    
         </div>          
       </section>
@@ -131,14 +135,21 @@
               <img src="source/img/menu-board.png" alt="Menu board" class="tm-daily-menu-img">      
             </div>            
             <div class="col-lg-8 col-md-8">
-              <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
+              <p>Chào mừng bạn đến <span class="gold-text">KOPPEE</span> <span class="blue-text">CAFE</span>! Hôm nay, chúng tôi rất vui được chia sẻ với bạn những hương vị mới lạ và tuyệt vời nhất. Dưới đây là một số món đặc biệt mà chúng tôi đã chuẩn bị:</p>
               <ol class="margin-top-30">
-                <li>Tellus eget condimentum rhoncus.</li> 
+                @foreach($daily as $p)
+                  @if($p->promotion_price == 0)
+                    <li>{{ $p->name }} - {{ number_format($p->unit_price) }} VND</li>
+                  @else
+                    <li>{{ $p->name }} - {{ number_format($p->promotion_price) }} VND - SALES: {{ number_format((($p->unit_price - $p->promotion_price) / $p->unit_price) * 100) }} %</li>
+                  @endif
+                @endforeach
+                {{-- <li>Tellus eget condimentum rhoncus.</li> 
                 <li>Sem quam semper libero.</li>
                 <li>Sit amet adipiscing sem neque sed ipsum.</li> 
                 <li>Nam quam nunc, blandit vel, luctus pulvinar.</li> 
                 <li>Maecenas nec odio et ante tincidunt tempus.</li> 
-                <li>Donec vitae sapien ut libero ventenatis faucibus.</li> 
+                <li>Donec vitae sapien ut libero ventenatis faucibus.</li>  --}}
               </ol>
               <a href="#" class="tm-more-button margin-top-30">Read More</a>    
             </div>

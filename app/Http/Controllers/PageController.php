@@ -22,11 +22,13 @@ class PageController extends Controller
     public function index(){
         // $products = Product::all();
         $products = Product::where('new', 1)->get();
-        $products_popular = Product::orderBy('popular', 'desc')->take(3)->get();
+        $products_popular = Product::orderBy('id', 'desc')->take(3)->get();
+        $daily_menu = Product::orderBy('popular', 'desc')->take(10)->get();
+        $popularProducts = Product::where('popular', 1)->take(3)->get();
         $new_slides = Slide::all();
         $sanpham_khuyenmai = Product::where('promotion_price', '<>', 0)->paginate(4);
         // $top_products = Product::where('top', 1)->get();
-        return view('index', ['products' => $products, 'populars' => $products_popular, 'new_slides' => $new_slides, 'sanpham_khuyenmai' => $sanpham_khuyenmai]);
+        return view('index', ['products' => $products, 'populars' => $products_popular, 'daily' => $daily_menu, 'popularProducts' => $popularProducts,'new_slides' => $new_slides, 'sanpham_khuyenmai' => $sanpham_khuyenmai]);
     }
 
     public function product(Request $req){

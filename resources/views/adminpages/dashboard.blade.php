@@ -187,7 +187,7 @@
             <!-- #END# Answered Tickets -->
         {{-- </div> --}}
 
-        <div class="row clearfix">
+        {{-- <div class="row clearfix">
             <!-- Task Info -->
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 <div class="card">
@@ -284,7 +284,7 @@
             </div>
             <!-- #END# Task Info -->
             <!-- Browser Usage -->
-            {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="header">
                         <h2>BROWSER USAGE</h2>
@@ -305,8 +305,8 @@
                         <div id="donut_chart" class="dashboard-donut-chart"></div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <!-- #END# Browser Usage -->
-        </div>
+        </div> --}}
     </div>
 @endsection
