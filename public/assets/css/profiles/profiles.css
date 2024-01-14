@@ -107,3 +107,18 @@ body {
   .user-profile .btn-info {
     margin-top: 1rem;
   }
+
+  .btn-pwd{
+    position:absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    
+    border-radius: 15px;
+    color: black;
+    background-color: #5BC0DE;
+    /* margin-top: 150px; */
+
+    font-size: 15px;
+    font-weight: bold;
+  }

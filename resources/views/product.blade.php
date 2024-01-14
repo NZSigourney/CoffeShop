@@ -14,7 +14,7 @@
 
 <section class="tm-welcome-section">
     <div class="container tm-position-relative">
-      {{-- <div class="tm-lights-container">
+      <div class="tm-lights-container">
         <img src="source/img/light.png" alt="Light" class="light light-1">
         <img src="source/img/light.png" alt="Light" class="light light-2">
         <img src="source/img/light.png" alt="Light" class="light light-3">  
@@ -25,9 +25,9 @@
         <p class="gray-text tm-welcome-description">Cafe House template is a mobile-friendly responsive <span class="gold-text">Bootstrap v3.3.5 layout</span> by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
         <a href="#main" class="tm-more-button tm-more-button-welcome">Read More</a>      
       </div>
-      <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">   --}}
+      <img src="source/img/table-set.png" alt="Table Set" class="tm-table-set img-responsive">  
 
-      <div id="app-cover">
+      {{-- <div id="app-cover">
         <div id="app">
           <form method="get" action="">
             <div id="f-element">
@@ -38,7 +38,7 @@
         </div>
         <div id="layer" title="Click the blue area to hide the form"></div>
         <div id="init"></div>
-      </div>
+      </div> --}}
     </div>      
 </section>
 <div class="tm-main-section light-gray-bg">
@@ -77,7 +77,7 @@
             <div class="tm-menu-product-content col-lg-9 col-md-9"> <!-- menu content -->
                 @foreach($products as $p)
                 <div class="tm-product">
-                    <img src="/assets/images/products/{{ $p->images }}" alt="Product">
+                    <img src="/assets/images/products/{{ $p->image }}" alt="Product">
                     <div class="tm-product-text">
                     <h3 class="tm-product-title">{{ $p->name }}</h3>
                     <p class="tm-product-description">{{ $p->desciprtion }}.</p>

@@ -19,8 +19,9 @@
                         <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                         <li role="separator" class="divider"></li> --}}
                         <li>
-                            <form method="POST" action="{{ route('getLogout') }}">
+                            <form method="GET" action="{{ route('getLogout') }}">
                                 @csrf
+                                @method('GET')
                                 <button type="submit" class="btn btn-link">
                                 <i class="material-icons">input</i> Sign Out
                                 </button>
