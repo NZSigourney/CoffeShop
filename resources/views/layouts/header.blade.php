@@ -15,6 +15,13 @@
               {{-- <li><a href="today-special.html">Today Special</a></li> --}}
               <li><a href="{{route('product')}}">Menu</a></li>
               <li><a href="{{route('contact')}}" class="dropbtn">Contact</a></li>
+
+              {{-- <form action="">
+                <input type="search" required>
+                <i class="fa fa-search"></i>
+                <a href="javascript:void(0)" id="clear-btn">Clear</a>
+              </form> --}}
+
               {{-- <li class="dropdown">
                 <a href="{{route('contact')}}" class="dropbtn">Contact</a>
                 <div class="dropdown-content">

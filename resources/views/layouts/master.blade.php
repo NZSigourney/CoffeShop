@@ -27,6 +27,7 @@
   <link href="/assets/fontawesome/fontIcon/css/fontawesome.css" rel="stylesheet">
   <link href="/assets/fontawesome/fontIcon/css/brands.css" rel="stylesheet">
   <link href="/assets/fontawesome/fontIcon/css/solid.css" rel="stylesheet">
+  {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> --}}
   @yield('css')
 </head>
 <body>
@@ -45,6 +46,7 @@
   <!-- JS -->
   <script type="text/javascript" src="source/js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
   <script type="text/javascript" src="source/js/templatemo-script.js"></script>      <!-- Templatemo Script -->
+  {{-- <script type="text/javascript" src="assets/js/search.js"></script> --}}
 
 </body>
  </html>

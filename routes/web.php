@@ -54,7 +54,7 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
 Route::get('checkout', [PageController::class, 'getCheckout'])->name('banhang.getdathang');
-Route::delete('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
+Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
 // Route::get('show', [PageController::class, 'showcart'])->name('banhang.showcart');
 
 // Shopping cart

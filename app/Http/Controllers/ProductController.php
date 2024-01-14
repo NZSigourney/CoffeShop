@@ -147,9 +147,9 @@ class ProductController extends Controller
             ]);
 
             $file = $request->file('image');
-            $name = time().'_'.$file->getClientOriginalName();
+            $img = time().'_'.$file->getClientOriginalName();
             $destinationPath = public_path('assets/images/products'); //project\public\car, public_path(): trả về đường dẫn tới thư mục public
-            $file->move($destinationPath, $name); //lưu hình ảnh vào thư mục public/car
+            $file->move($destinationPath, $img); //lưu hình ảnh vào thư mục public/car
 
             // Đảm bảo xóa hình ảnh cũ nếu có
             if (!empty($products->image)) {
