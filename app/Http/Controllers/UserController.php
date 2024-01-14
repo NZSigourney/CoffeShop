@@ -306,7 +306,7 @@ class UserController extends Controller
 
             // Kiểm tra xem hình ảnh đã tồn tại hay chưa
             if (file_exists($destinationPath . '/' . $name)) {
-                return redirect('users')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
+                return redirect()->route('getsignin')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
             }
 
             $file->move($destinationPath, $name);

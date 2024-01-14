@@ -53,7 +53,7 @@ class PageController extends Controller
     }
 
     public function getProductIndex(){
-        $products = Product::paginate(6);
+        $products = Product::paginate(10);
         // $sliders = Slide::all();
         return view('product', ['products' => $products]);
     }
