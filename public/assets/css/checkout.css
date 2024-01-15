@@ -1,85 +1,351 @@
-.row {
-    display: -ms-flexbox; /* IE10 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat Alternates", sans-serif;
+  }
+  
+  .con {
+    width: 100vw;
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-}
+    padding-top: 30px;
+    padding-right: 150px;
+    padding-left: 150px;
+    justify-content: center;
+    align-items: flex-start;
+  }
   
-.col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-}
+  /* box-1 styling  */
   
-.col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-}
+  .box1 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   
-.col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-}
   
-.col-25,
-.col-50,
-.col-75 {
-    padding: 0 16px;
-}
   
-.container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-}
+  .title {
+    color: #4e5150;
+    margin-bottom: 20px;
+    font-size: 3rem;
+  }
   
-input[type=text] {
+  /* info and shipping*/
+  
+  .info {
+    margin-bottom: 20px;
+  }
+  
+  .info h3,
+  .shipping h3 {
+    color: #333333;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 17px 0;
+  }
+  
+  .label {
+    color: #4f4f4f;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  
+  .input-box {
+    position: relative;
+    margin: 8px 0px 14px;
+  }
+  
+  .input-box input {
+    width: 80%;
+    padding: 20px 20px 20px 50px;
+    border: 1px solid #828282;
+    border-radius: 12px;
+    font-weight: 700;
+    color: #1a1818;
+  }
+  
+  i {
+    color: #828282;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .input-box input:focus {
+    outline: none;
+    border: 1px solid #2c2c2c;
+  }
+  
+  .last {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  .separate {
     width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
+  }
   
-label {
-    margin-bottom: 10px;
-    display: block;
-}
+  .s1 {
+    margin-right: 20px;
+  }
   
-.icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-}
+  .separate input {
+    width: 100%;
+  }
   
-.btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
+  #check {
+    border: 1px solid #828282;
+    margin-right: 10px;
+    width: 20px;
+  }
+  
+  #check + label {
+    color: #4f4f4f;
+    font-weight: 800;
+  }
+  
+  /* end */
+  
+  /* box-2 styling  */
+  
+  .box2 {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card {
+    background: #f2f2f2;
+    border-radius: 12px;
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 100px;
+  }
+  
+  .item {
+    display: flex;
+    padding: 30px 30px 20px 30px;
+  }
+  
+  .item img {
+    width: 40%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .item .count {
+    padding-left: 50px;
+  }
+  
+  .item-name {
+    font-weight: 800;
+    color: #4e5150;
+    padding: 0 0 20px 0;
+    font-size: 1.5rem;
+  }
+  
+  .price {
+    color: #f2994a;
+    font-size: 20px;
+  }
+  
+  .price span {
+    color: #4e5150;
+    font-size: 12px;
+    text-decoration: line-through;
+    padding: 0 20px;
+  }
+  
+  .pur {
+    border-radius: 12px;
+    display: flex;
+    padding: 15px;
+    justify-content: space-evenly;
+    width: 134.25px;
+    height: 52px;
+    margin: 30px 0;
+    border: 1px solid #a09f9f;
+  }
+  
+  #Inbtn1,
+  #Debtn1,
+  #Inbtn2,
+  #Debtn2 {
+    width: 20px;
+    height: 20px;
+    background: #e0e0e0;
     border: none;
-    width: 100%;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 17px;
-}
+    color: #828282;
+  }
   
-.btn:hover {
-    background-color: #45a049;
-}
+  #num {
+    color: #333333;
+  }
   
-span.price {
-    float: right;
-    color: grey;
-}
+  .end {
+    padding: 20px 20px 50px;
+  }
   
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-    .row {
-        flex-direction: column-reverse;
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: #333333;
+    font-weight: 800;
+  }
+  
+  hr {
+    margin: 20px 0;
+  }
+  
+  .btn {
+    background-color: #f2994a;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: none;
+    margin: 30px 0 0 400px;
+  }
+  
+  /* end */
+  
+  /* responsive  */
+  
+  @media screen and (max-width: 1700px) {
+    .box2 {
+      width: 50%;
     }
-    .col-25 {
-        margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .card {
+      width: 90%;
+      margin-left: 10%;
     }
+  
+    .item img {
+      width: 50%;
+    }
+  
+    .item .count {
+      padding-left: 30px;
+    }
+  
+    .price span {
+      padding: 0 0 0 10px;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .btn {
+      margin: 30px 0 0 250px;
+    }
+  
+    .card {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .con {
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .con {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .con {
+      display: flex;
+      flex-direction: column;
+      padding-right: 120px;
+      padding-left: 120px;
+      width: 100%;
+      height: 120%;
+    }
+  
+    .box2 {
+      width: 100%;
+    }
+  
+    .box1 {
+      width: 100%;
+    }
+  
+    .input-box input {
+      width: 100%;
+    }
+  
+    .btn {
+      margin: 50px 0 200px 0px;
+      float: right;
+    }
+  
+    .last {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 773px) {
+    .con {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+    .con {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+    .item .count {
+      padding-left: 10px;
+    }
+    .price span {
+      padding: 0;
+    }
+    .pur {
+      width: 100px;
+      height: 52px;
+    }
+  }
+  
+  @media screen and (max-width: 250px) {
+    .con {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+
+
+/* CSS for Dropdown Styling */
+.input-box select {
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.input-box select:focus {
+    outline: none;
+    border-color: #4CAF50;
 }

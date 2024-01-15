@@ -18,12 +18,14 @@
 
   {{-- custom CSS template --}}
   <link rel="stylesheet" href="{{ asset('/assets/css/header.css') }}">
+
   <link href="{{ asset('source/assets/fontawesome/fontIcon/css/fontawesome.css') }}" rel="stylesheet">
   <link href="{{ asset('source/assets/fontawesome/fontIcon/css/brands.css') }}" rel="stylesheet">
   <link href="{{ asset('source/assets/fontawesome/fontIcon/css/solid.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('source/assets/css/bootstrap.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('source/assets/css/font-awesome.css')}}">
   {{-- <link rel="stylesheet" href="{{ asset('source/assets/css/style.css') }}"> --}}
+
   <link href="/assets/fontawesome/fontIcon/css/fontawesome.css" rel="stylesheet">
   <link href="/assets/fontawesome/fontIcon/css/brands.css" rel="stylesheet">
   <link href="/assets/fontawesome/fontIcon/css/solid.css" rel="stylesheet">

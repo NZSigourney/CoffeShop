@@ -20,7 +20,7 @@
         <img src="source/img/light.png" alt="Light" class="light light-3">  
       </div>        
       <div class="row tm-welcome-content">
-        <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Our Menus&nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
+        <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="source/img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Thực đơn &nbsp;&nbsp;<img src="source/img/header-line.png" alt="Line" class="tm-header-line"></h2>
         <h2 class="gold-text tm-welcome-header-2">Cafe House</h2>
         <p class="gray-text tm-welcome-description">Cafe House template is a mobile-friendly responsive <span class="gold-text">Bootstrap v3.3.5 layout</span> by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
         <a href="#main" class="tm-more-button tm-more-button-welcome">Read More</a>      

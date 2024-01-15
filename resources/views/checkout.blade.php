@@ -1,15 +1,6 @@
 @extends('layouts.master')
 @section('css')
-<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-{{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> --}}
-<link rel="stylesheet" href="/assets/main/source/assets/dest/css/font-awesome.min.css">
-<link rel="stylesheet" href="/assets/main/source/assets/dest/vendors/colorbox/example3/colorbox.css">
-<link rel="stylesheet" href="/assets/main/source/assets/dest/rs-plugin/css/settings.css">
-<link rel="stylesheet" href="/assets/main/source/assets/dest/rs-plugin/css/responsive.css">
-<link rel="stylesheet" title="style" href="/assets/main/source/assets/dest/css/style.css">
-<link rel="stylesheet" href="/assets/main/source/assets/dest/css/animate.css">
-<link rel="stylesheet" title="style" href="/assets/main/source/assets/dest/css/huong-style.css">
+<link rel="stylesheet" href="/assets/css/checkout.css">
 @endsection
 @section('content')
 <!-- Preloader -->
@@ -19,140 +10,145 @@
     <div class="loader-section section-right"></div>
 </div>
 <!-- End Preloader -->
-
-<div class="inner-header">
-    <div class="container">
-        <div class="pull-left">
-            <h6 class="inner-title">Đặt hàng</h6>
-        </div>
-        <div class="pull-right">
-            <div class="beta-breadcrumb">
-                <a href="/">Trang chủ</a> / <span>Đặt hàng</span>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>
-
-<div class="container">
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-    <div id="content">
+<form action="{{ route('banhang.postdathang') }}" method="POST">
+    <div class="con">
         
-        <form action="{{ route('banhang.postdathang') }}" method="POST" class="beta-form-checkout">
             @csrf
-            <div class="row">
-                <div class="col-sm-6">
-                    {{-- <h4>Đặt hàng</h4> --}}
-                    <div class="space20">&nbsp;</div>
+            <div class="box1">
+            <h2 class="title">Thanh Toán</h2>
+            <!-- info  -->
+            <div class="info">
+                <h3>Thông tiin liên lạc</h3>
 
-                    <div class="form-block">
-                        <label for="name">Họ tên*</label>
-                        <input type="text" id="name" name="name" placeholder="Họ tên" required>
-                    </div>
-                    <div class="form-block">
-                        <label>Giới tính </label>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 10%"><span style="margin-right: 10%">Nam</span>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 10%"><span>Nữ</span>
-                                    
-                    </div>
+                <p class="label">E-mail</p>
 
-                    <div class="form-block">
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" required placeholder="expample@gmail.com">
-                    </div>
-
-                    <div class="form-block">
-                        <label for="adress">Địa chỉ*</label>
-                        <input type="text" id="adress" name="address" placeholder="Street Address" required>
-                    </div>
-                    
-
-                    <div class="form-block">
-                        <label for="phone">Điện thoại*</label>
-                        <input type="text" id="phone" name="phone_number" required>
-                    </div>
-                    
-                    <div class="form-block">
-                        <label for="notes">Ghi chú</label>
-                        <textarea id="notes" name="note"></textarea>
-                    </div>
+                <div class="input-box">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your Email .. "
+                />
+                <i class="fa-solid fa-envelope"></i>
                 </div>
-                <div class="col-sm-6">
-                    <div class="your-order">
-                        <div class="your-order-head"><h5 style="margin-left: 25%">Đơn hàng của bạn</h5></div>
-                        <div class="your-order-body" style="padding: 0px 10px;">
-                            <div class="your-order-item">
-                                <div>
-                                <!--  one item	 -->
-                                @isset($productCarts)
-                                @foreach ($productCarts as $cart)
-                                <div class="media">
-                                    <img width="25%" src="/images/products/{{ $cart['item']->image }}" alt="" class="pull-left">
-                                    <div class="media-body">
-                                        <p class="font-large">{{ $cart['item']->name }}</p>
-                                        <span class="color-gray your-order-info">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
-                                            number_format($cart['item']->unit_price, 0) }}</span>
-                                        <span class="color-gray your-order-info">Slot: {{ $cart['qty'] }}</span>
-                                        {{-- <!-- Thêm nút xóa -->
-                                        <form action="{{ route('banhang.xoagiohang', $cart['item']['id']) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger">Remove</button>
-                                        </form> --}}
-                                    </div>
-                                </div>
-                                @endforeach
-                                @endisset
-                                <!-- end one item -->
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="your-order-item" style="margin-bottom: 10px;">
-                                <div class="pull-left"><p class="your-order-f18">Tổng tiền:</p></div>
-                                <div class="pull-right"><h5 class="color-black">{{ isset($totalPrice)?number_format($totalPrice,0):0 }} VND</h5></div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="your-order-head"><h5 style="margin-left: 25%">Hình thức thanh toán</h5></div>
-                        
-                        <div class="your-order-body">
-                            <ul class="payment_methods methods">
-                                <li class="payment_method_bacs">
-                                    <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="COD" checked="checked" data-order_button_text="">
-                                    <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
-                                    <div class="payment_box payment_method_bacs" style="display: block;">
-                                        Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
-                                    </div>						
-                                </li>
 
-                                <li class="payment_method_cheque">
-                                    <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="ATM" data-order_button_text="">
-                                    <label for="payment_method_cheque">Chuyển khoản </label>
-                                    <div class="payment_box payment_method_cheque" style="display: none;">
-                                        Chuyển tiền đến tài khoản sau:
-                                        <br>- Số tài khoản: 123 456 789
-                                        <br>- Chủ TK: Nguyễn A
-                                        <br>- Ngân hàng ACB, Chi nhánh TPHCM
-                                    </div>						
-                                </li>
-                                
-                            </ul>
-                        </div>
+                <p class="label">Số Điện thoại</p>
 
-                        <div class="text-center"> <button type="submit" class="btn btn-primary">Đặt hàng <i class="fa fa-chevron-right"></i></button> </div>
-                    </div> <!-- .your-order -->
+                <div class="input-box">
+                <input
+                    type="text"
+                    name="phone_number"
+                    placeholder="Enter Your Phone .. "
+                />
+                <i class="fa-solid fa-phone"></i>
                 </div>
             </div>
-        </form>
-    </div> <!-- #content -->
-</div> <!-- .container -->
+            <!-- end of  info  -->
+
+            <!-- Gender Dropdown -->
+            <div class="gender">
+                <h3>Giới tính</h3>
+
+                <div class="input-box">
+                    <select name="gender">
+                        <option value="" disabled selected>Chọn giới tính</option>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end of Gender Dropdown -->
+
+            <!-- shipping  -->
+            <div class="shipping">
+                <h3>Địa chỉ giao hàng</h3>
+
+                <p class="label">họ tên đầy đủ</p>
+
+                <div class="input-box">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Your Fullname .. "
+                />
+                <i class="fa-solid fa-user"></i>
+                </div>
+
+                <p class="label">Địa chỉ</p>
+
+                <div class="input-box">
+                <input type="text" name="address" placeholder="Your Address .. " />
+                <i class="fa-solid fa-house"></i>
+                </div>
+
+                <p class="label">Ghi chú</p>
+
+                <div class="input-box">
+                <input type="text" name="note" placeholder="Note " />
+                <i class="fa-solid fa-notebook"></i>
+                </div>
+
+                <!-- end of  last  -->
+
+                <!-- Payment Method Dropdown -->
+                <div class="input-box">
+                    <label for="payment_method">phương thức thanh toán</label>
+                    <select name="payment_method" id="payment_method">
+                        <option value="" disabled selected>Chọn cách thanh toán</option>
+                        <option value="COD">COD</option>
+                        <option value="paypal">PayPal</option>
+                        <!-- Add more payment options as needed -->
+                    </select>
+                </div>
+                <!-- end of Payment Method Dropdown -->
+
+                {{-- <input type="checkbox" name="check" id="check" />
+                <label for="check"> Save this information for next time</label> --}}
+            </div>
+            <!--end of  shipping  -->
+            </div>
+            <!-- end of box-1 -->
+
+            <!-- box-2 -->
+            <div class="box2">
+            <div class="card">
+                @isset($productCarts)
+                @foreach($productCarts as $cart)
+                    <div class="item">
+                    <img src="/assets/images/products/{{ $cart['item']->image }}" alt="bag" />
+                    <div class="count">
+                        <p class="item-name">{{ $cart['item']->name }}</p>
+                        <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
+                            number_format($cart['item']->unit_price, 0) }}</h6>
+                        {{-- <div class="pur">
+                        <button id="Debtn1">-</button>
+                        <div id="num1"></div>
+                        <button id="Inbtn1">+</button>
+                        </div> --}}
+                    </div>
+                    </div>
+                @endforeach
+                @endisset
+                <div class="end">
+                <hr />
+
+                <div class="total">
+                    <p>Total</p>
+                    <p>{{ isset($totalPrice)?number_format($totalPrice,0):0 }} VND</p>
+                </div>
+                </div>
+            </div>
+            <button class="btn">Continue</button>
+            </div>
+            <!-- end of box-2 -->
+
+    </div>
+</form>
+
 @endsection
 
 @section('js')
+<script src="/assets/js/checkout.js"></script>
+
 <!--customjs-->
 <script type="text/javascript">
     $(function() {

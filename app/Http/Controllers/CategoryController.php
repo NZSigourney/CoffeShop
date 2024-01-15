@@ -60,7 +60,8 @@ class CategoryController extends Controller
 
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
-            $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath = public_path('assets/images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            
             // Kiểm tra xem hình ảnh đã tồn tại hay chưa
             if (file_exists($destinationPath . '/' . $name)) {
                 return redirect()->route('admin.getCateList')->with('message', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
@@ -108,12 +109,12 @@ class CategoryController extends Controller
             
             $file = $request->file('image');
             $imgname = $file->getClientOriginalName();
-            $destinationPath = public_path('images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath = public_path('assets/images/category'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $imgname); //lưu hình ảnh vào thư mục public/category
 
             // Đảm bảo xóa hình ảnh cũ nếu có
             if (!empty($category->image)) {
-                $oldImagePath = public_path('images/category/') . $category->image;
+                $oldImagePath = public_path('assets/images/category/') . $category->image;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -195,7 +196,7 @@ class CategoryController extends Controller
         // Tiếp tục xóa category
         // Xóa hình ảnh cũ nếu có
         if (!empty($category->image)) {
-            $oldCategoryImagePath = public_path('images/category/') . $category->image;
+            $oldCategoryImagePath = public_path('assets/images/category/') . $category->image;
 
             // Kiểm tra xem tệp tin tồn tại trước khi xóa
             if (file_exists($oldCategoryImagePath)) {
