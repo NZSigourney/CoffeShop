@@ -117,6 +117,7 @@
                     <img src="/assets/images/products/{{ $cart['item']->image }}" alt="bag" />
                     <div class="count">
                         <p class="item-name">{{ $cart['item']->name }}</p>
+                        <h6 class="quantity">Slot: {{ $cart['qty'] }}</h6>
                         <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                             number_format($cart['item']->unit_price, 0) }}</h6>
                         {{-- <div class="pur">

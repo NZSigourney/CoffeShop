@@ -66,7 +66,7 @@
                                         <p class="font-large table-title">{{ $cart['item']->name }}</p>
                                         {{-- <p class="table-option">Color: Red</p>
                                         <p class="table-option">Size: M</p> --}}
-                                        <a class="table-edit" href="#">Edit</a>
+                                        {{-- <a class="table-edit" href="#">Edit</a> --}}
                                     </div>
                                 </div>
                             </td>
@@ -81,18 +81,15 @@
                             </td>
         
                             <td class="product-quantity">
-                                {{ $cart['qty'] }}
-                                {{-- <select name="product-qty" id="product-qty">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select> --}}
+                                <form action="{{ route('banhang.updateCart', ['id' => $cart['item']->id]) }}" method="post">
+                                    <input type="number" name="quantity" class="quantity-input" value="{{ $cart['qty'] }}" min="1">
+                                    <button type="submit" class="beta-btn primary" name="quantity"><i class="fas fa-sync-alt"></i></button>
+
+                                </form>
                             </td>
         
                             <td class="product-subtotal">
-                                <span class="amount">{{ $cart['qty'] }}*{{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
+                                <span class="amount">{{ $cart['qty'] * $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                                     number_format($cart['item']->unit_price, 0) }}</span>
                             </td>
         
@@ -113,10 +110,12 @@
                                     <input type="text" name="coupon_code" value="" placeholder="Coupon code"> 
                                     <button type="submit" class="beta-btn primary" name="apply_coupon">Apply Coupon <i class="fa fa-chevron-right"></i></button>
                                 </div>
-                                
-                                <button type="submit" class="beta-btn primary" name="update_cart">Update Cart <i class="fa fa-chevron-right"></i></button> 
+                                {{-- <form action="{{ route('banhang.updateCart', ['id' => $cart['item']->id]) }}" method="get"> --}}
+                                    {{-- <button type="submit" class="beta-btn primary" name="update_cart">Update Cart <i class="fa fa-chevron-right"></i></button>  --}}
+                                {{-- </form> --}}
                                 <form action="{{ route('banhang.getdathang') }}" method="get">
-                                <button type="submit" class="beta-btn primary" name="proceed">Proceed to Checkout <i class="fa fa-chevron-right"></i></button></form>
+                                    <button type="submit" class="beta-btn primary" name="proceed">Proceed to Checkout <i class="fa fa-chevron-right"></i></button>
+                                </form>
                             </td>
                         </tr>
                     </tfoot>

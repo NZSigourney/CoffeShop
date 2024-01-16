@@ -76,6 +76,7 @@ class PageController extends Controller
     }
 
     public function cart(){
+        // $products = Product::all();
         return view('cart');
     }
     
@@ -84,16 +85,11 @@ class PageController extends Controller
         return view('checkout');
     }
 
-    public function showcart(){
-        return view('navbar.cartbutton.show');
-    }
+    // public function showcart(){
+    //     return view('navbar.cartbutton.show');
+    // }
 
     public function postCheckout(Request $request){
-        // if ($request->has('clearCart')) {
-        //     // Xóa giỏ hàng và chuyển hướng trở lại trang đặt hàng
-        //     Session::forget('cart');
-        //     return redirect()->back()->with('success', 'Đã xóa giỏ hàng.');
-        // }
         
         $cart=Session::get('cart');
         $customer=new Customer();
@@ -149,8 +145,8 @@ class PageController extends Controller
         // }
 
         Session::flash('success', 'Add to cart success!');
-        // return redirect()->back();
-        return redirect()->route('banhang.getdathang');
+        return redirect()->back();
+        // return redirect()->route('cart.detailed');
     }
 
     //thêm 1 sản phẩm có số lượng >1 có id cụ thể vào model cart rồi lưu dữ liệu của model cart vào 1 session có tên cart (session được truy cập bằng thực thể Request)
@@ -164,6 +160,29 @@ class PageController extends Controller
         return redirect()->back();
     }
 
+    public function updateCartItem(Request $request, $id)
+    {
+        $product = Product::find($id);
+        
+        // Get the current cart from the session
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+
+        // Check if the product exists in the cart
+        if ($cart->hasItem($id)) {
+            // Update the quantity of the product in the cart
+            $cart->add($id, $request->input('quantity'));
+
+            // Update the session with the updated cart
+            $request->session()->put('cart', $cart);
+
+            // Redirect back to the cart page with a success message
+            return redirect()->route('cart')->with('success', 'Cart updated successfully.');
+        } else {
+            // If the product is not in the cart, you can handle it accordingly (e.g., show an error message).
+            return redirect()->route('cart')->with('error', 'Product not found in the cart.');
+        }
+    }
 
     public function delCartItem($id){
         $oldCart = Session::has('cart')?Session::get('cart'):null;

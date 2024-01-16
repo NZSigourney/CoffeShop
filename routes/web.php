@@ -62,6 +62,7 @@ Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.
 Route::get('cart', [PageController::class, 'cart'])->name('cart.detailed');
 
 Route::get('add-to-cart/{id}',[PageController::class,'addToCart'])->name('banhang.addToCart');
+Route::post('updateCart/{id}', [PageController::class, 'updateCartItem'])->name('banhang.updateCart');
 Route::post('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');
 
 // singin page

@@ -160,6 +160,18 @@
     text-decoration: line-through;
     padding: 0 20px;
   }
+
+  .quantity{
+    color: #f2994a;
+    font-size: 20px;
+  }
+
+  .quantity span{
+    color: #4e5150;
+    font-size: 12px;
+    text-decoration: line-through;
+    padding: 0 20px;
+  }
   
   .pur {
     border-radius: 12px;

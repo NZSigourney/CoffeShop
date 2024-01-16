@@ -36,6 +36,7 @@ class Cart extends Model
 		$this->totalQty++;
 		$this->totalPrice += ($item->promotion_price==0?$item->unit_price:$item->promotion_price);
 	}
+	
 	//thêm nhiều mặt hàng item có số lượng soluong có id cụ thể vào giỏ hàng
 	public function addMany($item, $id,$soluong){
 		$mathang = ['qty'=>0, 'price' => $item->promotion_price==0?$item->unit_price:$item->promotion_price, 'item' => $item];
