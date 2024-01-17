@@ -35,7 +35,7 @@
                   <a href="{{ route('getLogout') }}">Đăng xuất</a>
                 </div>
                 @else
-                <a href="{{ route('admin.getLogin') }}" class="dropbtn">Login</a>
+                <a href="{{ route('admin.getLogin') }}" class="dropbtn">Đăng nhập</a>
                 <a href="{{ route('getsignin') }}">Đăng ký</a>
                 @endif
               </li>

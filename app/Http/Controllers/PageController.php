@@ -145,8 +145,8 @@ class PageController extends Controller
         // }
 
         Session::flash('success', 'Add to cart success!');
-        return redirect()->back();
-        // return redirect()->route('cart.detailed');
+        // return redirect()->back();
+        return redirect()->route('banhang.getdathang');
     }
 
     //thêm 1 sản phẩm có số lượng >1 có id cụ thể vào model cart rồi lưu dữ liệu của model cart vào 1 session có tên cart (session được truy cập bằng thực thể Request)

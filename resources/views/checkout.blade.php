@@ -95,7 +95,7 @@
                     <select name="payment_method" id="payment_method">
                         <option value="" disabled selected>Chọn cách thanh toán</option>
                         <option value="COD">COD</option>
-                        <option value="paypal">PayPal</option>
+                        <option value="VNPAY">VNPay</option>
                         <!-- Add more payment options as needed -->
                     </select>
                 </div>

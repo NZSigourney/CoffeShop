@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailControler;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
@@ -164,3 +165,6 @@ Route::get('search', [PageController::class, 'getSearch'])->name('user.getSearch
 
 Route::resource('sliders', SlideController::class);
 Route::put('edit/slider/{id}', [SlideController::class, 'update'])->name('admin.SliderEdit');
+
+// payment
+Route::get('/vnpay-payment', [PaymentController::class, 'vnpay'])->name('vnpay');
