@@ -113,9 +113,9 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $products = Product::find($id);
-        $type = product_type::all();
+        $types = product_type::all();
         $bill = Bill::get();
-        return view('adminpages.slidebar.products.editproduct', compact('products', 'type'));
+        return view('adminpages.slidebar.products.editproduct', compact('products', 'types'));
     }
 
     /**

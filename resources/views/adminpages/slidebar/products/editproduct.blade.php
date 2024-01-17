@@ -1,6 +1,6 @@
 @extends('adminpages.layouts.master')
 @section('css')
-    <link rel="stylesheet" href="/assets/product.css">
+    <link rel="stylesheet" href="/assets/css/product.css">
 @endsection
 @section('content')
 <!-- hiện ra toàn bộ thông báo lỗi -->
@@ -68,13 +68,24 @@
 <!------------------------------------------------------------------------------>
     <div class="form-group">
         <label for="id_type">Danh Mục</label>
-        <select name="id_type" id="id_type" class="form-control" require="require">
-            <option value="1" @if(isset($products) && $products->id_type == 1) selected @endif>Cà Phê</option>
-            <option value="2" @if(isset($products) && $products->id_type == 2) selected @endif>Giải Khát</option>
-            <option value="3" @if(isset($products) && $products->id_type == 3) selected @endif>Nước Ngọt</option>
+        <select name="id_type" id="selectProduct" class="form-control" required>
+            @foreach($types as $type)
+                <option value="{{$type->id}}"> {{$type -> name}}</option>
+            @endforeach
         </select>
     </div>
-    @error('name')
+    @error('type')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+<!------------------------------------------------------------------------------>
+    <div class="form-group">
+        <label for="popular">Nổi bật</label>
+        <select name="popular" id="selectProduct" class="form-control" required>
+            <option value="0">False</option>
+            <option value="1">True</option>
+        </select>
+    </div>
+    @error('popular')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 <!------------------------------------------------------------------------------>

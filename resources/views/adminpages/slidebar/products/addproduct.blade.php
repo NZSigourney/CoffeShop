@@ -1,6 +1,6 @@
 @extends('adminpages.layouts.master')
 @section('css')
-    <link rel="stylesheet" href="/assets/product.css">
+    <link rel="stylesheet" href="/assets/css/product.css">
 @endsection
 @section('content')
 <main>

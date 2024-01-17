@@ -36,7 +36,7 @@
                 </div>
                 @else
                 <a href="{{ route('admin.getLogin') }}" class="dropbtn">Login</a>
-                <a href="{{ route('getsignin') }}">Đăng xuất</a>
+                <a href="{{ route('getsignin') }}">Đăng ký</a>
                 @endif
               </li>
               <li class="dropdown">

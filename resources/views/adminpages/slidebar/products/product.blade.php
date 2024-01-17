@@ -29,7 +29,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Unit_price</th>
                     <th scope="col">Promotion_price</th>
-                    {{-- <th scope="col">Favourite</th> --}}
+                    <th scope="col">Popular (True or False)</th>
                     {{-- <th scope="col">Unit</th> --}}
                     <th scope="col">Action</th>
                   </tr>
@@ -57,9 +57,18 @@
                               N/A
                       @endswitch
                     </td>            
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->unit_price }}</td>
-                    <td>{{ $product->promotion_price }}</td>
+                    <td scope="row">{{ $product->description }}</td>
+                    <td scope="row">{{ $product->unit_price }}</td>
+                    <td scope="row">{{ $product->promotion_price }}</td>
+                    <td scope="row">
+                      @switch($product->popular)
+                        @case(1)
+                          True
+                        @break
+                        @default
+                        False
+                      @endswitch
+                    </td>
                     {{-- <td><label class="add-fav">
                       <input type="checkbox" />
                       <a href="{{route('')}}"></a>
