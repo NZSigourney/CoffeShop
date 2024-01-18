@@ -106,9 +106,14 @@ class PageController extends Controller
         $bill->id_customer=$customer->id;
         $bill->date_order=date('Y-m-d');
         $bill->total=$cart->totalPrice;
-        $bill->payment=$request->input('payment_method');
-        $bill->note=$request->input('notes');
-        $bill->status = $request->input('status');
+        $payment_method = $request->input('payment_method');
+        if($payment_method == "COD"){
+            $bill->payment = "COD";
+        }elseif($payment_method == "VNPAY"){
+            $bill->payment ="VNPAY";
+        }        
+        $bill->note=$request->input('note');
+        $bill->status = 0;
         $bill->save();
 
         foreach($cart->items as $key=>$value)

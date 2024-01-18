@@ -81,6 +81,7 @@
     <div class="form-group">
         <label for="popular">Nổi bật</label>
         <select name="popular" id="selectProduct" class="form-control" required>
+            <option value="" disabled selected>Popular: True or False</option>
             <option value="0">False</option>
             <option value="1">True</option>
         </select>

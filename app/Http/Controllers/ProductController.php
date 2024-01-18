@@ -182,9 +182,8 @@ class ProductController extends Controller
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
         $products->promotion_price = $request->promotion_price;
-        //$product->image = $request->image;
-        // $products->unit = $request->unit;
         $products->id_type = $request->id_type;
+        $products->popular = $request->popular;
         // if($img == ''){
         //     $img = $products->image;
         // }

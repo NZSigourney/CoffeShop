@@ -98,3 +98,20 @@ input[type="number"]:focus {
     padding: 5px;
     border-radius: 5px;
 }
+
+/* Checkbox */
+
+.interest-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .interest-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .interest-input {
+    margin-right: 10px;
+  }

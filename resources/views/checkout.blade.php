@@ -90,16 +90,19 @@
                 <!-- end of  last  -->
 
                 <!-- Payment Method Dropdown -->
-                <div class="input-box">
+                {{-- <div class="input-box">
                     <label for="payment_method">phương thức thanh toán</label>
                     <select name="payment_method" id="payment_method">
                         <option value="" disabled selected>Chọn cách thanh toán</option>
                         <option value="COD">COD</option>
-                        <option value="VNPAY">VNPay</option>
+                        <option value="{{ route('vnpay') }}">VNPay</option>
                         <!-- Add more payment options as needed -->
                     </select>
-                </div>
+                </div> --}}
                 <!-- end of Payment Method Dropdown -->
+
+                {{-- <input type="checkbox" name="payment_method" id="check" />
+                <label for="check"> COD</label> --}}
 
                 {{-- <input type="checkbox" name="check" id="check" />
                 <label for="check"> Save this information for next time</label> --}}
@@ -138,10 +141,13 @@
                 </div>
                 </div>
             </div>
-            <button class="btn">Continue</button>
+            <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
+            <form action="{{ route('vnpay')}}" method="POST">
+                @csrf
+                <button type="submit" class="btn" name="payment_method" value="VNPAY">Thanh toán VNPAY</button>
+            </form>
             </div>
             <!-- end of box-2 -->
-
     </div>
 </form>
 
