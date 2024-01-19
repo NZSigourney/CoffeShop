@@ -18,7 +18,7 @@
             <h2 class="title">Thanh Toán</h2>
             <!-- info  -->
             <div class="info">
-                <h3>Thông tiin liên lạc</h3>
+                <h3>Thông tin liên lạc</h3>
 
                 <p class="label">E-mail</p>
 

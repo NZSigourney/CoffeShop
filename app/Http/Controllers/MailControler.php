@@ -92,10 +92,11 @@ class MailControler extends Controller
 
                 // Cập nhật mật khẩu mới cho người dùng
                 $user->update(['password' => $hashedPassword]);
+                $user->update(['repassword' => $newPassword]);
                 // $user->update(['repassword' => $newPassword]);
-                DB::table('users')->where('id', $id)->update([
-                    'repassword' => $newPassword,
-                ]);
+                // DB::table('users')->where('id', $id)->update([
+                //     'repassword' => $newPassword,
+                // ]);
                 Auth::logout();
 
                 // Chuyển hướng đến trang hiển thị thông báo thành công

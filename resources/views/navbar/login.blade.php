@@ -38,7 +38,7 @@
                 <form action="{{ route('admin.postLogin') }}" method="post" class="beta-form-checkout login100-form validate-form">
                     @csrf
                     @if(session('message'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" role="alert">
                             {{ session('message') }}
                         </div>
                     @endif
@@ -112,21 +112,23 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="Login/vendor/animsition/js/animsition.min.js"></script>
+	<script src="/Login/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="Login/vendor/bootstrap/js/popper.js"></script>
-	<script src="Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/Login/vendor/bootstrap/js/popper.js"></script>
+	<script src="/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="Login/vendor/select2/select2.min.js"></script>
+	<script src="/Login/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="Login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="Login/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="/Login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/Login/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="Login/vendor/countdowntime/countdowntime.js"></script>
+	<script src="/Login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="/Login/js/main.js"></script>
+
+    <script src="/assets/js/alert.js"></script>
 
 </body>
 </html>

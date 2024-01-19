@@ -45,10 +45,10 @@
         </div>
         <div class="col-lg-12 tm-popular-items-container">
             <!-- khu vực foreach Popular item -->
-            @if(count($popularProducts) == 1)
-              @foreach($populars as $p)
+            @if(count($popularProducts) != 1)
+              @foreach($popularProducts as $p)
               <div class="tm-popular-item">
-                  <img src="/assets/images/products/{{ $p->image }}" alt="Popular" class="tm-popular-item-img">
+                  <img src="/assets/images/products/{{ $p->image }}" style="margin:40px" alt="Popular" class="tm-popular-item-img">
                   <div class="tm-popular-item-description">
                       <h3 class="tm-handwriting-font tm-popular-item-title"><span class="tm-handwriting-font bigger-first-letter">{{ $p->name }}</h3><hr class="tm-popular-item-hr">
                       <p>{{ $p->description }}.</p>
