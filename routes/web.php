@@ -154,8 +154,8 @@ Route::get('sua/{id}', [CategoryController::class, 'getCateEdit'])->name('admin.
 Route::put('sua/{id}', [CategoryController::class, 'postCateEdit'])->name('admin.postCateEdit');
 
 // Mail
-Route::get('input-email', [MailControler::class, 'getInputEmail'])->name('getEmail');
-Route::post('input-email', [MailControler::class, 'postInputEmail'])->name('postEmail');
+Route::get('quen-mat-khau', [MailControler::class, 'getInputEmail'])->name('getEmail');
+Route::post('quen-mat-khau', [MailControler::class, 'postInputEmail'])->name('postEmail');
 
 // Table Pages.
 Route::get('table', [TableController::class, 'getTable'])->name('table');

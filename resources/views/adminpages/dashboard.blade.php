@@ -10,11 +10,33 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-pink hover-expand-effect">
                     <div class="icon">
+                        <i class="material-icons">money</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Tổng doanh thu (VND)</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $bill_sum }}" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-red hover-expand-effect">
+                    <div class="icon">
                         <i class="material-icons">playlist_add_check</i>
                     </div>
                     <div class="content">
-                        <div class="text">Products</div>
+                        <div class="text">Sản phẩm</div>
                         <div class="number count-to" data-from="0" data-to="{{ $products_count }}" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-brown hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">playlist_add_check</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Sản phẩm nổi bật</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $popular_item_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -24,12 +46,12 @@
                         <i class="material-icons">help</i>
                     </div>
                     <div class="content">
-                        <div class="text">BILL</div>
+                        <div class="text">Tổng số đơn được đặt</div>
                         <div class="number count-to" data-from="0" data-to="{{ $bill_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-light-green hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">forum</i>
@@ -39,15 +61,26 @@
                         <div class="number count-to" data-from="0" data-to="{{ $bill_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box bg-orange hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">person_add</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW VISITORS</div>
+                        <div class="text">Khách hàng</div>
                         <div class="number count-to" data-from="0" data-to="{{ $user_count }}" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-grey hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">category</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Loại sản phẩm</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $product_type_count }}" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>

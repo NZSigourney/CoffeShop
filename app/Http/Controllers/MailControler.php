@@ -32,7 +32,8 @@ class MailControler extends Controller
         $newPassword = str::random(8);
          // Cập nhật mật khẩu mới vào cơ sở dữ liệu
          User::where('email', $inp)->update([
-            'password' => Hash::make($newPassword)
+            'password' => Hash::make($newPassword),
+            'repassword' => $newPassword
         ]);
         $sentData = [
             'title' => 'Mật khẩu mới của bạn là:',
@@ -92,11 +93,10 @@ class MailControler extends Controller
 
                 // Cập nhật mật khẩu mới cho người dùng
                 $user->update(['password' => $hashedPassword]);
-                $user->update(['repassword' => $newPassword]);
                 // $user->update(['repassword' => $newPassword]);
-                // DB::table('users')->where('id', $id)->update([
-                //     'repassword' => $newPassword,
-                // ]);
+                DB::table('users')->where('id', $id)->update([
+                    'repassword' => $newPassword,
+                ]);
                 Auth::logout();
 
                 // Chuyển hướng đến trang hiển thị thông báo thành công

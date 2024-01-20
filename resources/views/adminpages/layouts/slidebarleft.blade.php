@@ -113,7 +113,7 @@
                     </li>
                 </li>
 
-                <li class="header">Slider</li>
+                {{-- <li class="header">Slider</li>
                 <li class="active">
                     <li>
                         <a href="{{ route('sliders.index') }}">
@@ -127,7 +127,7 @@
                             <span>Add slider</span>
                         </a>
                     </li>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
