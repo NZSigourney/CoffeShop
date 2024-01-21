@@ -44,24 +44,29 @@
           <div class="tm-hr-container"><hr class="tm-hr"></div>
         </div>
         <div class="col-lg-12 tm-popular-items-container">
-            <!-- khu vực foreach Popular item -->
-            @if(count($popularProducts) != 1)
-              @foreach($popularProducts as $p)
-              <div class="tm-popular-item">
-                  <img src="/assets/images/products/{{ $p->image }}" style="margin:40px" alt="Popular" class="tm-popular-item-img">
-                  <div class="tm-popular-item-description">
-                      <h3 class="tm-handwriting-font tm-popular-item-title"><span class="tm-handwriting-font bigger-first-letter">{{ $p->name }}</h3><hr class="tm-popular-item-hr">
-                      <p>{{ $p->description }}.</p>
-                      <div class="order-now-container">
-                          <a href="{{route('banhang.addToCart', $p->id)}}" class="order-now-link tm-handwriting-font">Order Now</a>
-                      </div>
-                  </div>
-              </div>
-              @endforeach
-            @else
-              <h3><span class="gold-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">ITEM UPDATING</span></h3>
-            @endif
-            <!-- End -->    
+          @if(session('success'))
+            <script>
+              alert('{{ session('success') }}')
+            </script>
+          @endif
+          <!-- khu vực foreach Popular item -->
+          @if(count($popularProducts) != 1)
+            @foreach($popularProducts as $p)
+            <div class="tm-popular-item">
+                <img src="/assets/images/products/{{ $p->image }}" style="margin:40px" alt="Popular" class="tm-popular-item-img">
+                <div class="tm-popular-item-description">
+                    <h3 class="tm-handwriting-font tm-popular-item-title"><span class="tm-handwriting-font bigger-first-letter">{{ $p->name }}</h3><hr class="tm-popular-item-hr">
+                    <p>{{ $p->description }}.</p>
+                    <div class="order-now-container">
+                        <a href="{{route('banhang.addToCart', $p->id)}}" class="order-now-link tm-handwriting-font">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+          @else
+            <h3><span class="gold-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">ITEM UPDATING</span></h3>
+          @endif
+          <!-- End -->    
         </div>          
       </section>
       

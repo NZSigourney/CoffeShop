@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 28, 2023 lúc 04:36 PM
+-- Thời gian đã tạo: Th1 21, 2024 lúc 04:09 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -44,9 +44,13 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `payment`, `status`, `note`, `created_at`, `updated_at`) VALUES
-(1, 18, '2023-09-13', 40000, 'COD', 2, NULL, '2023-09-23 02:58:08', '2023-09-22 19:47:14'),
-(2, 22, '2023-09-23', 25000, 'COD', NULL, NULL, '2023-09-23 02:58:08', '2023-09-22 19:57:15'),
-(3, 23, '2023-09-23', 64000, 'ATM', NULL, NULL, '2023-09-23 06:11:11', '2023-09-23 06:11:11');
+(1, 5, '2024-01-18', 18000, NULL, 0, 'sadasd', '2024-01-17 19:01:59', '2024-01-17 19:01:59'),
+(2, 6, '2024-01-18', 18000, NULL, 0, 'qưeqdsadasdasdas', '2024-01-17 19:03:25', '2024-01-17 19:03:25'),
+(3, 7, '2024-01-18', 18000, NULL, 0, 'sadasd', '2024-01-17 19:09:03', '2024-01-17 19:09:03'),
+(4, 8, '2024-01-18', 18000, 'VNPAY', 0, 'sadasd', '2024-01-17 19:17:37', '2024-01-17 19:17:37'),
+(5, 9, '2024-01-21', 18000, NULL, 0, 'qưeqdsadasdasdas', '2024-01-20 18:32:43', '2024-01-20 18:32:43'),
+(6, 10, '2024-01-21', 18000, NULL, 0, 'ádasda', '2024-01-20 18:47:56', '2024-01-20 18:47:56'),
+(7, 11, '2024-01-21', 36000, 'VNPAY', 0, 'sadasd', '2024-01-20 19:08:58', '2024-01-20 19:08:58');
 
 -- --------------------------------------------------------
 
@@ -78,7 +82,23 @@ INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `unit_pric
 (24, 2, 1, 1, 25000, '2023-09-13 00:52:08', '2023-09-13 00:52:08'),
 (23, 1, 2, 1, 12000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
 (22, 1, 5, 1, 15000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
-(21, 1, 1, 2, 25000, '2023-09-11 00:44:39', '2023-09-11 00:44:39');
+(21, 1, 1, 2, 25000, '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
+(31, 4, 2, 1, 12000, '2023-12-29 01:53:06', '2023-12-29 01:53:06'),
+(32, 5, 1, 1, 32000, '2024-01-05 20:44:11', '2024-01-05 20:44:11'),
+(33, 6, 1, 1, 32000, '2024-01-05 20:57:07', '2024-01-05 20:57:07'),
+(34, 7, 1, 1, 32000, '2024-01-05 20:58:47', '2024-01-05 20:58:47'),
+(35, 1, 1, 1, 5000, '2024-01-17 18:43:53', '2024-01-17 18:43:53'),
+(36, 2, 1, 2, 18000, '2024-01-17 18:50:28', '2024-01-17 18:50:28'),
+(37, 3, 1, 1, 18000, '2024-01-17 18:57:42', '2024-01-17 18:57:42'),
+(38, 4, 1, 1, 18000, '2024-01-17 18:58:30', '2024-01-17 18:58:30'),
+(39, 5, 1, 1, 18000, '2024-01-17 19:00:21', '2024-01-17 19:00:21'),
+(40, 1, 1, 1, 18000, '2024-01-17 19:01:59', '2024-01-17 19:01:59'),
+(41, 2, 1, 1, 18000, '2024-01-17 19:03:25', '2024-01-17 19:03:25'),
+(42, 3, 1, 1, 18000, '2024-01-17 19:09:03', '2024-01-17 19:09:03'),
+(43, 4, 1, 1, 18000, '2024-01-17 19:17:37', '2024-01-17 19:17:37'),
+(44, 5, 1, 1, 18000, '2024-01-20 18:32:43', '2024-01-20 18:32:43'),
+(45, 6, 1, 1, 18000, '2024-01-20 18:47:56', '2024-01-20 18:47:56'),
+(46, 7, 1, 2, 18000, '2024-01-20 19:08:58', '2024-01-20 19:08:58');
 
 -- --------------------------------------------------------
 
@@ -130,19 +150,17 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `gender`, `email`, `address`, `phone_number`, `note`, `created_at`, `updated_at`) VALUES
-(15, 'ê', 'Nữ', 'huongnguyen@gmail.com', 'e', 'e', 'e', '2017-03-24 07:14:32', '2017-03-24 07:14:32'),
-(14, 'hhh', 'nam', 'huongnguyen@gmail.com', 'Lê thị riêng', '99999999999999999', 'k', '2017-03-23 04:46:05', '2017-03-23 04:46:05'),
-(13, 'Hương Hương', 'Nữ', 'huongnguyenak96@gmail.com', 'Lê Thị Riêng, Quận 1', '23456789', 'Vui lòng giao hàng trước 5h', '2017-03-21 07:29:31', '2017-03-21 07:29:31'),
-(12, 'Khoa phạm', 'Nam', 'khoapham@gmail.com', 'Lê thị riêng', '1234567890', 'Vui lòng chuyển đúng hạn', '2017-03-21 07:20:07', '2017-03-21 07:20:07'),
-(11, 'Hương Hương', 'Nữ', 'huongnguyenak96@gmail.com', 'Lê Thị Riêng, Quận 1', '234567890-', 'không chú', '2017-03-21 07:16:09', '2017-03-21 07:16:09'),
-(16, 'Long', 'nam', 'Thienchi337123@gmail.com', '21 Ngo Quyen', '9051165522', 'test 1', '2023-09-10 23:49:31', '2023-09-10 23:49:31'),
-(17, 'Long', 'nam', 'vhoang2003n@gmail.com', '21 Ngo Quyen', '9051165522', 'Test 21312313', '2023-09-11 00:44:39', '2023-09-11 00:44:39'),
-(18, 'asdadsa', 'nam', 'adsadadsa@gmail.com', 'adsada', '5646545646', 'asdas', '2023-09-13 00:52:08', '2023-09-13 00:52:08'),
-(19, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:47:42', '2023-09-22 19:47:42'),
-(20, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:51:08', '2023-09-22 19:51:08'),
-(21, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:56:48', '2023-09-22 19:56:48'),
-(22, 'Long', 'nam', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'hi', '2023-09-22 19:57:15', '2023-09-22 19:57:15'),
-(23, 'Long', 'nam', 'vhoang2003n@gmail.com', 'ha huy tao', '9051165522', 'xin chào', '2023-09-23 06:11:11', '2023-09-23 06:11:11');
+(1, 'Cà phê sữa', 'male', 'longthaithien98@gmail.com', 'ha huy tao', '9051165522', '123123131', '2024-01-17 18:57:42', '2024-01-17 18:57:42'),
+(2, 'Long', 'male', 'longthaithien98@gmail.com', '20 Ngo quyen', '9051165522', 'sadasd', '2024-01-17 18:58:07', '2024-01-17 18:58:07'),
+(3, 'Capuchino', 'male', 'longthaithien98@gmail.com', 'dasadad232', '9051165522', 'sadasd', '2024-01-17 18:58:30', '2024-01-17 18:58:30'),
+(4, 'Long', 'male', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'sadasd', '2024-01-17 19:00:21', '2024-01-17 19:00:21'),
+(5, 'Long', 'male', 'cpevnteam2018@gmail.com', '21 Ngo Quyen', '9051165522', 'sadasd', '2024-01-17 19:01:59', '2024-01-17 19:01:59'),
+(6, 'Capuchino', 'male', 'longthaithien98@gmail.com', 'dasadad232', '9051165522', 'qưeqdsadasdasdas', '2024-01-17 19:03:25', '2024-01-17 19:03:25'),
+(7, 'Long', 'male', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'sadasd', '2024-01-17 19:09:03', '2024-01-17 19:09:03'),
+(8, 'Long', 'male', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'sadasd', '2024-01-17 19:17:37', '2024-01-17 19:17:37'),
+(9, 'Long', 'male', 'longthaithien98@gmail.com', '12312312 adnhwr', '9051165522', 'qưeqdsadasdasdas', '2024-01-20 18:32:43', '2024-01-20 18:32:43'),
+(10, 'Cà phê sữa', 'male', 'longthaithien98@gmail.com', 'ha huy tao', '9051165522', 'ádasda', '2024-01-20 18:47:56', '2024-01-20 18:47:56'),
+(11, 'Long', 'male', 'longthaithien98@gmail.com', '21 Ngo Quyen', '9051165522', 'sadasd', '2024-01-20 19:08:58', '2024-01-20 19:08:58');
 
 -- --------------------------------------------------------
 
@@ -181,32 +199,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `news`
---
-
-CREATE TABLE `news` (
-  `id` int(10) NOT NULL,
-  `title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'tiêu đề',
-  `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'nội dung',
-  `image` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'hình',
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `news`
---
-
-INSERT INTO `news` (`id`, `title`, `content`, `image`, `create_at`, `update_at`) VALUES
-(1, 'Mùa trung thu năm nay, Hỷ Lâm Môn muốn gửi đến quý khách hàng sản phẩm mới xuất hiện lần đầu tiên tại Việt nam \"Bánh trung thu Bơ Sữa HongKong\".', 'Những ý tưởng dưới đây sẽ giúp bạn sắp xếp tủ quần áo trong phòng ngủ chật hẹp của mình một cách dễ dàng và hiệu quả nhất. ', 'sample1.jpg', '2017-03-11 06:20:23', '0000-00-00 00:00:00'),
-(2, 'Tư vấn cải tạo phòng ngủ nhỏ sao cho thoải mái và thoáng mát', 'Chúng tôi sẽ tư vấn cải tạo và bố trí nội thất để giúp phòng ngủ của chàng trai độc thân thật thoải mái, thoáng mát và sáng sủa nhất. ', 'sample2.jpg', '2016-10-20 02:07:14', '0000-00-00 00:00:00'),
-(3, 'Đồ gỗ nội thất và nhu cầu, xu hướng sử dụng của người dùng', 'Đồ gỗ nội thất ngày càng được sử dụng phổ biến nhờ vào hiệu quả mà nó mang lại cho không gian kiến trúc. Xu thế của các gia đình hiện nay là muốn đem thiên nhiên vào nhà ', 'sample3.jpg', '2016-10-20 02:07:14', '0000-00-00 00:00:00'),
-(4, 'Hướng dẫn sử dụng bảo quản đồ gỗ, nội thất.', 'Ngày nay, xu hướng chọn vật dụng làm bằng gỗ để trang trí, sử dụng trong văn phòng, gia đình được nhiều người ưa chuộng và quan tâm. Trên thị trường có nhiều sản phẩm mẫu ', 'sample4.jpg', '2016-10-20 02:07:14', '0000-00-00 00:00:00'),
-(5, 'Phong cách mới trong sử dụng đồ gỗ nội thất gia đình', 'Đồ gỗ nội thất gia đình ngày càng được sử dụng phổ biến nhờ vào hiệu quả mà nó mang lại cho không gian kiến trúc. Phong cách sử dụng đồ gỗ hiện nay của các gia đình hầu h ', 'sample5.jpg', '2016-10-20 02:07:14', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -254,6 +246,7 @@ CREATE TABLE `products` (
   `promotion_price` float DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `new` tinyint(4) DEFAULT 0,
+  `popular` int(2) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -262,15 +255,16 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `promotion_price`, `image`, `new`, `created_at`, `updated_at`) VALUES
-(1, 'Cà phê sữa', 1, 'ngon', 24000, 12000, '1703176140_hinh-anh-ly-cafe-sua-da_3.jpg', 1, '2023-09-08 18:34:46', '2023-12-21 09:29:01'),
-(2, 'Cà Phê Đen', 1, 'thơm', 18000, 12000, '1703224841_3-ca-phe-den-1586320560.jpg', 1, '2023-09-08 18:36:05', '2023-12-21 23:00:41'),
-(3, 'Bạc Xỉu', 1, '3 tầng', 30000, 15000, '1703176188_bac-xiu.jpg', 1, '2023-09-08 20:46:00', '2023-12-21 09:29:48'),
-(4, '7up', 2, 'chai nhưa', 15000, 5000, '1703176382_anh1.jpg', 1, '2023-12-21 09:22:31', '2023-12-21 09:33:02'),
-(5, 'pepsi', 2, 'chai nhựa', 17, 5000, '1703176408_tải xuống.jfif', 1, '2023-12-21 09:31:29', '2023-12-21 09:33:28'),
-(6, 'chanh', 2, 'chua', 28000, 5000, '1703176429_2.jpg', 1, '2023-12-21 09:32:35', '2023-12-21 09:33:49'),
-(7, 'Bánh donut', NULL, 'bánh ngọt', 23000, 5000, '1703224928_banh_donut_kem_trung_nhan_kem_beo_ngay_hap_dan.jpg', 1, '2023-12-21 23:02:08', '2023-12-21 23:02:08'),
-(8, 'Bánh nhân kem222', 1, 'asdasd', 25000, 5000, '1703384345_logo.png', 1, '2023-12-21 23:03:19', '2023-12-23 19:19:05');
+INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `promotion_price`, `image`, `new`, `popular`, `created_at`, `updated_at`) VALUES
+(1, 'cà phê sữa', 1, 'ngon', 28000, 18000, '1705797674_caphesua.jpg', 1, 1, '2024-01-07 08:39:39', '2024-01-20 17:41:14'),
+(2, 'cà phê đen', 1, 'thơm', 27000, 5000, '1705563266_blackcoffe.jpg', 1, 1, '2024-01-07 08:44:05', '2024-01-18 00:34:26'),
+(3, 'Bạc Sỉu Sky', 1, 'ly', 3500, 5000, '1705563286_caphesua.jpg', 1, 1, '2024-01-07 08:44:54', '2024-01-18 00:38:52'),
+(4, '7up', 1, 'chai', 15000, 5000, '1705563389_7u.jpg', 1, 0, '2024-01-07 08:47:38', '2024-01-18 00:38:41'),
+(5, 'Mirinda Cam', 2, 'lon', 15000, 8000, '1705563462_mirinda.jpg', 1, 0, '2024-01-07 08:52:59', '2024-01-18 00:37:42'),
+(6, 'nước chanh', 2, 'ly', 32000, 5000, '1705564095_nc.jpg', 1, 0, '2024-01-07 09:10:00', '2024-01-18 00:48:15'),
+(8, 'Bánh nhân kem', 3, 'ngọt', 25000, 5000, '1705564111_banhnhankem.jpg', 1, 0, '2024-01-07 09:21:01', '2024-01-18 00:48:31'),
+(9, 'Bánh donut', 3, 'ngọt', 25000, 5000, '1705564123_donus.jpg', 1, 0, '2024-01-07 09:21:59', '2024-01-18 00:48:43'),
+(10, 'bánh su kem', 3, 'ngọt', 28000, 5000, '1705564137_banhsukem.jpg', 1, 0, '2024-01-07 09:27:28', '2024-01-18 00:48:57');
 
 -- --------------------------------------------------------
 
@@ -280,43 +274,17 @@ INSERT INTO `products` (`id`, `name`, `id_type`, `description`, `unit_price`, `p
 
 CREATE TABLE `slide` (
   `id` int(11) NOT NULL,
-  `link` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `slide`
 --
 
-INSERT INTO `slide` (`id`, `link`, `image`) VALUES
-(1, '', 'b1.jpg'),
-(2, '', 'b2.jpg'),
-(3, '', 'b3.jpg'),
-(4, '', 'b4.jpg');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `tables`
---
-
-CREATE TABLE `tables` (
-  `ID` int(11) NOT NULL,
-  `Customer` varchar(255) DEFAULT NULL,
-  `Types` int(11) DEFAULT NULL,
-  `Note` varchar(255) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Time` time DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tables`
---
-
-INSERT INTO `tables` (`ID`, `Customer`, `Types`, `Note`, `Date`, `Time`, `created_at`, `updated_at`) VALUES
-(1, 'adsadasd', 1, 'sadasd', '2023-12-02', '09:05:00', '2023-11-30 19:04:46', '2023-11-30 19:04:46');
+INSERT INTO `slide` (`id`, `image`, `created_at`, `updated_at`) VALUES
+(1, '1704472121_logo.png', '2024-01-05 08:59:56', '2024-01-05 09:28:41');
 
 -- --------------------------------------------------------
 
@@ -328,7 +296,7 @@ CREATE TABLE `type_products` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -338,9 +306,9 @@ CREATE TABLE `type_products` (
 --
 
 INSERT INTO `type_products` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Cà Phê', 'Cà Phê Bao gồm nhiều loại (Đen, Sữa, Bạc Sỉu, Capuchino)', 'banh-man-thu-vi-nhat-1.jpg', '2023-09-12 02:19:58', '2023-09-13 02:19:58'),
-(2, 'Giải Khát', 'Nước Khoáng V.v', '20131108144733.jpg', '2016-10-12 02:16:15', '2016-10-13 01:38:35'),
-(3, 'Nước Ngọt', 'Nước giải khát 2', '1694497729_ny6ho4jk_1920x1080-vothantrieutulong-khongtitle_1920_1080.jpg', '2016-10-18 00:33:33', '2016-10-15 07:25:27');
+(1, 'Cà phê', 'Cà phê', 'Screenshot 2023-12-23 081737.png', '2024-01-05 09:17:20', '2024-01-05 09:17:20'),
+(2, 'Giải khát', 'lon', '3.png', '2024-01-07 08:51:32', '2024-01-07 08:51:32'),
+(3, 'bánh ngọt', 'ngon', 'banh_vung_la_mon_banh_ngot_de_lam_de_an.jpg', '2024-01-07 09:12:06', '2024-01-07 09:12:06');
 
 -- --------------------------------------------------------
 
@@ -356,6 +324,7 @@ CREATE TABLE `users` (
   `repassword` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -366,11 +335,9 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `repassword`, `phone`, `address`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Long Thái', 'cpevnteam2018@gmail.com', '$2y$10$2sRNgAPrIMEhhJrlP3OMNuGzhBKjipgbkNBVFvEAEtHZw/tP/iaVO', NULL, '1232456789', '21 Ngo Quyen', 3, NULL, '2023-09-13 00:00:36', '2023-12-27 02:04:19'),
-(4, 'test', 'admin@gmail.com', '$2y$10$40XDoPFnuhJq3YBYZS/hpOVdNRZujIIljAtY0PCUHDdj0ApW9MzwC', NULL, '1232456789', 'đâsdadsa', 3, NULL, '2023-09-23 06:10:10', '2023-09-23 06:10:10'),
-(5, 'Tử Long', 'longthaithien98@gmail.com', '$2y$10$CwChrUdSXR9VvTTp6.2Q1.Ad9E44RQ//Kn9cQrjh4fMHtGs9wsCXy', NULL, '0905116522', 'Hồ vương', 1, NULL, '2023-10-04 07:00:10', '2023-12-28 01:44:52'),
-(6, 'Duy Vũ', 'blackdergamming@gmail.com', '$2y$10$HKO34J6nEY//qeoPaj9AceQpYZab.glDxM61fGddl/5cjfZdBQKmu', 'thienlong2003', '09123456789', '01 ngo quyen', 3, NULL, '2023-12-27 02:28:29', '2023-12-27 02:28:29');
+INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `repassword`, `phone`, `address`, `image`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Long Thien', 'longthaithien98@gmail.com', '$2y$10$cgxAO053p9ZJvaKtxWVO7.tezIdQuS761k1VIq/66wKwR9WJkNxky', 'thienlong2003', '0905116522', '21 Ngo Quyen', 'Screenshot (192).png', 1, NULL, '2024-01-05 23:37:31', '2024-01-20 19:42:50'),
+(2, 'Đức', 'cpevnteam2018@gmail.com', '$2y$10$7iOLrTF1rlTYpFuMfr24Ou.Q737nH1cJqTjT9VVxDUf4U45u5Foze', 'cYSy8GT1', '0905116522123', 'adsada', 'LSPD.png', 3, NULL, '2024-01-05 23:39:40', '2024-01-20 19:57:00');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -416,12 +383,6 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -449,12 +410,6 @@ ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `tables`
---
-ALTER TABLE `tables`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Chỉ mục cho bảng `type_products`
 --
 ALTER TABLE `type_products`
@@ -475,13 +430,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `bill_detail`
 --
 ALTER TABLE `bill_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT cho bảng `contacts`
@@ -493,7 +448,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -517,31 +472,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `tables`
---
-ALTER TABLE `tables`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `type_products`
 --
 ALTER TABLE `type_products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

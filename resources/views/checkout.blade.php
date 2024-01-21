@@ -142,15 +142,16 @@
                 </div>
             </div>
             <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
-            <form action="{{ route('vnpay')}}" method="POST">
-                @csrf
-                <button type="submit" class="btn" name="payment_method" value="VNPAY">Thanh toán VNPAY</button>
-            </form>
+            
             </div>
             <!-- end of box-2 -->
     </div>
 </form>
-
+<form action="{{ route('vnpay.payment') }}" method="POST">
+    @csrf
+    {{-- <a href="#" class="btn">Thanh Toán VNPAY</a> --}}
+    <button type="submit" class="btn" style="margin-left: 150px; margin-bottom: 10px;" name="payment_method" value="VNPAY">Thanh toán VNPAY</button>
+</form>
 @endsection
 
 @section('js')

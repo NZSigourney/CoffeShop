@@ -8,7 +8,9 @@
         </ol>
         @if (Session::has('success'))
         <div class="alert alert-success">
-            {{Session::get('success')}}
+            <script>
+                alert('{{ Session::get('success') }}')
+            </script>
         </div>
         @endif
         <div class="card mb-4">

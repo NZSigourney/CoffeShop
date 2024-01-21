@@ -75,13 +75,13 @@ class UserController extends Controller
         If(Auth::attempt($credentials)){
             $users = Auth::user();
             if($users->level == 1){
-                return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'success' => 'Đăng nhập trang quản trị viên thành công']);
+                return redirect()->route('admin.dashboard')->with(['flag' => 'alert', 'message' => 'Đăng nhập trang quản trị viên thành công']);
             }else{
-                return redirect('/')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
+                return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
             }
-            // return redirect('/')->with(['flag' => 'alert', 'success' => 'Đăng nhập thành công']);
+            // return redirect('/')->with(['flag' => 'alert', 'message' => 'Đăng nhập thành công']);
         }else{
-            return redirect()->back()->with(['flag' => 'danger', 'success' => 'Đăng nhập không thành công']);
+            return redirect()->back()->with(['flag' => 'danger', 'message' => 'Đăng nhập không thành công']);
         }
     }
 

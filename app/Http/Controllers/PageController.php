@@ -14,6 +14,7 @@ use App\Models\Slide;
 
 // use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -137,21 +138,24 @@ class PageController extends Controller
 
     public function addToCart(Request $request,$id){
         $product = Product::find($id);
-        $oldCart = Session('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $qty = $request->input('quantity');
-        $cart->add($product, $id, $qty);
-        $request->session()->put('cart',$cart);
 
+        if(Auth::check()){
+            $oldCart = Session('cart')?Session::get('cart'):null;
+            $cart = new Cart($oldCart);
+            $qty = $request->input('quantity');
+            $cart->add($product, $id, $qty);
+            $request->session()->put('cart',$cart);
+            Session::flash('success', 'Add to cart success!');
+            // return redirect()->back();
+            return redirect()->route('banhang.getdathang');
+        }else{
+            return redirect()->back()->with('success', 'bạn chưa đăng nhập!');
+        }
         // if($request->ajax()) {
         //     $cartItems = $cart->items;
         //     $view = view('navbar.cartbutton.show', compact('cartItems'))->render();
         //     return response()->json(['html' => $view]); 
         // }
-
-        Session::flash('success', 'Add to cart success!');
-        // return redirect()->back();
-        return redirect()->route('banhang.getdathang');
     }
 
     //thêm 1 sản phẩm có số lượng >1 có id cụ thể vào model cart rồi lưu dữ liệu của model cart vào 1 session có tên cart (session được truy cập bằng thực thể Request)
