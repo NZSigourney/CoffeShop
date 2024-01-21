@@ -38,7 +38,7 @@ class UserController extends Controller
         
         // Xóa hình ảnh cũ nếu có
         if (!empty($users->image)) {
-            $oldImagePath = public_path('images/users/') . $users->image;
+            $oldImagePath = public_path('assets/images/users/') . $users->image;
 
             // Kiểm tra xem tệp tin tồn tại trước khi xóa
             if (file_exists($oldImagePath)) {
@@ -153,7 +153,7 @@ class UserController extends Controller
             ]);
             $file = $request->file('image');
             $name = $file->getClientOriginalName();
-            $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath=public_path('assets/images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             // Kiểm tra xem hình ảnh đã tồn tại hay chưa
             if (file_exists($destinationPath . '/' . $name)) {
                 return redirect('users')->with('success', 'Hình ảnh đã tồn tại. Vui lòng chọn hình ảnh khác.');
@@ -230,12 +230,12 @@ class UserController extends Controller
             ]);
             $file = $request->file('image');
             $avt = $file->getClientOriginalName();
-            $destinationPath=public_path('images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
+            $destinationPath=public_path('assets/images/users'); //project\public\images, public_path(): trả về đường dẫn tới thư mục public
             $file->move($destinationPath, $avt);
 
             // Đảm bảo xóa hình ảnh cũ nếu có
             if (!empty($users->image)) {
-                $oldImagePath = public_path('images/users/') . $users->image;
+                $oldImagePath = public_path('assets/images/users/') . $users->image;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
