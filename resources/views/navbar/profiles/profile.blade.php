@@ -63,7 +63,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Full Name</h6>
+                <h6 class="mb-0">Họ tên</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 {{ Auth::user()->full_name }}
@@ -81,7 +81,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Phone</h6>
+                <h6 class="mb-0">Số Điện Thoại</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 {{ Auth::user()->phone}}
@@ -91,7 +91,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Address</h6>
+                <h6 class="mb-0">Địa chỉ</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 {{ Auth::user()->address}}
@@ -101,9 +101,14 @@
             <div class="row">
               <div class="col-sm-12">
                 @if(Auth::check())
-                <a class="btn btn-info " href="{{ route('user.GetEditProfile', $users->id) }}" role="button">Edit</a>
+                <a class="btn btn-info " href="{{ route('user.GetEditProfile', $users->id) }}" role="button">Chỉnh sửa</a>
                 @endif
               </div>
+              {{-- <div class="col-sm-8">
+                @if(Auth::user()->level == 1 || Auth::user()->level == 2)
+                  <a class="btn btn-info " href="{{ route('admin.dashboard') }}" role="button">Admnistrator</a>
+                @endif
+              </div> --}}
             </div>
           </div>
         </div>

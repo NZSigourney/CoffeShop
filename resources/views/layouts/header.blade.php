@@ -32,6 +32,9 @@
                 @if(Auth::check())
                 <a href="{{ route('user.Profiles') }}" class="dropbtn">{{ Auth::user()->full_name }}</a>
                 <div class="dropdown-content">
+                  @if(Auth::user()->level == 1 || Auth::user()->level == 2)
+                    <a href="{{ route('admin.dashboard') }}">Quản lý</a>
+                  @endif
                   <a href="{{ route('getLogout') }}">Đăng xuất</a>
                 </div>
                 @else

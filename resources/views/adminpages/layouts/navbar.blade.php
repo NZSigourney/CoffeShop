@@ -30,13 +30,14 @@
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">notifications</i>
-                        <span class="label-count">7</span>
+                        <span class="label-count">0</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">NOTIFICATIONS</li>
                         <li class="body">
                             <ul class="menu">
-                                <li>
+                                <span style="margin-left: 80px; font-family:Georgia, 'Times New Roman', Times, serif">No notice for now.</span>
+                                {{-- <li>
                                     <a href="javascript:void(0);">
                                         <div class="icon-circle bg-light-green">
                                             <i class="material-icons">person_add</i>
@@ -126,7 +127,7 @@
                                             </p>
                                         </div>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li class="footer">
@@ -139,13 +140,14 @@
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                         <i class="material-icons">flag</i>
-                        <span class="label-count">9</span>
+                        <span class="label-count">0</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">TASKS</li>
                         <li class="body">
                             <ul class="menu tasks">
-                                <li>
+                                <span style="margin-left: 110px; font-family:Georgia, 'Times New Roman', Times, serif">Nothing</span>
+                                {{-- <li>
                                     <a href="javascript:void(0);">
                                         <h4>
                                             Footer display issue
@@ -204,7 +206,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li class="footer">
