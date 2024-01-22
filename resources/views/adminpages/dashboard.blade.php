@@ -84,6 +84,17 @@
                     </div>
                 </div>
             </div>
+            {{-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-navy hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">Money</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Thống kê tiền tháng nay</div>
+                        <div class="number count-to" data-from="0" data-to="{{ $product_type_count }}" data-speed="1000" data-fresh-interval="20"></div>
+                    </div>
+                </div>
+            </div> --}}
         </div>
         <!-- #END# Widgets -->
         <!-- CPU Usage -->

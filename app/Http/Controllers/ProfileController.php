@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,8 @@ class ProfileController extends Controller
     public function getEditProfiles(String $id)
     {
         $users = User::find($id);
-        return view("navbar.profiles.editprofile", compact('users'));
+        $products = Product::findOrFail($id);
+        return view("navbar.profiles.editprofile", compact('users', 'products'));
     }
 
     public function postEditProfiles(Request $request, String $id)

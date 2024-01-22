@@ -25,9 +25,10 @@
                 <h4>{{ Auth::user()->full_name }}</h4>
                 {{-- <p class="text-secondary mb-1">Full Stack Developer</p>
                 <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> --}}
-                <form action="{{ route('user.getChangePwd') }}" method="get">
+
+                {{-- <form action="{{ route('user.getChangePwd') }}" method="get">
                   <button class="btn btn-primary" style="margin-top: 5px">Change Password</button>
-                </form>
+                </form> --}}
                 {{-- <button class="btn btn-outline-primary">Message</button> --}}
               </div>
             </div>
@@ -98,6 +99,14 @@
                       </div>
                   </div>
               </div>
+              {{-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                <div class="form-group">
+                  <form action="{{ route('products.update', $products->id) }}" method="POST" enctype="multipart/form-data" class="addproduct">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image" class="form-control" value="{{ isset($users) ? $users->image: '' }}">
+                  </form>
+                </div>
+              </div> --}}
               <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <div class="text-right">
