@@ -51,10 +51,12 @@
         {{-- @method('POST') --}}
         @csrf
         @if(session('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
-                        </div>
-                    @endif
+            <div class="alert alert-success">
+                <script>
+                    alert('{{ session('message') }}')
+                </script>
+            </div>
+        @endif
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -117,7 +119,7 @@
                             <div class="wrap-login100-form-btn">
                                 <div class="login100-form-bgbtn"></div>
                                 <button class="login100-form-btn">
-                                    Login
+                                    Đăng ký
                                 </button>
                             </div>
                         </div>

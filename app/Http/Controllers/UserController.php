@@ -344,7 +344,7 @@ class UserController extends Controller
         }
         $user->image = $name;
         $user->save();
-        return redirect()->route('admin.getLogin')->with('success','Tạo tài khoản thành công');
+        return redirect()->route('admin.getLogin')->with('message','Tạo tài khoản thành công');
     }
 
     // public function getProfile()

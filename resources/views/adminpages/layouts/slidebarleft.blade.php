@@ -63,6 +63,7 @@
                     </li>
                 </li>
 
+                @if(Auth::user()->level == 1)
                 <li class="header">USER ACCOUNTS</li>
                 <li class="active">
                     <li>
@@ -78,7 +79,9 @@
                         </a>
                     </li>
                 </li>
+                @endif
 
+                @if(Auth::user()->level == 1)
                 <li class="header">CONTACTS LIST</li>
                 <li class="active">
                     <li>
@@ -88,6 +91,7 @@
                         </a>
                     </li>
                 </li>
+                @endif
 
                 <li class="header">CATEGORY LIST</li>
                 <li class="active">
@@ -103,6 +107,7 @@
                     </li>
                 </li>
 
+                @if(Auth::user()->level == 1)
                 <li class="header">BILL LIST</li>
                 <li class="active">
                     <li>
@@ -112,6 +117,7 @@
                         </a>
                     </li>
                 </li>
+                @endif
 
                 {{-- <li class="header">Slider</li>
                 <li class="active">
