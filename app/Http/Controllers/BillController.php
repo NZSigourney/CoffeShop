@@ -14,7 +14,7 @@ class BillController extends Controller
     public function index()
     {
         $bills = Bill::all();
-        return view('adminpages.bill.bills', ['bills' => $bills]);
+        return view('adminpages.slidebar.bill.bills', ['bills' => $bills]);
     }
 
     /**
@@ -47,7 +47,7 @@ class BillController extends Controller
     public function edit(string $id)
     {
         $bills = Bill::find($id);
-        return view('adminpages.bill.bill_edit', compact('bills'));
+        return view('adminpages.slidebar.bill.bill_edit', compact('bills'));
     }
 
     /**

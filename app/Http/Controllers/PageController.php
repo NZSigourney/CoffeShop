@@ -91,7 +91,6 @@ class PageController extends Controller
     // }
 
     public function postCheckout(Request $request){
-        
         $cart=Session::get('cart');
         $customer=new Customer();
         $customer->name=$request->input('name');
@@ -145,11 +144,11 @@ class PageController extends Controller
             $qty = $request->input('quantity');
             $cart->add($product, $id, $qty);
             $request->session()->put('cart',$cart);
-            Session::flash('success', 'Add to cart success!');
+            Session::flash('message', 'Add to cart success!');
             // return redirect()->back();
             return redirect()->route('banhang.getdathang');
         }else{
-            return redirect()->back()->with('success', 'bạn chưa đăng nhập!');
+            return redirect()->back()->with('message', 'bạn chưa đăng nhập!');
         }
         // if($request->ajax()) {
         //     $cartItems = $cart->items;

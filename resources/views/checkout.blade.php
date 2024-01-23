@@ -11,108 +11,107 @@
 </div>
 <!-- End Preloader -->
 <form action="{{ route('banhang.postdathang') }}" method="POST">
+    @csrf
     <div class="con">
-        
-            @csrf
-            <div class="box1">
-            <h2 class="title">Thanh Toán</h2>
-            <!-- info  -->
-            <div class="info">
-                <h3>Thông tin liên lạc</h3>
+        <div class="box1">
+        <h2 class="title">Thanh Toán</h2>
+        <!-- info  -->
+        <div class="info">
+            <h3>Thông tin liên lạc</h3>
 
-                <p class="label">E-mail</p>
+            <p class="label">E-mail</p>
 
-                <div class="input-box">
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter Your Email .. "
-                />
-                <i class="fa-solid fa-envelope"></i>
-                </div>
-
-                <p class="label">Số Điện thoại</p>
-
-                <div class="input-box">
-                <input
-                    type="text"
-                    name="phone_number"
-                    placeholder="Enter Your Phone .. "
-                />
-                <i class="fa-solid fa-phone"></i>
-                </div>
+            <div class="input-box">
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter Your Email .. "
+            />
+            <i class="fa-solid fa-envelope"></i>
             </div>
-            <!-- end of  info  -->
 
-            <!-- Gender Dropdown -->
-            <div class="gender">
-                <h3>Giới tính</h3>
+            <p class="label">Số Điện thoại</p>
 
-                <div class="input-box">
-                    <select name="gender">
-                        <option value="" disabled selected>Chọn giới tính</option>
-                        <option value="male">Nam</option>
-                        <option value="female">Nữ</option>
-                    </select>
-                </div>
+            <div class="input-box">
+            <input
+                type="text"
+                name="phone_number"
+                placeholder="Enter Your Phone .. "
+            />
+            <i class="fa-solid fa-phone"></i>
             </div>
-            <!-- end of Gender Dropdown -->
+        </div>
+        <!-- end of  info  -->
 
-            <!-- shipping  -->
-            <div class="shipping">
-                <h3>Địa chỉ giao hàng</h3>
+        <!-- Gender Dropdown -->
+        <div class="gender">
+            <h3>Giới tính</h3>
 
-                <p class="label">họ tên đầy đủ</p>
-
-                <div class="input-box">
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Your Fullname .. "
-                />
-                <i class="fa-solid fa-user"></i>
-                </div>
-
-                <p class="label">Địa chỉ</p>
-
-                <div class="input-box">
-                <input type="text" name="address" placeholder="Your Address .. " />
-                <i class="fa-solid fa-house"></i>
-                </div>
-
-                <p class="label">Ghi chú</p>
-
-                <div class="input-box">
-                <input type="text" name="note" placeholder="Note " />
-                <i class="fa-solid fa-notebook"></i>
-                </div>
-
-                <!-- end of  last  -->
-
-                <!-- Payment Method Dropdown -->
-                {{-- <div class="input-box">
-                    <label for="payment_method">phương thức thanh toán</label>
-                    <select name="payment_method" id="payment_method">
-                        <option value="" disabled selected>Chọn cách thanh toán</option>
-                        <option value="COD">COD</option>
-                        <option value="{{ route('vnpay') }}">VNPay</option>
-                        <!-- Add more payment options as needed -->
-                    </select>
-                </div> --}}
-                <!-- end of Payment Method Dropdown -->
-
-                {{-- <input type="checkbox" name="payment_method" id="check" />
-                <label for="check"> COD</label> --}}
-
-                {{-- <input type="checkbox" name="check" id="check" />
-                <label for="check"> Save this information for next time</label> --}}
+            <div class="input-box">
+                <select name="gender">
+                    <option value="" disabled selected>Chọn giới tính</option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select>
             </div>
-            <!--end of  shipping  -->
-            </div>
-            <!-- end of box-1 -->
+        </div>
+        <!-- end of Gender Dropdown -->
 
-            <!-- box-2 -->
-            <div class="box2">
+        <!-- shipping  -->
+        <div class="shipping">
+            <h3>Địa chỉ giao hàng</h3>
+
+            <p class="label">họ tên đầy đủ</p>
+
+            <div class="input-box">
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter Your Fullname .. "
+            />
+            <i class="fa-solid fa-user"></i>
+            </div>
+
+            <p class="label">Địa chỉ</p>
+
+            <div class="input-box">
+            <input type="text" name="address" placeholder="Your Address .. " />
+            <i class="fa-solid fa-house"></i>
+            </div>
+
+            <p class="label">Ghi chú</p>
+
+            <div class="input-box">
+            <input type="text" name="note" placeholder="Note " />
+            <i class="fa-solid fa-notebook"></i>
+            </div>
+
+            <!-- end of  last  -->
+
+            <!-- Payment Method Dropdown -->
+            {{-- <div class="input-box">
+                <label for="payment_method">phương thức thanh toán</label>
+                <select name="payment_method" id="payment_method">
+                    <option value="" disabled selected>Chọn cách thanh toán</option>
+                    <option value="COD">COD</option>
+                    <option value="{{ route('vnpay') }}">VNPay</option>
+                    <!-- Add more payment options as needed -->
+                </select>
+            </div> --}}
+            <!-- end of Payment Method Dropdown -->
+
+            {{-- <input type="checkbox" name="payment_method" id="check" />
+            <label for="check"> COD</label> --}}
+
+            {{-- <input type="checkbox" name="check" id="check" />
+            <label for="check"> Save this information for next time</label> --}}
+        </div>
+        <!--end of  shipping  -->
+        </div>
+        <!-- end of box-1 -->
+
+        <!-- box-2 -->
+        <div class="box2">
             <div class="card">
                 @isset($productCarts)
                     @foreach($productCarts as $cart)
@@ -141,19 +140,16 @@
                 </div>
                 </div>
             </div>
-            {{-- <div class="button-container"> --}}
-                {{-- <div class="button-method"> --}}
-                    <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
-                {{-- </div> --}}
-                {{-- <div class="button-method"> --}}
-                    {{-- @include('navbar.payment.vn_pay') --}}
-                {{-- </div> --}}
-            {{-- </div> --}}
+            <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>                
         </div>
-            <!-- end of box-2 -->
+        <!-- end of box-2 -->
     </div>
 </form>
-@include('navbar.payment.vn_pay')
+<div class="method-container">
+    <div class="button-method">
+        @include('navbar.payment.vn_pay')
+    </div>
+</div>
 @endsection
 
 @section('js')

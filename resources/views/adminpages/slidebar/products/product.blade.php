@@ -31,7 +31,9 @@
                     <th scope="col">Promotion_price</th>
                     <th scope="col">Popular (True or False)</th>
                     {{-- <th scope="col">Unit</th> --}}
+                    @if(Auth::user()->level == 1)
                     <th scope="col">Action</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -78,6 +80,7 @@
                     </label></td> --}}
                     {{-- <td>{{ $product->unit }}</td> --}}
                     <td><a class="btn btn-primary btn-sm " href="{{ route('products.edit', $product->id) }}" role="button">Edit</a></td>
+                    @if(Auth::user()->level == 1)
                     <td>
                       <form action="{{ route('products.destroy', $product->id) }}" method="post">
                         @csrf
@@ -85,6 +88,7 @@
                         <input type="submit" value="xóa" class="btn btn-primary btn-sm">
                       </form>
                     </td>
+                    @endif
                   </tr>
                   @endforeach
                 </tbody>

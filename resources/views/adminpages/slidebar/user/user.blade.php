@@ -31,6 +31,9 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Level</th>
+                                    @if(Auth::user()->level == 1)
+                                    <th scope="col">Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,7 +60,8 @@
                                             @default
                                                 N/A
                                         @endswitch
-                                    </td>                                    
+                                    </td>
+                                    @if(Auth::user()->level == 1)                                    
                                     <td><a class="btn btn-primary btn-sm " href="{{ route('users.edit', $user->id) }}" role="button">Edit</a></td>
                                     <td>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
@@ -66,6 +70,7 @@
                                         <input type="submit" value="xóa" class="btn btn-primary btn-sm">
                                     </form>
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>

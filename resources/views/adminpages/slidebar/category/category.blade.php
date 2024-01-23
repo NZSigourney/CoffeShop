@@ -6,7 +6,9 @@
 <title>Danh mục</title>
 
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="/source/assets/dest/css/styles1.css" rel="stylesheet" />
+<link href="/function/source/assets/dest/css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/category.css">
+
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 @endsection
 
@@ -18,7 +20,7 @@
             <li class="breadcrumb-item"><a href="{{route('admin.getCateList')}}">Admin</a></li>
             <li class="breadcrumb-item active">Danh mục</li>
         </ol>
-        <div class="card mb-4">
+        {{-- <div style="margin-bottom: 20px;">
             <div class="card-body">
               
                 <a href="{{route('admin.getCateAdd')}}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -26,7 +28,7 @@
                    </a>
                 
             </div>
-        </div>
+        </div> --}}
         @if (session('success'))
 		<div class="alert alert-success">
 			{{session('success')}}
@@ -47,9 +49,10 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">description</th>
                                     <th scope="col">Image</th>
+                                    @if(Auth::user()->level == 1)
                                     <th scope="col">Edit</th>
                                     <th scope="col">DEL</th>
-                                   
+                                    @endif                                   
                                 </tr>
                             </thead>
                             {{-- <tfoot>
@@ -69,7 +72,8 @@
                                     <td>{{$item->name }}</td>
                                     <td>{{$item->description }}</td>
                                    
-                                    <td><img src="assets/images/category/{{ $item->image }}" alt="{{ $item->image }}" style="margin: 15px 0 15px; width: 150px; height: 150px; object-fit: cover;" ></td>
+                                    <td><img src="assets/images/category/{{ $item->image }}" alt="{{ $item->image }}" height="150" ></td>
+                                    @if(Auth::user()->level == 1)
                                     <td>
                                         <a href="{{route('admin.getCateEdit',['id'=> $item->id ])}}" class="btn btn-success" >
                                             <i class="fas fa-edit"></i>
@@ -82,6 +86,7 @@
                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> </button>
                                       </form>
                                     </td>
+                                    @endif
                                 </tr>
                                 {{-- <hr> --}}
                                 @endforeach
@@ -93,7 +98,7 @@
         </div>
     </div>
 {{-- </main> --}}
-@include('adminpages.category.cate_add')
+{{-- @include('adminpages.category.cate_add') --}}
 {{-- @include('admin.modal.cate_edit') --}}
 @endsection
 

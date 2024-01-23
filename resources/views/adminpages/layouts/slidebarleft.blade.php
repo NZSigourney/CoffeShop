@@ -56,14 +56,16 @@
                         </a>
                     </li>
                     <li>
+                        @if(Auth::user()->level == 1)
                         <a href="{{ route('products.create') }}">
                             <i class="material-symbols-outlined">add</i>
                             <span>Add Production</span>
                         </a>
+                        @endif
                     </li>
                 </li>
 
-                @if(Auth::user()->level == 1)
+                
                 <li class="header">USER ACCOUNTS</li>
                 <li class="active">
                     <li>
@@ -73,13 +75,14 @@
                             </i>
                             <span>View Account</span>
                         </a>
+                        @if(Auth::user()->level == 1)
                         <a href="/createadminaccount">
                             <i class="material-symbols-outlined">add</i>
                             <span>Add Account</span>
                         </a>
+                        @endif
                     </li>
                 </li>
-                @endif
 
                 {{-- @if(Auth::user()->level == 1) --}}
                 <li class="header">CONTACTS LIST</li>
@@ -107,7 +110,7 @@
                     </li>
                 </li>
 
-                @if(Auth::user()->level == 1)
+                {{-- @if(Auth::user()->level == 1) --}}
                 <li class="header">BILL LIST</li>
                 <li class="active">
                     <li>
@@ -117,7 +120,7 @@
                         </a>
                     </li>
                 </li>
-                @endif
+                {{-- @endif --}}
 
                 {{-- <li class="header">Slider</li>
                 <li class="active">

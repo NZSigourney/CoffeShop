@@ -12,12 +12,12 @@ class CategoryController extends Controller
 {
     // public function index()
     // {
-    //     return view('adminpages.category.dashboard');
+    //     return view('adminpages.slidebar.category.dashboard');
     // }
 
     // public function listCategory(){
     //     $cates = Category::all();
-    //     return view('adminpages.category.category', compact('cates'));
+    //     return view('adminpages.slidebar.category.category', compact('cates'));
     // }
 
     public function product_type($type){
@@ -35,12 +35,12 @@ class CategoryController extends Controller
 
     public function getCateList(){
         $cates = Category::orderBy('created_at', 'DESC')->get();
-        return view('adminpages.category.category', compact('cates'));
+        return view('adminpages.slidebar.category.category', compact('cates'));
     }
     
     public function getCateAdd() {
 
-        return view('adminpages.category.cate_add');
+        return view('adminpages.slidebar.category.cate_add');
     }
     public function postCateAdd(Request $request)
     {
@@ -89,7 +89,7 @@ class CategoryController extends Controller
     
     public function getCateEdit(string $id) {
          $cate =  Category::find($id);
-        return view('adminpages.category.cate_edit', compact('cate'));
+        return view('adminpages.slidebar.category.cate_edit', compact('cate'));
     }
     
     public function postCateEdit(Request $request, string $id) {
@@ -147,7 +147,7 @@ class CategoryController extends Controller
         //     'image'=> $image,           
         // ]);
         
-        // return redirect(route('adminpages.category.getCateList'))->with('success','Cập nhật sản phẩm thành công!');
+        // return redirect(route('adminpages.slidebar.category.getCateList'))->with('success','Cập nhật sản phẩm thành công!');
         return redirect()->route('admin.getCateList')->with('success','Cập nhật sản phẩm thành công!');
        
        
@@ -182,7 +182,7 @@ class CategoryController extends Controller
         foreach ($relatedProducts as $product) {
             // Xóa hình ảnh cũ nếu có
             if (!empty($product->image)) {
-                $oldProductImagePath = public_path('images/products/') . $product->image;
+                $oldProductImagePath = public_path('assets/images/category/') . $product->image;
 
                 // Kiểm tra xem tệp tin tồn tại trước khi xóa
                 if (file_exists($oldProductImagePath)) {
