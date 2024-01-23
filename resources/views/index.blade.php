@@ -50,7 +50,7 @@
             </script>
           @endif
           <!-- khu vực foreach Popular item -->
-          @if(count($popularProducts) != 1)
+          @if(count($popularProducts) >= 1)
             @foreach($popularProducts as $p)
             <div class="tm-popular-item">
                 <img src="/assets/images/products/{{ $p->image }}" style="margin:40px" alt="Popular" class="tm-popular-item-img">

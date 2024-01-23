@@ -49,7 +49,7 @@
                                                 Quản Trị Viên
                                             @break
                                             @case(2)
-                                                Cộng Tác viên
+                                                Nhân viên
                                             @break
                                             @case(3)
                                                 Khách hàng
