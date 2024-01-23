@@ -115,22 +115,22 @@
             <div class="box2">
             <div class="card">
                 @isset($productCarts)
-                @foreach($productCarts as $cart)
-                    <div class="item">
-                    <img src="/assets/images/products/{{ $cart['item']->image }}" alt="bag" />
-                    <div class="count">
-                        <p class="item-name">{{ $cart['item']->name }}</p>
-                        <h6 class="quantity">Slot: {{ $cart['qty'] }}</h6>
-                        <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
-                            number_format($cart['item']->unit_price, 0) }}</h6>
-                        {{-- <div class="pur">
-                        <button id="Debtn1">-</button>
-                        <div id="num1"></div>
-                        <button id="Inbtn1">+</button>
-                        </div> --}}
-                    </div>
-                    </div>
-                @endforeach
+                    @foreach($productCarts as $cart)
+                        <div class="item">
+                        <img src="/assets/images/products/{{ $cart['item']->image }}" alt="bag" />
+                        <div class="count">
+                            <p class="item-name">{{ $cart['item']->name }}</p>
+                            <h6 class="quantity">Slot: {{ $cart['qty'] }}</h6>
+                            <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
+                                number_format($cart['item']->unit_price, 0) }}</h6>
+                            {{-- <div class="pur">
+                            <button id="Debtn1">-</button>
+                            <div id="num1"></div>
+                            <button id="Inbtn1">+</button>
+                            </div> --}}
+                        </div>
+                        </div>
+                    @endforeach
                 @endisset
                 <div class="end">
                 <hr />
@@ -141,17 +141,19 @@
                 </div>
                 </div>
             </div>
-            <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
-            
-            </div>
+            {{-- <div class="button-container"> --}}
+                {{-- <div class="button-method"> --}}
+                    <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
+                {{-- </div> --}}
+                {{-- <div class="button-method"> --}}
+                    {{-- @include('navbar.payment.vn_pay') --}}
+                {{-- </div> --}}
+            {{-- </div> --}}
+        </div>
             <!-- end of box-2 -->
     </div>
 </form>
-<form action="{{ route('vnpay.payment') }}" method="POST">
-    @csrf
-    {{-- <a href="#" class="btn">Thanh Toán VNPAY</a> --}}
-    <button type="submit" class="btn" style="margin-left: 150px; margin-bottom: 10px;" name="payment_method" value="VNPAY">Thanh toán VNPAY</button>
-</form>
+@include('navbar.payment.vn_pay')
 @endsection
 
 @section('js')

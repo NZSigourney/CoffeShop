@@ -302,7 +302,7 @@ class UserController extends Controller
             ]);
             $file = $req->file('image');
             $name = $file->getClientOriginalName();
-            $destinationPath=public_path('images/users');
+            $destinationPath=public_path('assets/images/users');
 
             // Kiểm tra xem hình ảnh đã tồn tại hay chưa
             if (file_exists($destinationPath . '/' . $name)) {

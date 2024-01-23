@@ -4,7 +4,7 @@
         <!-- User Info -->
         <div class="user-info">
             <div class="image">
-                <img src="AdminGUI/images/user.png" width="48" height="48" alt="User" />
+                <img src="assets/images/users/{{ Auth::user()->image }}" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->full_name }}</div>
@@ -81,7 +81,7 @@
                 </li>
                 @endif
 
-                @if(Auth::user()->level == 1)
+                {{-- @if(Auth::user()->level == 1) --}}
                 <li class="header">CONTACTS LIST</li>
                 <li class="active">
                     <li>
@@ -91,7 +91,7 @@
                         </a>
                     </li>
                 </li>
-                @endif
+                {{-- @endif --}}
 
                 <li class="header">CATEGORY LIST</li>
                 <li class="active">

@@ -63,7 +63,7 @@
                 <p class="tm-product-description">{{ $p->desciprtion }}.</p>
                 </div>
                 <div class="tm-product-price">
-                <a href="#" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
+                <a href="{{route('banhang.addToCart',$p->id)}}" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
                 </div>
             </div>
             @endforeach

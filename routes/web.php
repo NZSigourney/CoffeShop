@@ -167,4 +167,4 @@ Route::resource('sliders', SlideController::class);
 Route::put('edit/slider/{id}', [SlideController::class, 'update'])->name('admin.SliderEdit');
 
 // payment
-Route::post('/vnpay-payment', [PaymentController::class, 'vnpay'])->name('vnpay.payment');
+Route::post('/vnpay-payment/{id}', [PaymentController::class, 'vnpay'])->name('vnpay.payment');

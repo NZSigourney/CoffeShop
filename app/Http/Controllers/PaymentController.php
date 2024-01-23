@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
-    public function vnpay(){
+    public function vnpay(string $id){
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "http://127.0.0.1:8000/checkout";
         $vnp_TmnCode = "NYQAGW8P";//Mã website tại VNPAY 
@@ -15,7 +18,7 @@ class PaymentController extends Controller
 
         $vnp_TxnRef = mt_rand(1, 999); // Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = 'Thanh toán VNPAY';
-        $vnp_OrderType = $_POST['payment_method'];
+        $vnp_OrderType = $_POST['redirect'];
 
         // $vnp_TxnRef = mt_rand(1000, 9999); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         // $vnp_OrderInfo = $_POST['order_desc'];
@@ -105,8 +108,13 @@ class PaymentController extends Controller
             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
         }
         $returnData = array('code' => '00', 'message' => 'success', 'data' => $vnp_Url);
-        if (isset($_POST['payment_method'])) {
+
+        // $bill = Bill::findOrFail($id);
+        if (isset($_POST['redirect'])) {
             header('Location: ' . $vnp_Url);
+            DB::table('bills')->where('id', $id)->update([
+                'payment' => 'VNPAY'
+            ]);
             die();
         } else {
             echo json_encode($returnData);
