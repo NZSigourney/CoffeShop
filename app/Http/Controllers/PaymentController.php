@@ -143,7 +143,7 @@ class PaymentController extends Controller
             $bill=new Bill();
             $bill->id_customer=$customer->id;
             $bill->date_order=date('Y-m-d');
-            $bill->total=$cart->totalPrice;
+            $bill->total= $cart->totalPrice;
             $bill->payment = "COD";
             // $payment_method = $request->input('payment_method');
             // if($method == "COD"){
@@ -178,27 +178,7 @@ class PaymentController extends Controller
             $vnp_OrderType = 'billing payment';
 
             $cart = Session::get('cart');
-
-// Kiểm tra xem giỏ hàng có tồn tại và không phải là boolean false
-            if ($cart && is_array($cart)) {
-                // Tính tổng cộng số tiền trong cart
-                $totalAmount = 0;
-
-                foreach ($cart as $item) {
-                    // Kiểm tra xem 'price' và 'quantity' có tồn tại trong mỗi phần tử không
-                    if (isset($item['price']) && isset($item['quantity'])) {
-                        $totalAmount += $item['price'] * $item['quantity'];
-                    }
-                }
-
-                // Nhân tổng cộng số tiền cho 100
-                $vnp_Amount = $totalAmount * 100;
-            } else {
-                // Xử lý trường hợp giỏ hàng không tồn tại hoặc là boolean false
-                // ... (ví dụ: gán giá trị mặc định cho $vnp_Amount)
-                $vnp_Amount = 20000 * 100;
-            }
-
+            $vnp_Amount= 20000 * 100;
             // $vnp_Amount = 20000 * 100;
             $vnp_Locale = "VN";
             $vnp_BankCode = "NCB";

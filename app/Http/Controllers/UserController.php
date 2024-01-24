@@ -49,7 +49,7 @@ class UserController extends Controller
                 return redirect('users')->with('message', 'Hình ảnh không tồn tại!');
             }
         }
-        return redirect('users')->with('success', 'Xóa sản phẩm thành công');
+        return redirect('users')->with('message', 'Xóa sản phẩm thành công');
     }
     
     public function sanpham(){

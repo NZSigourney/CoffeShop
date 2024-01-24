@@ -209,6 +209,7 @@ class PageController extends Controller
         }
     }
 
+
     public function delCartItem($id){
         $oldCart = Session::has('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);

@@ -44,9 +44,9 @@
           <div class="tm-hr-container"><hr class="tm-hr"></div>
         </div>
         <div class="col-lg-12 tm-popular-items-container">
-          @if(session('success'))
+          @if(session('message'))
             <script>
-              alert('{{ session('success') }}')
+              alert('{{ session('message') }}')
             </script>
           @endif
           <!-- khu vực foreach Popular item -->

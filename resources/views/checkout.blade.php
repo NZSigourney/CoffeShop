@@ -120,6 +120,11 @@
                         <div class="count">
                             <p class="item-name">{{ $cart['item']->name }}</p>
                             <h6 class="quantity">Slot: {{ $cart['qty'] }}</h6>
+                            {{-- <form action="{{ route('banhang.updateCart', $cart['item']) }}" method="post">
+                                @csrf
+                                <!-- Add the input field for the amount -->
+                                <h6><input type="number" name="quantity" value="{{ $cart['qty'] }}" class="quantity-input" onchange="this.form.submit()" /></h6>
+                            </form> --}}
                             <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                                 number_format($cart['item']->unit_price, 0) }}</h6>
                             {{-- <div class="pur">
