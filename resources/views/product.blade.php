@@ -56,7 +56,7 @@
             </div>              
         </div>            
         </section>          
-        <section class="tm-section row">
+        <section class="tm-section row" id="product">
         <div class="col-lg-12 tm-section-header-container margin-bottom-30">
             <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Our Menus</h2>
             <div class="tm-hr-container"><hr class="tm-hr"></div>
@@ -84,7 +84,7 @@
                     <p class="tm-product-description">{{ $p->desciprtion }}.</p>
                     </div>
                     <div class="tm-product-price">
-                    <a href="{{route('banhang.addToCart',$p->id)}}" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
+                    <a href="{{route('banhang.addToCartProduct',$p->id)}}" class="tm-product-price-link tm-handwriting-font"><span class="tm-product-price-currency">$</span>{{ number_format($p->unit_price) }}</a>
                     </div>
                 </div>
                 @endforeach

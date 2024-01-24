@@ -90,44 +90,44 @@ class PageController extends Controller
     //     return view('navbar.cartbutton.show');
     // }
 
-    public function postCheckout(Request $request){
-        $cart=Session::get('cart');
-        $customer=new Customer();
-        $customer->name=$request->input('name');
-        $customer->gender=$request->input('gender');
-        $customer->email=$request->input('email');
-        $customer->address=$request->input('address');
-        $customer->phone_number=$request->input('phone_number');
-        $customer->note=$request->input('note');
-        // $customer->status = $request->input('status');
-        $customer->save();
+    // public function postCheckout(Request $request){
+    //     $cart=Session::get('cart');
+    //     $customer=new Customer();
+    //     $customer->name=$request->input('name');
+    //     $customer->gender=$request->input('gender');
+    //     $customer->email=$request->input('email');
+    //     $customer->address=$request->input('address');
+    //     $customer->phone_number=$request->input('phone_number');
+    //     $customer->note=$request->input('note');
+    //     // $customer->status = $request->input('status');
+    //     $customer->save();
 
-        $bill=new Bill();
-        $bill->id_customer=$customer->id;
-        $bill->date_order=date('Y-m-d');
-        $bill->total=$cart->totalPrice;
-        $payment_method = $request->input('payment_method');
-        if($payment_method == "COD"){
-            $bill->payment = "COD";
-        }elseif($payment_method == "VNPAY"){
-            $bill->payment ="VNPAY";
-        }        
-        $bill->note=$request->input('note');
-        $bill->status = 0;
-        $bill->save();
+    //     $bill=new Bill();
+    //     $bill->id_customer=$customer->id;
+    //     $bill->date_order=date('Y-m-d');
+    //     $bill->total=$cart->totalPrice;
+    //     $payment_method = $request->input('payment_method');
+    //     if($payment_method == "COD"){
+    //         $bill->payment = "COD";
+    //     }elseif($payment_method == "VNPAY"){
+    //         $bill->payment ="VNPAY";
+    //     }        
+    //     $bill->note=$request->input('note');
+    //     $bill->status = 0;
+    //     $bill->save();
 
-        foreach($cart->items as $key=>$value)
-        {
-            $bill_detail=new BillDetail();
-            $bill_detail->id_bill=$bill->id;
-            $bill_detail->id_product=$key;
-            $bill_detail->quantity=$value['qty'];
-            $bill_detail->unit_price=$value['price']/$value['qty'];
-            $bill_detail->save();
-        }
-        Session::forget('cart');
-        return redirect()->back()->with('success','Đặt hàng thành công');
-    }
+    //     foreach($cart->items as $key=>$value)
+    //     {
+    //         $bill_detail=new BillDetail();
+    //         $bill_detail->id_bill=$bill->id;
+    //         $bill_detail->id_product=$key;
+    //         $bill_detail->quantity=$value['qty'];
+    //         $bill_detail->unit_price=$value['price']/$value['qty'];
+    //         $bill_detail->save();
+    //     }
+    //     Session::forget('cart');
+    //     return redirect()->back()->with('success','Đặt hàng thành công');
+    // }
 
     // End Checkout area
 
@@ -155,6 +155,23 @@ class PageController extends Controller
         //     $view = view('navbar.cartbutton.show', compact('cartItems'))->render();
         //     return response()->json(['html' => $view]); 
         // }
+    }
+
+    public function addToCartProduct(Request $request,$id){
+        $product = Product::find($id);
+
+        if(Auth::check()){
+            $oldCart = Session('cart')?Session::get('cart'):null;
+            $cart = new Cart($oldCart);
+            $qty = $request->input('quantity');
+            $cart->add($product, $id, $qty);
+            $request->session()->put('cart',$cart);
+            Session::flash('message', 'Add to cart success!');
+            return redirect()->back()->with('message', '#product');
+            // return redirect()->route('banhang.getdathang');
+        }else{
+            return redirect()->back()->with('message', 'bạn chưa đăng nhập!');
+        }
     }
 
     //thêm 1 sản phẩm có số lượng >1 có id cụ thể vào model cart rồi lưu dữ liệu của model cart vào 1 session có tên cart (session được truy cập bằng thực thể Request)

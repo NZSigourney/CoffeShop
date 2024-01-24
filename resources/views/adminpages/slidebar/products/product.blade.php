@@ -22,14 +22,14 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Type ID</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Unit_price</th>
-                    <th scope="col">Promotion_price</th>
-                    <th scope="col">Popular (True or False)</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Hình Ảnh</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Giá khuyến mãi</th>
+                    <th scope="col">Nổi bật (True or False)</th>
                     {{-- <th scope="col">Unit</th> --}}
                     @if(Auth::user()->level == 1)
                     <th scope="col">Action</th>

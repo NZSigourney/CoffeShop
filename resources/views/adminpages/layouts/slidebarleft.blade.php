@@ -118,6 +118,10 @@
                             <i class="material-symbols-outlined">receipt_long</i>
                             <span>View List</span>
                         </a>
+                        <a href="{{route('admin.customer')}}">
+                            <i class="material-symbols-outlined">receipt_long</i>
+                            <span>Order List</span>
+                        </a>
                     </li>
                 </li>
                 {{-- @endif --}}

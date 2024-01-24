@@ -55,7 +55,7 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 // Checkout page
 
 Route::get('checkout', [PageController::class, 'getCheckout'])->name('banhang.getdathang');
-Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.postdathang');
+Route::post('checkout', [PaymentController::class, 'vnpay'])->name('banhang.postdathang');
 // Route::get('show', [PageController::class, 'showcart'])->name('banhang.showcart');
 
 // Shopping cart
@@ -63,6 +63,7 @@ Route::post('checkout', [PageController::class, 'postCheckout'])->name('banhang.
 Route::get('cart', [PageController::class, 'cart'])->name('cart.detailed');
 
 Route::get('add-to-cart/{id}',[PageController::class,'addToCart'])->name('banhang.addToCart');
+Route::get('add-to-cart-product/{id}', [PageController::class, 'addToCartProduct'])->name('banhang.addToCartProduct');
 Route::post('updateCart/{id}', [PageController::class, 'updateCartItem'])->name('banhang.updateCart');
 Route::post('del-cart/{id}',[PageController::class,'delCartItem'])->name('banhang.xoagiohang');
 
@@ -142,6 +143,7 @@ Route::get('adminaccounts', [UserController::class, 'useraccount']);
 Route::resource('bills', BillController::class);
 Route::get('billList', [BillController::class, 'index'])->name('admin.getBillList');
 Route::put('bill/{id}', [BillController::class, 'updateBillAdmin'])->name('admin.updateBill');
+Route::get('customer', [BillController::class, 'Customer'])->name('admin.customer');
 
 // Category
 Route::get('product_type/{type}', [CategoryController::class,'product_type'])->name('getProductType');
@@ -167,4 +169,4 @@ Route::resource('sliders', SlideController::class);
 Route::put('edit/slider/{id}', [SlideController::class, 'update'])->name('admin.SliderEdit');
 
 // payment
-Route::post('/vnpay-payment/{id}', [PaymentController::class, 'vnpay'])->name('vnpay.payment');
+// Route::post('/vnpay-payment/{id}', [PaymentController::class, 'vnpay'])->name('vnpay.payment');

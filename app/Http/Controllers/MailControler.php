@@ -106,7 +106,7 @@ class MailControler extends Controller
                 return redirect()->route('user.getChangePwd')->with('message', 'Mật khẩu mới không được trùng với mật khẩu hiện tại');
             }
         } else {
-            return redirect()->route('user.getChangePwd')->with('message', 'Mật khẩu đúng');
+            return redirect()->route('user.getChangePwd')->with('message', 'có gì đó sai sai vui lòng kiểm tra lại!');
         }
     }
 }

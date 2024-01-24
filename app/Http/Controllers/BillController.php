@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,6 +16,11 @@ class BillController extends Controller
     {
         $bills = Bill::all();
         return view('adminpages.slidebar.bill.bills', ['bills' => $bills]);
+    }
+
+    public function Customer(){
+        $customer = Customer::all();
+        return view('adminpages.slidebar.bill.customer.list', ['customer' => $customer]);
     }
 
     /**

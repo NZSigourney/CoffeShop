@@ -132,24 +132,27 @@
                     @endforeach
                 @endisset
                 <div class="end">
-                <hr />
+                    <hr />
 
-                <div class="total">
-                    <p>Total</p>
-                    <p>{{ isset($totalPrice)?number_format($totalPrice,0):0 }} VND</p>
-                </div>
+                    <div class="total">
+                        <p>Total</p>
+                        <p>{{ isset($totalPrice)?number_format($totalPrice,0):0 }} VND</p>
+                    </div>
+
+                    <div class="button-delete">
+                        <a href="{{Session::forget('cart')}}"> Xóa tất cả </a>
+                    </div>
                 </div>
             </div>
-            <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>                
+            <div class="method-container">
+                <button class="btn" name="payment_method" value="COD">Thanh Toán Trực tiếp</button>
+                <button class="btn" name="payment_method" value="VNPAY">Thanh Toán VNPAY</button>
+            </div>                 
         </div>
         <!-- end of box-2 -->
     </div>
 </form>
-<div class="method-container">
-    <div class="button-method">
-        @include('navbar.payment.vn_pay')
-    </div>
-</div>
+{{-- @include('navbar.payment.vn_pay') --}}
 @endsection
 
 @section('js')

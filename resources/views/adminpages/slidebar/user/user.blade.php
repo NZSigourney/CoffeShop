@@ -1,10 +1,10 @@
 @extends('adminpages.layouts.master')
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Danh mục</h1>
+        <h1 class="mt-4">Tài khoản người dùng</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{route('admin.getCateList')}}">Admin</a></li>
-            <li class="breadcrumb-item active">Danh mục</li>
+            <li class="breadcrumb-item active">User</li>
         </ol>
         @if (Session::has('success'))
         <div class="alert alert-success">
@@ -24,13 +24,13 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#ID</th>
-                                    <th scope="col">Full_name</th>
-                                    <th scope="col">Avatar</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Họ Tên Đầy Đủ</th>
+                                    <th scope="col">Ảnh Avatar</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Level</th>
+                                    <th scope="col">Số Điện Thoại</th>
+                                    <th scope="col">Địa Chỉ</th>
+                                    <th scope="col">Loại Tài khoản</th>
                                     @if(Auth::user()->level == 1)
                                     <th scope="col">Action</th>
                                     @endif
