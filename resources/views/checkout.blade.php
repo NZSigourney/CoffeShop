@@ -13,7 +13,7 @@
 <form action="{{ route('banhang.postdathang') }}" method="POST">
     @csrf
     <div class="con">
-        <div class="box1">
+        <div class="box1" style="margin-bottom: 15px">
         <h2 class="title">Thanh Toán</h2>
         <!-- info  -->
         <div class="info">
