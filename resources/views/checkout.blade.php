@@ -123,9 +123,11 @@
                             <h6 class="price">Price: {{ $cart['item']->promotion_price != 0?number_format($cart['item']->promotion_price,0):
                                 number_format($cart['item']->unit_price, 0) }}</h6>
                             {{-- <div class="pur">
-                            <button id="Debtn1">-</button>
-                            <div id="num1"></div>
-                            <button id="Inbtn1">+</button>
+                                <<form action="{{ route('banhang.updateCart', $cart['item']) }}" method="post">
+                                    <!-- Add the input field for the amount -->
+                                    <input type="number" name="quantity" value="{{ $cart['qty'] }}" class="quantity-input" />
+                                    <button type="submit">Update</button>
+                                </form>
                             </div> --}}
                         </div>
                         </div>

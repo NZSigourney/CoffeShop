@@ -43,8 +43,8 @@
                         </script>
                     @endif
     
-                    <span class="login100-form-title p-b-26">
-                        Welcome User
+                    <span class="login100-form-title p-b-26" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold">
+                        Chào mừng bạn!
                     </span>
                     
                     <span class="login100-form-title p-b-48">
@@ -61,21 +61,21 @@
                             <i class="zmdi zmdi-eye"></i>
                         </span>
                         <input class="input100" type="password" name="password" id="pwd">
-                        <span class="focus-input100" data-placeholder="Password"></span>
+                        <span class="focus-input100" data-placeholder="Mật Khẩu"></span>
                     </div>
     
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <button class="login100-form-btn">
-                                Login
+                                Đăng nhập
                             </button>
                         </div>
                     </div>
 
                     <div class="text-center p-t-115">
                         <span class="txt1">
-                            Want to back previous page/Homepage?
+                            Quay về trang trước / Trang chính?
                         </span>
     
                         <a class="txt2" href="javascript:history.back()">
@@ -85,21 +85,21 @@
     
                     <div class="text-center p-t-0">
                         <span class="txt1">
-                            Don’t have an account?
+                            Không có tải khoản?
                         </span>
     
                         <a class="txt2" href="{{ route('getsignin') }}">
-                            Sign Up
+                            Đăng ký
                         </a>
                     </div>
     
                     <div class="text-center p-t-0">
                         <span class="txt1">
-                            Forgot password?
+                            Quên mật khẩu?
                         </span>
     
                         <a class="txt2" href="{{route('getEmail')}}">
-                            Forgot
+                            Bấm vào đây
                         </a>
                     </div>
                 </form>

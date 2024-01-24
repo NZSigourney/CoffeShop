@@ -57,6 +57,11 @@
         </div>            
         </section>          
         <section class="tm-section row" id="product">
+          @if(session('scrollTo'))
+            <script>
+                window.location.href = '{{ url()->previous() }}{{ session('scrollTo') }}';
+            </script>
+          @endif  
         <div class="col-lg-12 tm-section-header-container margin-bottom-30">
             <h2 class="tm-section-header gold-text tm-handwriting-font"><img src="source/img/logo.png" alt="Logo" class="tm-site-logo"> Our Menus</h2>
             <div class="tm-hr-container"><hr class="tm-hr"></div>

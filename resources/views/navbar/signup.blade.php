@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
     <title>Login V2</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-    <link rel="icon" type="image/png" href="Login/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="Login/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/vendor/bootstrap/Login/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/bootstrap/Login/css/bootstrap.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/fonts/font-awesome-4.7.0/Login/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/fonts/font-awesome-4.7.0/Login/css/font-awesome.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/fonts/iconic/Login/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/fonts/iconic/Login/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/animate/animate.css">
 <!--===============================================================================================-->	
-    <link rel="stylesheet" type="text/css" href="Login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/vendor/animsition/Login/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/animsition/Login/css/animsition.min.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-    <link rel="stylesheet" type="text/css" href="Login/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="Login/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Login/css/util.css">
-    <link rel="stylesheet" type="text/css" href="Login/css/main.css">
-
+	<link rel="stylesheet" type="text/css" href="Login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Login/css/main.css">
+    
     <link rel="stylesheet" href="/assets/css/login.css">
     {{-- <link rel="stylesheet" href="/assets/css/product.css"> --}}
 <!--===============================================================================================-->
@@ -70,13 +70,15 @@
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <span>Full Name</span>
                             <input class="input100" type="text" name="full_name">
-                            <span class="focus-input100" data-placeholder="Full Name"></span>
+                            {{-- <span class="focus-input100" data-placeholder="Full Name"></span> --}}
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <span>Email</span>
                             <input class="input100" type="email" name="email">
-                            <span class="focus-input100" data-placeholder="Email"></span>
+                            {{-- <span class="focus-input100" data-placeholder="Email"></span> --}}
                         </div>
 
                         <!------------------------------------------------------------------------------>
@@ -90,29 +92,34 @@
                     <!------------------------------------------------------------------------------>
     
                         <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <br>
+                            <span>Password</span>
                             <span class="btn-show-pass">
                                 <i class="zmdi zmdi-eye"></i>
                             </span>
                             <input class="input100" type="password" name="password">
-                            <span class="focus-input100" data-placeholder="Password"></span>
+                            {{-- <span class="focus-input100" data-placeholder="Password"></span> --}}
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <span>re-password</span>
                             <span class="btn-show-pass">
                                 <i class="zmdi zmdi-eye"></i>
                             </span>
                             <input class="input100" type="password" name="repassword">
-                            <span class="focus-input100" data-placeholder="repassword"></span>
+                            {{-- <span class="focus-input100" data-placeholder="repassword"></span> --}}
                         </div>
 
                         <div class="wrap-input100 validate-input">
+                            <span>Address</span>
                             <input class="input100" type="text" name="address">
-                            <span class="focus-input100" data-placeholder="address"></span>
+                            {{-- <span class="focus-input100" data-placeholder="address"></span> --}}
                         </div>
 
                         <div class="wrap-input100 validate-input">
+                            <span>Phone</span>
                             <input class="input100" type="text" name="phone">
-                            <span class="focus-input100" data-placeholder="phone"></span>
+                            {{-- <span class="focus-input100" data-placeholder="phone"></span> --}}
                         </div>
     
                         <div class="container-login100-form-btn">
@@ -124,7 +131,7 @@
                             </div>
                         </div>
     
-                        <div class="text-center p-t-115">
+                        <div class="text-center p-t-50">
                             <span class="txt1">
                                Already have account?
                             </span>

@@ -167,7 +167,7 @@ class PageController extends Controller
             $cart->add($product, $id, $qty);
             $request->session()->put('cart',$cart);
             Session::flash('message', 'Add to cart success!');
-            return redirect()->back()->with('message', '#product');
+            return redirect()->back()->with('scrollTo', '#product');
             // return redirect()->route('banhang.getdathang');
         }else{
             return redirect()->back()->with('message', 'bạn chưa đăng nhập!');
